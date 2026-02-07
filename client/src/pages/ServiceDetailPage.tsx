@@ -1,0 +1,231 @@
+import { useParams, Link } from "wouter";
+import { Phone, ArrowRight, CheckCircle, ChevronRight, Bug, Search, Rat, Shield, Bird, Building, Bed, ClipboardCheck } from "lucide-react";
+import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import CTASection from "@/components/sections/CTASection";
+import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  Search, Bug, Rat, Bed, Bird, Shield, Building, ClipboardCheck, Cookie: Bug, Squirrel: Bug,
+};
+
+const DEFAULT_PROCESS = [
+  { title: "Inspection", description: "We thoroughly inspect your property to identify the pest species, locate nesting sites, and assess the extent of the problem." },
+  { title: "Treatment Plan", description: "Based on our findings, we develop a targeted treatment plan using the most effective, eco-friendly methods available." },
+  { title: "Application", description: "Our licensed technicians apply the treatment with precision, ensuring thorough coverage while keeping your family safe." },
+  { title: "Follow-Up", description: "We provide a detailed report, prevention advice, and warranty. If pests return during warranty, we re-treat at no cost." },
+];
+
+const DEFAULT_FAQS = [
+  { question: "How long does the treatment take?", answer: "Most treatments take 1-2 hours depending on the size of your property and the extent of the infestation. We'll give you a time estimate before we begin." },
+  { question: "Is the treatment safe for children and pets?", answer: "Yes. We use eco-friendly, low-toxicity products that are safe for your family and pets. We'll advise on any precautions needed during and after treatment." },
+  { question: "Do you offer a warranty?", answer: "Yes, all our treatments come with a warranty period. If pests return during this time, we'll re-treat your property at no additional cost." },
+  { question: "How soon can you come?", answer: "We offer same-day service for urgent pest issues. For routine treatments, we can usually schedule within 24-48 hours." },
+  { question: "Do I need to leave the house during treatment?", answer: "For most treatments, you can stay in the home. For fumigation or heat treatments, you may need to vacate for a few hours. We'll advise you in advance." },
+];
+
+export default function ServiceDetailPage() {
+  const params = useParams<{ serviceSlug: string }>();
+  const service = getServiceBySlug(params.serviceSlug || "");
+
+  if (!service) {
+    return (
+      <Layout>
+        <div className="container-width section-padding text-center">
+          <h1>Service Not Found</h1>
+          <p className="text-muted-foreground mt-4">The service you're looking for doesn't exist.</p>
+          <Button asChild className="mt-6">
+            <Link href="/services">View All Services</Link>
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
+
+  const Icon = ICON_MAP[service.icon] || Bug;
+  const relatedServices = SERVICES.filter((s) => s.category === service.category && s.slug !== service.slug).slice(0, 4);
+
+  return (
+    <Layout>
+      {/* Breadcrumb */}
+      <div className="bg-muted/50 border-b border-border">
+        <div className="container-width py-3">
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Link href="/" className="hover:text-foreground">Home</Link>
+            <ChevronRight className="h-3 w-3" />
+            <Link href="/services" className="hover:text-foreground">Services</Link>
+            <ChevronRight className="h-3 w-3" />
+            <span className="text-foreground font-medium">{service.name}</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16">
+        <div className="container-width">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Icon className="h-7 w-7 text-blue-400" />
+                </div>
+                <Badge className="bg-white/10 text-white border-white/20 capitalize">{service.category}</Badge>
+              </div>
+              <h1 className="text-white mb-4">{service.name} Sydney</h1>
+              <p className="text-lg text-slate-300">{service.shortDescription}</p>
+            </div>
+
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white lg:min-w-[300px]">
+              <CardContent className="p-6 text-center">
+                <p className="text-sm text-slate-300 mb-2">Starting from</p>
+                <p className="text-4xl font-bold mb-4">
+                  {service.priceFrom === "Quote" ? "Free Quote" : service.priceFrom}
+                </p>
+                <div className="space-y-3">
+                  <Button variant="accent" size="lg" className="w-full" asChild>
+                    <Link href="/?quote=open">Get Free Quote</Link>
+                  </Button>
+                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
+                    <a href={PHONE_HREF}>
+                      <Phone className="mr-2 h-4 w-4" />
+                      Call {PHONE}
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="section-padding">
+        <div className="container-width">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Main content */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* Description */}
+              <div>
+                <h2 className="mb-4">Professional {service.name} in Sydney</h2>
+                <div className="prose prose-slate max-w-none">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Our {service.name.toLowerCase()} service provides comprehensive protection for homes and
+                    businesses across Sydney. With over 15 years of experience, our licensed technicians use
+                    the latest equipment and eco-friendly products to deliver effective, long-lasting results.
+                    Every treatment comes with our 100% satisfaction guarantee — if pests return during the
+                    warranty period, we'll re-treat your property at no extra cost.
+                  </p>
+                </div>
+              </div>
+
+              {/* Process */}
+              <div>
+                <h2 className="mb-6">Our {service.name} Process</h2>
+                <div className="space-y-4">
+                  {DEFAULT_PROCESS.map((step, i) => (
+                    <div key={i} className="flex gap-4 p-4 rounded-lg border border-border">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <span className="text-sm font-bold text-primary">{i + 1}</span>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-1">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benefits */}
+              <div>
+                <h2 className="mb-6">Why Choose Our {service.name}</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    "Licensed & fully insured technicians",
+                    "Eco-friendly, pet-safe products",
+                    "Same-day service available",
+                    "100% satisfaction guarantee",
+                    "Transparent pricing — no hidden fees",
+                    "Written warranty on all treatments",
+                  ].map((benefit) => (
+                    <div key={benefit} className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                      <span className="text-sm">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div>
+                <h2 className="mb-6">{service.name} FAQ</h2>
+                <Accordion type="single" collapsible className="w-full">
+                  {DEFAULT_FAQS.map((faq, i) => (
+                    <AccordionItem key={i} value={`faq-${i}`}>
+                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="space-y-6">
+              {/* Related services */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-4">Related Services</h3>
+                  <div className="space-y-3">
+                    {relatedServices.map((related) => {
+                      const RelatedIcon = ICON_MAP[related.icon] || Bug;
+                      return (
+                        <Link
+                          key={related.slug}
+                          href={`/services/${related.slug}`}
+                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted transition-colors"
+                        >
+                          <RelatedIcon className="h-5 w-5 text-primary" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium truncate">{related.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {related.priceFrom === "Quote" ? "Free Quote" : `From ${related.priceFrom}`}
+                            </p>
+                          </div>
+                          <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Quick contact */}
+              <Card className="bg-primary text-primary-foreground">
+                <CardContent className="p-6 text-center">
+                  <h3 className="font-semibold mb-2">Need Help Now?</h3>
+                  <p className="text-sm text-blue-100 mb-4">
+                    Our team is ready to help with your pest problem.
+                  </p>
+                  <Button variant="accent" className="w-full" asChild>
+                    <a href={PHONE_HREF}>
+                      <Phone className="mr-2 h-4 w-4" />
+                      Call {PHONE}
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <CTASection />
+    </Layout>
+  );
+}
