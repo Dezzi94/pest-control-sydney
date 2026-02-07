@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://pestcontrolsydney.org/sitemap-static.xml</loc>
+    <lastmod>2026-02-07</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://pestcontrolsydney.org/sitemap-services.xml</loc>
+    <lastmod>2026-02-07</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://pestcontrolsydney.org/sitemap-councils.xml</loc>
+    <lastmod>2026-02-07</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://pestcontrolsydney.org/sitemap-suburbs.xml</loc>
+    <lastmod>2026-02-07</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://pestcontrolsydney.org/sitemap-combos.xml</loc>
+    <lastmod>2026-02-07</lastmod>
+  </sitemap>
+</sitemapindex>

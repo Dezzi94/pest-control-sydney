@@ -1,0 +1,102 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist/public"
+
+# ============================================
+# PRERENDERED PAGE REWRITES (serve .html files)
+# ============================================
+# These MUST come BEFORE the SPA fallback.
+# Netlify processes redirects top-to-bottom; first match wins.
+
+# Static pages
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/locations"
+  to = "/locations.html"
+  status = 200
+
+# Service pages (20 services)
+[[redirects]]
+  from = "/services/:service"
+  to = "/services/:service.html"
+  status = 200
+
+# Council pages (12 councils)
+[[redirects]]
+  from = "/locations/sydney/:council"
+  to = "/locations/sydney/:council.html"
+  status = 200
+
+# Suburb pages (60 suburbs)
+[[redirects]]
+  from = "/locations/sydney/:council/:suburb"
+  to = "/locations/sydney/:council/:suburb.html"
+  status = 200
+
+# Suburb+Service combo pages (1200+ combos)
+[[redirects]]
+  from = "/locations/sydney/:council/:suburb/services/:service"
+  to = "/locations/sydney/:council/:suburb/services/:service.html"
+  status = 200
+
+# ============================================
+# API PROXY (if using serverless functions)
+# ============================================
+# [[redirects]]
+#   from = "/api/*"
+#   to = "/.netlify/functions/api/:splat"
+#   status = 200
+
+# ============================================
+# SPA FALLBACK (MUST BE LAST)
+# ============================================
+# Catches all unmatched routes and serves the React SPA shell.
+# Admin pages (/admin/*) and any dynamic routes fall through here.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ============================================
+# CACHE HEADERS
+# ============================================
+# Hashed assets (JS, CSS) — immutable, cache forever
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages — short cache with stale-while-revalidate
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+# Sitemaps — moderate cache
+[[headers]]
+  for = "/sitemap-*.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/xml"
+
+# Images — long cache
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
