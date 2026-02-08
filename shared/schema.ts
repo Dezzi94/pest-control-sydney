@@ -5,7 +5,7 @@ import { pgTable, serial, text, timestamp, integer, varchar, decimal } from "dri
 export const leads = pgTable("leads", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 255 }).notNull(),
-  email: varchar("email", { length: 255 }).notNull(),
+  email: varchar("email", { length: 255 }),
   phone: varchar("phone", { length: 50 }).notNull(),
   address: text("address"),
   suburb: varchar("suburb", { length: 100 }),

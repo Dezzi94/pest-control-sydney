@@ -134,7 +134,7 @@ export function registerRoutes(app: Express) {
         filtered = filtered.filter(
           (l) =>
             l.name.toLowerCase().includes(s) ||
-            l.email.toLowerCase().includes(s) ||
+            (l.email && l.email.toLowerCase().includes(s)) ||
             l.phone.includes(s)
         );
       }
