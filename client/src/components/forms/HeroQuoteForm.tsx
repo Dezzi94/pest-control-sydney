@@ -81,9 +81,14 @@ function isNameValid(n: string): boolean {
 
 function isPhoneValid(p: string): boolean {
   const stripped = p.replace(/[\s\-()]/g, "");
-  // Australian: starts with 0 and 10 digits, or +61 and 11 chars total
+  // Australian mobile: 04xx xxx xxx (10 digits starting with 0)
   if (/^0\d{9}$/.test(stripped)) return true;
+  // Australian with +61 prefix
   if (/^\+61\d{9}$/.test(stripped)) return true;
+  // Without leading 0 (e.g. 412345678 — 9 digits)
+  if (/^[1-9]\d{8}$/.test(stripped)) return true;
+  // Shorter landlines or any reasonable phone (8+ digits)
+  if (/^\d{8,}$/.test(stripped)) return true;
   return false;
 }
 
@@ -162,6 +167,8 @@ export default function HeroQuoteForm() {
     setError("");
     setIsSubmitting(true);
     try {
+      // Include callbackTime in the message field so it's not lost
+      const callbackNote = callbackTime ? `Preferred callback: ${callbackTime}` : "";
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -170,15 +177,19 @@ export default function HeroQuoteForm() {
           name: name.trim(),
           phone: phone.trim(),
           email: email.trim() || undefined,
-          callbackTime: callbackTime || "ASAP",
+          message: callbackNote || undefined,
+          source: "website",
           urgency: "medium",
         }),
       });
-      if (!res.ok) throw new Error("Submit failed");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || `Server error (${res.status})`);
+      }
       clearDraft();
       setIsSuccess(true);
-    } catch {
-      setError("Something went wrong. Please call us directly.");
+    } catch (err: any) {
+      setError(err?.message || "Something went wrong. Please call us directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -414,6 +425,9 @@ export default function HeroQuoteForm() {
                     <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-400" />
                   )}
                 </div>
+                {phone.length > 0 && !isPhoneValid(phone) && (
+                  <p className="text-xs text-orange-400 -mt-1">Enter a valid Australian phone number</p>
+                )}
 
                 {/* Email (optional, no validation indicator) */}
                 <Input
