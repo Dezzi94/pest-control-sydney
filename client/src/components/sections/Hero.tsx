@@ -131,7 +131,7 @@ export default function Hero() {
           </div>
 
           {/* ── Right column: inline quote form (40%) ── */}
-          <div className="lg:w-[42%] flex justify-center lg:justify-end">
+          <div className="lg:w-[42%] flex justify-center lg:justify-end relative z-20">
             <HeroQuoteForm />
           </div>
         </div>

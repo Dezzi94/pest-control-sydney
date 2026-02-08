@@ -206,7 +206,10 @@ export default function HeroQuoteForm() {
     const pestLabel = getPestLabel(pestType);
     const serviceHref = `/services/${pestType}`;
     return (
-      <div className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl shadow-2xl shadow-black/30 text-center relative border border-blue-500/20">
+      <div
+        className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl text-center relative border-2 border-blue-400/30"
+        style={{ boxShadow: '0 0 50px rgba(59,130,246,0.2), 0 0 100px rgba(59,130,246,0.08), 0 25px 50px -12px rgba(0,0,0,0.3)' }}
+      >
         {/* Brand header */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
           <CheckCircle className="h-8 w-8 text-white mx-auto mb-2" />
@@ -255,7 +258,10 @@ export default function HeroQuoteForm() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl shadow-2xl shadow-black/30 border border-blue-500/20">
+    <div
+      className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl border-2 border-blue-400/30"
+      style={{ boxShadow: '0 0 50px rgba(59,130,246,0.2), 0 0 100px rgba(59,130,246,0.08), 0 25px 50px -12px rgba(0,0,0,0.3)' }}
+    >
       {/* Brand header */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
         <h2 className="text-lg font-semibold text-white mb-1">

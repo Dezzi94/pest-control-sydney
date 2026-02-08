@@ -37,10 +37,10 @@ export default function Header() {
       className={cn(
         "sticky top-0 z-40 transition-all duration-300",
         showTransparent
-          ? "bg-transparent border-b border-transparent"
+          ? "bg-slate-900 border-b border-white/[0.06]"
           : "bg-white/95 backdrop-blur-md border-b border-border shadow-sm"
       )}
-      style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
+      style={{ paddingTop: scrolled ? 'env(safe-area-inset-top, 0px)' : undefined }}
     >
       <div className="container-width">
         <div className="flex items-center justify-between h-16 lg:h-20">
