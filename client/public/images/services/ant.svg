@@ -1,47 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:0.05" />
-    </linearGradient>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#accent)" opacity="0.3"/>
-  <circle cx="660" cy="100" r="100" fill="#dc2626" opacity="0.04"/>
-  <circle cx="140" cy="500" r="70" fill="#3b82f6" opacity="0.04"/>
-  <!-- Ant Icon -->
-  <g transform="translate(400,230)" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Abdomen -->
-    <ellipse cx="30" cy="10" rx="28" ry="22" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
-    <!-- Thorax -->
-    <ellipse cx="-10" cy="0" rx="18" ry="14" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
-    <!-- Head -->
-    <ellipse cx="-40" cy="-5" rx="16" ry="14" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
-    <!-- Antennae -->
-    <path d="M-52,-15 Q-65,-40 -75,-48" stroke-width="2"/>
-    <path d="M-48,-18 Q-55,-42 -60,-52" stroke-width="2"/>
-    <!-- Eyes -->
-    <circle cx="-46" cy="-8" r="3" fill="#dc2626" opacity="0.4"/>
-    <!-- Mandibles -->
-    <path d="M-55,-2 L-62,-8" stroke-width="2"/>
-    <path d="M-55,2 L-62,8" stroke-width="2"/>
-    <!-- 6 legs -->
-    <path d="M-20,-12 Q-35,-35 -45,-42" stroke-width="2"/>
-    <path d="M-8,-13 Q-18,-38 -22,-48" stroke-width="2"/>
-    <path d="M5,-12 Q8,-38 12,-48" stroke-width="2"/>
-    <path d="M-20,12 Q-35,35 -42,42" stroke-width="2"/>
-    <path d="M-5,13 Q-8,38 -10,48" stroke-width="2"/>
-    <path d="M12,12 Q20,35 25,42" stroke-width="2"/>
-    <!-- Trail dots (ant trail concept) -->
-    <circle cx="75" cy="15" r="2" fill="#dc2626" opacity="0.2"/>
-    <circle cx="90" cy="18" r="2" fill="#dc2626" opacity="0.15"/>
-    <circle cx="105" cy="20" r="2" fill="#dc2626" opacity="0.1"/>
+  <!-- Ant trail pattern - winding path -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M350 580 Q380 540 400 500 Q420 460 460 440 Q500 420 520 380 Q540 340 560 300 Q580 260 600 240 Q620 220 650 200 Q680 180 700 140 Q720 100 740 60"/>
   </g>
-  <text x="400" y="375" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Ant Control</text>
-  <text x="400" y="410" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Colony Elimination Treatment</text>
-  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+  <!-- Small trail dots (pheromone trail) -->
+  <g fill="#3b82f6">
+    <circle cx="365" cy="560" r="2" fill-opacity="0.06"/>
+    <circle cx="385" cy="530" r="2" fill-opacity="0.06"/>
+    <circle cx="410" cy="490" r="2" fill-opacity="0.06"/>
+    <circle cx="440" cy="455" r="2" fill-opacity="0.06"/>
+    <circle cx="475" cy="435" r="2" fill-opacity="0.06"/>
+    <circle cx="505" cy="410" r="2" fill-opacity="0.06"/>
+    <circle cx="530" cy="375" r="2" fill-opacity="0.06"/>
+    <circle cx="550" cy="335" r="2" fill-opacity="0.06"/>
+    <circle cx="570" cy="290" r="2" fill-opacity="0.06"/>
+    <circle cx="590" cy="255" r="2" fill-opacity="0.06"/>
+    <circle cx="610" cy="235" r="2" fill-opacity="0.06"/>
+    <circle cx="640" cy="210" r="2" fill-opacity="0.06"/>
+    <circle cx="670" cy="190" r="2" fill-opacity="0.06"/>
+    <circle cx="705" cy="130" r="2" fill-opacity="0.06"/>
+  </g>
+  <!-- Main ant (large) -->
+  <g transform="translate(520, 300) rotate(-25)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Gaster (abdomen) -->
+    <ellipse cx="38" cy="0" rx="26" ry="18" stroke-opacity="0.3"/>
+    <!-- Petiole (waist) -->
+    <circle cx="12" cy="-2" r="5" stroke-opacity="0.25"/>
+    <!-- Mesosoma (thorax) -->
+    <ellipse cx="-8" cy="-3" rx="18" ry="12" stroke-opacity="0.28"/>
+    <!-- Head -->
+    <ellipse cx="-35" cy="-4" rx="16" ry="14" stroke-opacity="0.3"/>
+    <!-- Mandibles -->
+    <path d="M-50 -8 L-58 -14 Q-62 -10 -58 -6" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M-50 0 L-58 6 Q-62 2 -58 -2" stroke-opacity="0.3" stroke-width="1.8"/>
+    <!-- Eye -->
+    <circle cx="-40" cy="-10" r="3" stroke-opacity="0.3" fill="#3b82f6" fill-opacity="0.08"/>
+    <!-- Antennae (elbowed) -->
+    <path d="M-48 -14 L-56 -30 L-70 -36" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M-46 -16 L-50 -32 L-60 -42" stroke-opacity="0.3" stroke-width="1.8"/>
+    <!-- Legs - 3 pairs -->
+    <path d="M-18 -14 Q-30 -30 -38 -38" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-6 -14 Q-12 -32 -16 -42" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M6 -12 Q8 -30 12 -40" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-18 10 Q-30 26 -36 34" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-4 12 Q-6 30 -8 40" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M10 10 Q16 28 20 36" stroke-opacity="0.25" stroke-width="1.8"/>
+  </g>
+  <!-- Second ant (medium, further along trail) -->
+  <g transform="translate(620, 220) rotate(-20) scale(0.7)" stroke="#3b82f6" stroke-opacity="0.2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="38" cy="0" rx="26" ry="18"/>
+    <circle cx="12" cy="-2" r="5"/>
+    <ellipse cx="-8" cy="-3" rx="18" ry="12"/>
+    <ellipse cx="-35" cy="-4" rx="16" ry="14"/>
+    <path d="M-50 -8 L-58 -14 Q-62 -10 -58 -6"/>
+    <path d="M-50 0 L-58 6 Q-62 2 -58 -2"/>
+    <path d="M-48 -14 L-56 -30 L-70 -36"/>
+    <path d="M-46 -16 L-50 -32 L-60 -42"/>
+    <path d="M-18 -14 Q-30 -30 -38 -38"/>
+    <path d="M-6 -14 Q-12 -32 -16 -42"/>
+    <path d="M6 -12 Q8 -30 12 -40"/>
+    <path d="M-18 10 Q-30 26 -36 34"/>
+    <path d="M-4 12 Q-6 30 -8 40"/>
+    <path d="M10 10 Q16 28 20 36"/>
+  </g>
+  <!-- Third ant (small) -->
+  <g transform="translate(440, 440) rotate(-30) scale(0.5)" stroke="#3b82f6" stroke-opacity="0.15" stroke-width="2" fill="none" stroke-linecap="round">
+    <ellipse cx="38" cy="0" rx="26" ry="18"/>
+    <circle cx="12" cy="-2" r="5"/>
+    <ellipse cx="-8" cy="-3" rx="18" ry="12"/>
+    <ellipse cx="-35" cy="-4" rx="16" ry="14"/>
+    <path d="M-48 -14 L-56 -30 L-70 -36"/>
+    <path d="M-46 -16 L-50 -32 L-60 -42"/>
+    <path d="M-18 -14 Q-30 -30 -38 -38"/>
+    <path d="M-6 -14 Q-12 -32 -16 -42"/>
+    <path d="M-18 10 Q-30 26 -36 34"/>
+    <path d="M-4 12 Q-6 30 -8 40"/>
+  </g>
+  <!-- Fourth ant (tiny) -->
+  <g transform="translate(690, 150) rotate(-15) scale(0.35)" stroke="#3b82f6" stroke-opacity="0.12" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <ellipse cx="38" cy="0" rx="26" ry="18"/>
+    <circle cx="12" cy="-2" r="5"/>
+    <ellipse cx="-8" cy="-3" rx="18" ry="12"/>
+    <ellipse cx="-35" cy="-4" rx="16" ry="14"/>
+    <path d="M-48 -14 L-56 -30 L-70 -36"/>
+    <path d="M-18 -14 Q-30 -30 -38 -38"/>
+    <path d="M-18 10 Q-30 26 -36 34"/>
+  </g>
 </svg>

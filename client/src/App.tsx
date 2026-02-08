@@ -18,6 +18,9 @@ const AdminLogin = lazy(() => import("@/pages/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("@/pages/admin/AdminDashboard"));
 const AdminLeadDetail = lazy(() => import("@/pages/admin/AdminLeadDetail"));
 const AdminSettings = lazy(() => import("@/pages/admin/AdminSettings"));
+const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const ContactPage = lazy(() => import("@/pages/ContactPage"));
+const ReviewsPage = lazy(() => import("@/pages/ReviewsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 function PageLoader() {
@@ -40,6 +43,9 @@ function App() {
           <Route path="/locations/sydney/:councilSlug" component={CouncilPage} />
           <Route path="/locations/sydney/:councilSlug/:suburbSlug" component={SuburbPage} />
           <Route path="/locations/sydney/:councilSlug/:suburbSlug/services/:serviceSlug" component={SuburbServicePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/reviews" component={ReviewsPage} />
           <Route path="/admin/login" component={AdminLogin} />
           <Route path="/admin/dashboard" component={AdminDashboard} />
           <Route path="/admin/leads/:id" component={AdminLeadDetail} />

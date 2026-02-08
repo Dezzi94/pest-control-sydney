@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.5">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Magnification circle -->
+  <circle cx="540" cy="280" r="180" stroke="#3b82f6" stroke-opacity="0.06" stroke-width="2" fill="none"/>
+  <circle cx="540" cy="280" r="185" stroke="#3b82f6" stroke-opacity="0.04" stroke-width="1" fill="none"/>
+  <!-- Magnifying glass handle -->
+  <line x1="668" y1="408" x2="725" y2="465" stroke="#3b82f6" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
+  <!-- Enlarged tick -->
+  <g transform="translate(540, 270)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Idiosoma (main body - shield-shaped) -->
+    <path d="M0 -50 Q40 -40 50 -10 Q55 20 45 50 Q30 75 0 85 Q-30 75 -45 50 Q-55 20 -50 -10 Q-40 -40 0 -50" stroke-opacity="0.3"/>
+    <!-- Scutum (dorsal shield plate) -->
+    <path d="M0 -45 Q30 -36 38 -12 Q42 8 30 20 Q15 28 0 30 Q-15 28 -30 20 Q-42 8 -38 -12 Q-30 -36 0 -45" stroke-opacity="0.15" stroke-width="1.2"/>
+    <!-- Body texture/pattern -->
+    <g stroke-opacity="0.06" stroke-width="0.8">
+      <path d="M-20 40 Q0 36 20 40"/>
+      <path d="M-25 50 Q0 46 25 50"/>
+      <path d="M-20 60 Q0 56 20 60"/>
+      <path d="M-14 70 Q0 66 14 70"/>
+    </g>
+    <!-- Capitulum (head/mouthparts) -->
+    <ellipse cx="0" cy="-58" rx="12" ry="10" stroke-opacity="0.3"/>
+    <!-- Hypostome (feeding barbed structure) -->
+    <path d="M0 -68 L0 -86" stroke-opacity="0.3" stroke-width="2"/>
+    <path d="M-4 -68 L-4 -82" stroke-opacity="0.2" stroke-width="1.2"/>
+    <path d="M4 -68 L4 -82" stroke-opacity="0.2" stroke-width="1.2"/>
+    <!-- Barbs on hypostome -->
+    <g stroke-opacity="0.15" stroke-width="0.8">
+      <line x1="-2" y1="-74" x2="-5" y2="-72"/>
+      <line x1="2" y1="-74" x2="5" y2="-72"/>
+      <line x1="-2" y1="-78" x2="-5" y2="-76"/>
+      <line x1="2" y1="-78" x2="5" y2="-76"/>
+      <line x1="-2" y1="-82" x2="-5" y2="-80"/>
+      <line x1="2" y1="-82" x2="5" y2="-80"/>
+    </g>
+    <!-- Palps -->
+    <path d="M-10 -56 Q-18 -68 -16 -76" stroke-opacity="0.25" stroke-width="1.5"/>
+    <path d="M10 -56 Q18 -68 16 -76" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- Chelicerae -->
+    <path d="M-3 -86 L-5 -92" stroke-opacity="0.2" stroke-width="1.2"/>
+    <path d="M3 -86 L5 -92" stroke-opacity="0.2" stroke-width="1.2"/>
+    <!-- 8 legs (4 pairs, arachnid) -->
+    <!-- Front pair -->
+    <path d="M-40 -30 Q-58 -44 -72 -52 Q-82 -58 -90 -54" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M40 -30 Q58 -44 72 -52 Q82 -58 90 -54" stroke-opacity="0.3" stroke-width="1.8"/>
+    <!-- Second pair -->
+    <path d="M-48 -8 Q-68 -12 -82 -8 Q-92 -4 -98 2" stroke-opacity="0.28" stroke-width="1.8"/>
+    <path d="M48 -8 Q68 -12 82 -8 Q92 -4 98 2" stroke-opacity="0.28" stroke-width="1.8"/>
+    <!-- Third pair -->
+    <path d="M-50 16 Q-68 22 -80 30 Q-90 38 -94 46" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M50 16 Q68 22 80 30 Q90 38 94 46" stroke-opacity="0.25" stroke-width="1.8"/>
+    <!-- Back pair -->
+    <path d="M-42 42 Q-56 56 -66 68 Q-74 78 -76 86" stroke-opacity="0.22" stroke-width="1.8"/>
+    <path d="M42 42 Q56 56 66 68 Q74 78 76 86" stroke-opacity="0.22" stroke-width="1.8"/>
+  </g>
+  <!-- Grass blades at bottom -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <path d="M420 560 Q418 520 425 490"/>
+    <path d="M440 560 Q436 515 442 480"/>
+    <path d="M460 560 Q462 525 458 495"/>
+    <path d="M480 560 Q476 510 482 475"/>
+    <path d="M500 560 Q502 530 498 500"/>
+    <path d="M600 560 Q596 520 602 490"/>
+    <path d="M620 560 Q622 515 618 485"/>
+    <path d="M640 560 Q636 525 642 495"/>
+    <path d="M660 560 Q662 530 658 500"/>
+  </g>
+</svg>

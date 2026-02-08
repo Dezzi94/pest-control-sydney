@@ -5,13 +5,9 @@ import {
   CheckCircle,
   Loader2,
   Shield,
-  Bug,
-  Search,
-  Rat,
-  Bird,
-  Bed,
   Phone,
 } from "lucide-react";
+import { SERVICE_SLUG_ICON_MAP } from "@/components/icons/PestIcons";
 import {
   Dialog,
   DialogContent,
@@ -25,15 +21,15 @@ import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 
 const PEST_OPTIONS = [
-  { slug: "cockroach-treatment", label: "Cockroaches", icon: Bug },
-  { slug: "termite-inspection", label: "Termites", icon: Search },
-  { slug: "rodent-control", label: "Rats & Mice", icon: Rat },
-  { slug: "spider-treatment", label: "Spiders", icon: Bug },
-  { slug: "ant-control", label: "Ants", icon: Bug },
-  { slug: "bedbug-treatment", label: "Bed Bugs", icon: Bed },
-  { slug: "bird-control", label: "Birds", icon: Bird },
-  { slug: "general-pest-control", label: "General", icon: Shield },
-] as const;
+  { slug: "cockroach-treatment", label: "Cockroaches", icon: SERVICE_SLUG_ICON_MAP["cockroach-treatment"] },
+  { slug: "termite-inspection", label: "Termites", icon: SERVICE_SLUG_ICON_MAP["termite-inspection"] },
+  { slug: "rodent-control", label: "Rats & Mice", icon: SERVICE_SLUG_ICON_MAP["rodent-control"] },
+  { slug: "spider-treatment", label: "Spiders", icon: SERVICE_SLUG_ICON_MAP["spider-treatment"] },
+  { slug: "ant-control", label: "Ants", icon: SERVICE_SLUG_ICON_MAP["ant-control"] },
+  { slug: "bedbug-treatment", label: "Bed Bugs", icon: SERVICE_SLUG_ICON_MAP["bedbug-treatment"] },
+  { slug: "bird-control", label: "Birds", icon: SERVICE_SLUG_ICON_MAP["bird-control"] },
+  { slug: "general-pest-control", label: "General", icon: SERVICE_SLUG_ICON_MAP["general-pest-control"] },
+];
 
 export default function QuoteFormModal() {
   const { isOpen, closeQuoteModal, defaultPestType } = useQuoteModal();
@@ -166,7 +162,7 @@ export default function QuoteFormModal() {
                     }`}
                   >
                     <Icon className="h-5 w-5" />
-                    <span className="text-[10px] font-medium leading-tight">
+                    <span className="text-xs font-medium leading-tight">
                       {pest.label}
                     </span>
                   </button>
@@ -254,7 +250,7 @@ export default function QuoteFormModal() {
               </Button>
             </div>
 
-            <p className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+            <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Shield className="h-3 w-3 text-green-500" />
               Your info is secure &amp; never shared
             </p>

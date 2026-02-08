@@ -1,61 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.05" />
-    </linearGradient>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#accent)" opacity="0.4"/>
-  <!-- Decorative -->
-  <circle cx="650" cy="80" r="110" fill="#8b5cf6" opacity="0.04"/>
-  <circle cx="150" cy="520" r="90" fill="#3b82f6" opacity="0.04"/>
-  <!-- Web pattern (background) -->
-  <g stroke="#8b5cf6" stroke-width="0.5" opacity="0.1" fill="none">
-    <!-- Radial lines -->
-    <line x1="400" y1="100" x2="400" y2="450"/>
-    <line x1="250" y1="130" x2="550" y2="420"/>
-    <line x1="180" y1="275" x2="620" y2="275"/>
-    <line x1="250" y1="420" x2="550" y2="130"/>
-    <!-- Concentric web rings -->
-    <circle cx="400" cy="275" r="50"/>
-    <circle cx="400" cy="275" r="100"/>
-    <circle cx="400" cy="275" r="150"/>
+  <!-- Web pattern -->
+  <g stroke="#3b82f6" stroke-opacity="0.08" stroke-width="1" fill="none">
+    <!-- Radial threads from center -->
+    <line x1="530" y1="50" x2="530" y2="560"/>
+    <line x1="330" y1="300" x2="730" y2="300"/>
+    <line x1="370" y1="110" x2="690" y2="490"/>
+    <line x1="690" y1="110" x2="370" y2="490"/>
+    <line x1="340" y1="190" x2="720" y2="410"/>
+    <line x1="720" y1="190" x2="340" y2="410"/>
+    <!-- Spiral web rings -->
+    <path d="M530 220 Q580 220 590 260 Q600 300 580 340 Q560 380 530 380 Q500 380 480 340 Q460 300 480 260 Q500 220 530 220" stroke-opacity="0.1"/>
+    <path d="M530 170 Q610 170 630 240 Q650 310 620 370 Q590 430 530 430 Q470 430 440 370 Q410 310 430 240 Q450 170 530 170" stroke-opacity="0.07"/>
+    <path d="M530 120 Q640 120 670 210 Q700 300 660 390 Q620 480 530 480 Q440 480 400 390 Q360 300 390 210 Q420 120 530 120" stroke-opacity="0.05"/>
+    <path d="M530 75 Q670 75 710 185 Q750 300 700 410 Q650 520 530 520 Q410 520 360 410 Q310 300 350 185 Q390 75 530 75" stroke-opacity="0.04"/>
   </g>
-  <!-- Spider Icon -->
-  <g transform="translate(400,240)" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Body -->
-    <ellipse cx="0" cy="15" rx="20" ry="28" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6"/>
-    <!-- Head -->
-    <circle cx="0" cy="-18" r="16" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6"/>
-    <!-- Eyes -->
-    <circle cx="-6" cy="-22" r="3" fill="#8b5cf6" opacity="0.4"/>
-    <circle cx="6" cy="-22" r="3" fill="#8b5cf6" opacity="0.4"/>
-    <circle cx="-3" cy="-26" r="2" fill="#8b5cf6" opacity="0.3"/>
-    <circle cx="3" cy="-26" r="2" fill="#8b5cf6" opacity="0.3"/>
+  <!-- Web anchor threads -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="0.8" fill="none">
+    <path d="M530 50 Q500 30 460 20"/>
+    <path d="M730 300 Q760 290 790 280"/>
+    <path d="M690 490 Q720 520 740 550"/>
+    <path d="M370 490 Q340 520 310 550"/>
+    <path d="M330 300 Q300 310 270 320"/>
+    <path d="M370 110 Q340 80 310 60"/>
+    <path d="M690 110 Q720 80 750 60"/>
+  </g>
+  <!-- Spider -->
+  <g transform="translate(530, 290)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Abdomen -->
+    <ellipse cx="0" cy="22" rx="24" ry="32" stroke-opacity="0.3"/>
+    <!-- Cephalothorax -->
+    <ellipse cx="0" cy="-14" rx="18" ry="16" stroke-opacity="0.3"/>
+    <!-- Eyes (4 pairs) -->
+    <circle cx="-7" cy="-20" r="3.5" stroke-opacity="0.35" fill="#3b82f6" fill-opacity="0.08"/>
+    <circle cx="7" cy="-20" r="3.5" stroke-opacity="0.35" fill="#3b82f6" fill-opacity="0.08"/>
+    <circle cx="-4" cy="-26" r="2" stroke-opacity="0.25"/>
+    <circle cx="4" cy="-26" r="2" stroke-opacity="0.25"/>
+    <!-- Chelicerae / fangs -->
+    <path d="M-6 -30 Q-8 -38 -6 -42" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M6 -30 Q8 -38 6 -42" stroke-opacity="0.3" stroke-width="1.8"/>
     <!-- 8 legs (4 pairs) -->
-    <!-- Front legs -->
-    <path d="M-14,-12 Q-45,-50 -65,-45" stroke-width="2.5"/>
-    <path d="M14,-12 Q45,-50 65,-45" stroke-width="2.5"/>
+    <!-- Front pair -->
+    <path d="M-16 -18 Q-40 -50 -55 -65 Q-65 -75 -80 -70" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M16 -18 Q40 -50 55 -65 Q65 -75 80 -70" stroke-opacity="0.3" stroke-width="1.8"/>
     <!-- Second pair -->
-    <path d="M-18,-2 Q-55,-15 -72,-5" stroke-width="2.5"/>
-    <path d="M18,-2 Q55,-15 72,-5" stroke-width="2.5"/>
+    <path d="M-18 -8 Q-50 -20 -70 -18 Q-85 -16 -95 -10" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M18 -8 Q50 -20 70 -18 Q85 -16 95 -10" stroke-opacity="0.3" stroke-width="1.8"/>
     <!-- Third pair -->
-    <path d="M-18,10 Q-55,20 -70,35" stroke-width="2.5"/>
-    <path d="M18,10 Q55,20 70,35" stroke-width="2.5"/>
-    <!-- Back legs -->
-    <path d="M-15,25 Q-40,55 -55,65" stroke-width="2.5"/>
-    <path d="M15,25 Q40,55 55,65" stroke-width="2.5"/>
-    <!-- Chelicerae/fangs -->
-    <path d="M-5,-32 L-8,-40" stroke-width="2"/>
-    <path d="M5,-32 L8,-40" stroke-width="2"/>
+    <path d="M-18 4 Q-50 15 -68 25 Q-80 32 -90 42" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M18 4 Q50 15 68 25 Q80 32 90 42" stroke-opacity="0.3" stroke-width="1.8"/>
+    <!-- Back pair -->
+    <path d="M-16 18 Q-38 48 -50 65 Q-58 76 -68 80" stroke-opacity="0.3" stroke-width="1.8"/>
+    <path d="M16 18 Q38 48 50 65 Q58 76 68 80" stroke-opacity="0.3" stroke-width="1.8"/>
+    <!-- Abdomen pattern (markings) -->
+    <path d="M-6 12 L0 8 L6 12" stroke-opacity="0.12" stroke-width="1"/>
+    <path d="M-8 20 L0 16 L8 20" stroke-opacity="0.1" stroke-width="1"/>
+    <path d="M-6 28 L0 24 L6 28" stroke-opacity="0.08" stroke-width="1"/>
+    <!-- Spinnerets -->
+    <path d="M-3 53 L-4 58" stroke-opacity="0.15" stroke-width="1"/>
+    <path d="M3 53 L4 58" stroke-opacity="0.15" stroke-width="1"/>
+    <!-- Silk thread -->
+    <path d="M0 58 Q2 80 0 120" stroke-opacity="0.06" stroke-width="0.8"/>
   </g>
-  <!-- Label -->
-  <text x="400" y="375" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Spider Treatment</text>
-  <text x="400" y="410" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Safe &amp; Effective Spider Removal</text>
-  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
 </svg>

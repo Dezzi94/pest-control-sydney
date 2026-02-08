@@ -1,48 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9333ea;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#7e22ce;stop-opacity:0.05" />
-    </linearGradient>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#accent)" opacity="0.3"/>
-  <circle cx="660" cy="100" r="100" fill="#9333ea" opacity="0.04"/>
-  <circle cx="140" cy="500" r="70" fill="#3b82f6" opacity="0.04"/>
-  <!-- Bed Icon with bug -->
-  <g transform="translate(400,220)" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Bed frame -->
-    <rect x="-80" y="0" width="160" height="60" rx="5" fill="#9333ea" opacity="0.08" stroke="#9333ea" stroke-width="2"/>
-    <!-- Headboard -->
-    <rect x="-80" y="-35" width="40" height="40" rx="5" fill="#9333ea" opacity="0.06" stroke="#9333ea" stroke-width="1.5"/>
-    <!-- Pillow -->
-    <rect x="-72" y="-10" width="30" height="15" rx="5" fill="#9333ea" opacity="0.1" stroke="#9333ea" stroke-width="1.5"/>
-    <!-- Blanket folds -->
-    <path d="M-35,15 Q0,5 40,15 Q60,20 80,15" fill="none" stroke="#9333ea" stroke-width="1" opacity="0.3"/>
-    <!-- Bed legs -->
-    <line x1="-75" y1="60" x2="-75" y2="75" stroke-width="3"/>
-    <line x1="75" y1="60" x2="75" y2="75" stroke-width="3"/>
-    <!-- Small bedbug on bed -->
-    <ellipse cx="20" cy="25" rx="10" ry="8" fill="#9333ea" opacity="0.2" stroke="#9333ea" stroke-width="1.5"/>
-    <circle cx="14" cy="20" r="5" fill="#9333ea" opacity="0.15" stroke="#9333ea" stroke-width="1.5"/>
-    <!-- Bug legs -->
-    <line x1="12" y1="18" x2="5" y2="12" stroke-width="1.5"/>
-    <line x1="11" y1="25" x2="4" y2="25" stroke-width="1.5"/>
-    <line x1="12" y1="28" x2="5" y2="34" stroke-width="1.5"/>
-    <line x1="28" y1="18" x2="35" y2="12" stroke-width="1.5"/>
-    <line x1="29" y1="25" x2="36" y2="25" stroke-width="1.5"/>
-    <line x1="28" y1="28" x2="35" y2="34" stroke-width="1.5"/>
-    <!-- Warning triangle -->
-    <g transform="translate(55,-25)" opacity="0.5">
-      <path d="M0,-15 L13,10 L-13,10 Z" fill="#9333ea" opacity="0.15" stroke="#9333ea" stroke-width="1.5"/>
-      <text x="0" y="6" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#9333ea">!</text>
-    </g>
+  <!-- Mattress / fabric pattern -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1" fill="none">
+    <!-- Quilted diamond pattern -->
+    <path d="M380 100 L440 160 L380 220 L320 160 Z"/>
+    <path d="M440 160 L500 220 L440 280 L380 220 Z"/>
+    <path d="M500 100 L560 160 L500 220 L440 160 Z"/>
+    <path d="M560 160 L620 220 L560 280 L500 220 Z"/>
+    <path d="M620 100 L680 160 L620 220 L560 160 Z"/>
+    <path d="M680 160 L740 220 L680 280 L620 220 Z"/>
+    <path d="M380 220 L440 280 L380 340 L320 280 Z"/>
+    <path d="M440 280 L500 340 L440 400 L380 340 Z"/>
+    <path d="M500 220 L560 280 L500 340 L440 280 Z"/>
+    <path d="M560 280 L620 340 L560 400 L500 340 Z"/>
+    <path d="M620 220 L680 280 L620 340 L560 280 Z"/>
+    <path d="M680 280 L740 340 L680 400 L620 340 Z"/>
+    <path d="M380 340 L440 400 L380 460 L320 400 Z"/>
+    <path d="M440 400 L500 460 L440 520 L380 460 Z"/>
+    <path d="M500 340 L560 400 L500 460 L440 400 Z"/>
+    <path d="M560 400 L620 460 L560 520 L500 460 Z"/>
+    <path d="M620 340 L680 400 L620 460 L560 400 Z"/>
+    <path d="M680 400 L740 460 L680 520 L620 460 Z"/>
   </g>
-  <text x="400" y="380" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Bedbug Treatment</text>
-  <text x="400" y="415" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Heat Treatment &amp; Chemical Solutions</text>
-  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+  <!-- Mattress edge / piping -->
+  <path d="M350 480 Q400 490 500 490 Q600 490 700 480" stroke="#3b82f6" stroke-opacity="0.08" stroke-width="2" fill="none"/>
+  <path d="M350 500 Q400 510 500 510 Q600 510 700 500" stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1.5" fill="none"/>
+  <!-- Main bed bug -->
+  <g transform="translate(540, 320)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Abdomen (broad, flat, oval) -->
+    <ellipse cx="0" cy="10" rx="30" ry="38" stroke-opacity="0.3"/>
+    <!-- Abdomen segments -->
+    <path d="M-26 0 Q0 -4 26 0" stroke-opacity="0.1" stroke-width="1"/>
+    <path d="M-28 10 Q0 6 28 10" stroke-opacity="0.08" stroke-width="1"/>
+    <path d="M-28 20 Q0 16 28 20" stroke-opacity="0.08" stroke-width="1"/>
+    <path d="M-24 30 Q0 26 24 30" stroke-opacity="0.08" stroke-width="1"/>
+    <!-- Pronotum (shield-shaped thorax) -->
+    <path d="M-22 -20 Q-26 -30 -20 -36 Q0 -42 20 -36 Q26 -30 22 -20" stroke-opacity="0.3"/>
+    <!-- Head (small, tucked) -->
+    <ellipse cx="0" cy="-42" rx="10" ry="8" stroke-opacity="0.3"/>
+    <!-- Antennae -->
+    <path d="M-8 -48 Q-16 -58 -22 -60" stroke-opacity="0.25" stroke-width="1.5"/>
+    <path d="M8 -48 Q16 -58 22 -60" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- Eyes -->
+    <circle cx="-6" cy="-44" r="2" stroke-opacity="0.3"/>
+    <circle cx="6" cy="-44" r="2" stroke-opacity="0.3"/>
+    <!-- Proboscis -->
+    <path d="M0 -50 L0 -58" stroke-opacity="0.2" stroke-width="1.5"/>
+    <!-- Vestigial wing pads -->
+    <path d="M-18 -18 Q-24 -24 -20 -30" stroke-opacity="0.15" stroke-width="1.2"/>
+    <path d="M18 -18 Q24 -24 20 -30" stroke-opacity="0.15" stroke-width="1.2"/>
+    <!-- Legs - 3 pairs -->
+    <path d="M-22 -22 L-38 -34 L-46 -40" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M22 -22 L38 -34 L46 -40" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-28 -4 L-46 -8 L-56 -4" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M28 -4 L46 -8 L56 -4" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-26 16 L-42 24 L-52 30" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M26 16 L42 24 L52 30" stroke-opacity="0.25" stroke-width="1.8"/>
+  </g>
+  <!-- Second smaller bed bug -->
+  <g transform="translate(430, 220) scale(0.5) rotate(15)" stroke="#3b82f6" stroke-opacity="0.18" stroke-width="2" fill="none" stroke-linecap="round">
+    <ellipse cx="0" cy="10" rx="30" ry="38"/>
+    <path d="M-22 -20 Q-26 -30 -20 -36 Q0 -42 20 -36 Q26 -30 22 -20"/>
+    <ellipse cx="0" cy="-42" rx="10" ry="8"/>
+    <path d="M-8 -48 Q-16 -58 -22 -60"/>
+    <path d="M8 -48 Q16 -58 22 -60"/>
+    <path d="M-22 -22 L-38 -34 L-46 -40"/>
+    <path d="M22 -22 L38 -34 L46 -40"/>
+    <path d="M-28 -4 L-46 -8 L-56 -4"/>
+    <path d="M28 -4 L46 -8 L56 -4"/>
+    <path d="M-26 16 L-42 24 L-52 30"/>
+    <path d="M26 16 L42 24 L52 30"/>
+  </g>
 </svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Honeycomb pattern background -->
+  <g stroke="#3b82f6" stroke-opacity="0.08" stroke-width="1" fill="none">
+    <!-- Row 1 -->
+    <polygon points="520,80 540,68 560,80 560,104 540,116 520,104"/>
+    <polygon points="560,80 580,68 600,80 600,104 580,116 560,104"/>
+    <polygon points="600,80 620,68 640,80 640,104 620,116 600,104"/>
+    <polygon points="640,80 660,68 680,80 680,104 660,116 640,104"/>
+    <!-- Row 2 (offset) -->
+    <polygon points="500,116 520,104 540,116 540,140 520,152 500,140"/>
+    <polygon points="540,116 560,104 580,116 580,140 560,152 540,140"/>
+    <polygon points="580,116 600,104 620,116 620,140 600,152 580,140"/>
+    <polygon points="620,116 640,104 660,116 660,140 640,152 620,140"/>
+    <polygon points="660,116 680,104 700,116 700,140 680,152 660,140"/>
+    <!-- Row 3 -->
+    <polygon points="520,152 540,140 560,152 560,176 540,188 520,176"/>
+    <polygon points="560,152 580,140 600,152 600,176 580,188 560,176"/>
+    <polygon points="600,152 620,140 640,152 640,176 620,188 600,176"/>
+    <polygon points="640,152 660,140 680,152 680,176 660,188 640,176"/>
+    <!-- Row 4 (offset) -->
+    <polygon points="500,188 520,176 540,188 540,212 520,224 500,212"/>
+    <polygon points="540,188 560,176 580,188 580,212 560,224 540,212"/>
+    <polygon points="580,188 600,176 620,188 620,212 600,224 580,212"/>
+    <polygon points="620,188 640,176 660,188 660,212 640,224 620,212"/>
+    <polygon points="660,188 680,176 700,188 700,212 680,224 660,212"/>
+    <!-- Row 5 -->
+    <polygon points="520,224 540,212 560,224 560,248 540,260 520,248"/>
+    <polygon points="560,224 580,212 600,224 600,248 580,260 560,248"/>
+    <polygon points="600,224 620,212 640,224 640,248 620,260 600,248"/>
+    <polygon points="640,224 660,212 680,224 680,248 660,260 640,248"/>
+    <!-- Some cells with honey fill -->
+    <polygon points="580,116 600,104 620,116 620,140 600,152 580,140" fill="#3b82f6" fill-opacity="0.03"/>
+    <polygon points="600,152 620,140 640,152 640,176 620,188 600,176" fill="#3b82f6" fill-opacity="0.04"/>
+    <polygon points="540,188 560,176 580,188 580,212 560,224 540,212" fill="#3b82f6" fill-opacity="0.03"/>
+    <polygon points="640,224 660,212 680,224 680,248 660,260 640,248" fill="#3b82f6" fill-opacity="0.03"/>
+  </g>
+  <!-- Main bee -->
+  <g transform="translate(480, 380)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Abdomen (rounded, striped) -->
+    <ellipse cx="30" cy="5" rx="38" ry="24" stroke-opacity="0.3"/>
+    <!-- Abdomen stripes -->
+    <path d="M12 -14 Q12 5 12 24" stroke-opacity="0.12" stroke-width="4"/>
+    <path d="M24 -18 Q24 5 24 28" stroke-opacity="0.12" stroke-width="4"/>
+    <path d="M36 -18 Q36 5 36 28" stroke-opacity="0.12" stroke-width="4"/>
+    <path d="M48 -16 Q48 5 48 26" stroke-opacity="0.12" stroke-width="4"/>
+    <!-- Thorax (fuzzy/round) -->
+    <circle cx="-14" cy="0" r="18" stroke-opacity="0.28"/>
+    <!-- Fuzzy thorax texture -->
+    <g stroke-opacity="0.06" stroke-width="0.8">
+      <path d="M-20 -8 Q-14 -12 -8 -8"/>
+      <path d="M-22 0 Q-14 -4 -6 0"/>
+      <path d="M-20 8 Q-14 4 -8 8"/>
+    </g>
+    <!-- Head -->
+    <circle cx="-38" cy="-3" r="12" stroke-opacity="0.3"/>
+    <!-- Compound eyes -->
+    <ellipse cx="-44" cy="-6" rx="5" ry="6" stroke-opacity="0.25" fill="#3b82f6" fill-opacity="0.05"/>
+    <ellipse cx="-32" cy="-6" rx="5" ry="6" stroke-opacity="0.25" fill="#3b82f6" fill-opacity="0.05"/>
+    <!-- Antennae (elbowed) -->
+    <path d="M-46 -14 Q-50 -26 -56 -30 Q-60 -34 -64 -38" stroke-opacity="0.25" stroke-width="1.5"/>
+    <path d="M-42 -14 Q-44 -28 -46 -34 Q-48 -38 -50 -44" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- Proboscis -->
+    <path d="M-40 6 L-42 14" stroke-opacity="0.15" stroke-width="1.2"/>
+    <!-- Wings (larger, more detailed) -->
+    <ellipse cx="-4" cy="-28" rx="34" ry="16" stroke-opacity="0.15" transform="rotate(-8 -4 -28)"/>
+    <ellipse cx="8" cy="-32" rx="26" ry="12" stroke-opacity="0.1" transform="rotate(-12 8 -32)"/>
+    <!-- Wing venation -->
+    <path d="M-18 -28 L0 -26 L14 -22" stroke-opacity="0.06" stroke-width="0.7"/>
+    <path d="M-12 -32 L2 -34 L12 -32" stroke-opacity="0.06" stroke-width="0.7"/>
+    <!-- Stinger -->
+    <path d="M68 5 L74 6" stroke-opacity="0.25" stroke-width="1.8"/>
+    <!-- Legs -->
+    <path d="M-24 16 L-32 28 L-36 34" stroke-opacity="0.2" stroke-width="1.5"/>
+    <path d="M-10 18 L-14 30 L-16 36" stroke-opacity="0.2" stroke-width="1.5"/>
+    <path d="M4 16 L4 30 L6 36" stroke-opacity="0.2" stroke-width="1.5"/>
+    <!-- Pollen basket on hind leg -->
+    <ellipse cx="16" cy="24" rx="6" ry="4" stroke-opacity="0.1" transform="rotate(15 16 24)"/>
+  </g>
+  <!-- Motion lines / flight path -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M420 350 Q400 330 410 310 Q420 290 400 270"/>
+    <path d="M415 345 Q395 325 405 305 Q415 285 395 265"/>
+  </g>
+</svg>

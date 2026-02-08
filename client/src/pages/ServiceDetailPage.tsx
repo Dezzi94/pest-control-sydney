@@ -1,5 +1,6 @@
 import { useParams, Link } from "wouter";
-import { Phone, ArrowRight, CheckCircle, ChevronRight, Bug, Search, Rat, Shield, Bird, Building, Bed, ClipboardCheck } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,21 +10,25 @@ import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Search, Bug, Rat, Bed, Bird, Shield, Building, ClipboardCheck, Cookie: Bug, Squirrel: Bug,
-};
-
 // Map service slugs to background images
 const SERVICE_IMAGES: Record<string, string> = {
   "termite-inspection": "/images/services/termite.svg",
   "termite-control": "/images/services/termite.svg",
-  "rodent-control": "/images/services/rodent.jpg",
+  "rodent-control": "/images/services/rodent.svg",
   "cockroach-treatment": "/images/services/cockroach.svg",
   "spider-treatment": "/images/services/spider.svg",
   "ant-control": "/images/services/ant.svg",
   "flea-treatment": "/images/services/flea.svg",
   "bedbug-treatment": "/images/services/bedbug.svg",
   "wasp-removal": "/images/services/wasp.svg",
+  "silverfish-control": "/images/services/silverfish.svg",
+  "bird-control": "/images/services/bird.svg",
+  "pantry-pest-control": "/images/services/pantry-pest.svg",
+  "drain-fly-treatment": "/images/services/drain-fly.svg",
+  "possum-removal": "/images/services/possum.svg",
+  "bee-removal": "/images/services/bee.svg",
+  "tick-treatment": "/images/services/tick.svg",
+  "mite-control": "/images/services/mite.svg",
   "general-pest-control": "/images/services/general.svg",
   "commercial-pest-control": "/images/services/commercial.svg",
   "pre-purchase-inspection": "/images/services/termite.svg",
@@ -63,7 +68,7 @@ export default function ServiceDetailPage() {
     );
   }
 
-  const Icon = ICON_MAP[service.icon] || Bug;
+  const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
   const relatedServices = SERVICES.filter((s) => s.category === service.category && s.slug !== service.slug).slice(0, 4);
 
   return (
@@ -229,7 +234,7 @@ export default function ServiceDetailPage() {
                   <h3 className="font-semibold mb-4">Related Services</h3>
                   <div className="space-y-3">
                     {relatedServices.map((related) => {
-                      const RelatedIcon = ICON_MAP[related.icon] || Bug;
+                      const RelatedIcon = PEST_ICON_MAP[related.icon] || PEST_ICON_MAP["Bug"];
                       return (
                         <Link
                           key={related.slug}

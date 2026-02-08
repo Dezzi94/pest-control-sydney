@@ -75,8 +75,8 @@ export function registerRoutes(app: Express) {
   app.post("/api/leads", async (req, res) => {
     const { name, email, phone, pestType, message, address, suburb, postcode, urgency, source } = req.body;
 
-    if (!name || !email || !phone || !pestType) {
-      return res.status(400).json({ error: "Name, email, phone, and pest type are required" });
+    if (!name || !phone || !pestType) {
+      return res.status(400).json({ error: "Name, phone, and pest type are required" });
     }
 
     const db = getDb();
@@ -84,7 +84,7 @@ export function registerRoutes(app: Express) {
       // Return mock response when DB not connected
       return res.status(201).json({
         id: Date.now(),
-        name, email, phone, pestType,
+        name, email: email || null, phone, pestType,
         message: message || null, address: address || null,
         suburb: suburb || null, postcode: postcode || null,
         urgency: urgency || "medium", status: "new",
@@ -97,7 +97,7 @@ export function registerRoutes(app: Express) {
 
     try {
       const [lead] = await db.insert(leads).values({
-        name, email, phone, pestType,
+        name, email: email || null, phone, pestType,
         message: message || null, address: address || null,
         suburb: suburb || null, postcode: postcode || null,
         urgency: urgency || "medium",

@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { MapPin, ArrowRight, ChevronRight, Bug, Phone } from "lucide-react";
+import { MapPin, ArrowRight, ChevronRight, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

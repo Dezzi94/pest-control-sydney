@@ -7,6 +7,9 @@ const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Locations", href: "/locations" },
+  { label: "About", href: "/about" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const TOP_SERVICES = SERVICES.slice(0, 8);
@@ -151,7 +154,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800">
+      <div className="border-t border-slate-800 safe-area-bottom">
         <div className="container-width py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
             <p>&copy; {year} Pest Control Sydney. All rights reserved. Licensed #PCL4892 &middot; Proudly Australian owned and operated.</p>

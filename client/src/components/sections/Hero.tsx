@@ -1,9 +1,9 @@
-import { Link } from "wouter";
 import { Phone, Shield, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePersonalisation } from "@/hooks/usePersonalisation";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 import HeroQuoteForm from "@/components/forms/HeroQuoteForm";
 
 const PEST_LABELS: Record<string, string> = {
@@ -20,6 +20,7 @@ const PEST_LABELS: Record<string, string> = {
 export default function Hero() {
   const { ref, isVisible } = useScrollReveal(0.1);
   const { selectedPest, isReturningVisitor } = usePersonalisation();
+  const { openQuoteModal } = useQuoteModal();
 
   const pestLabel = selectedPest ? PEST_LABELS[selectedPest] ?? null : null;
   const showReturning = isReturningVisitor && pestLabel;
@@ -47,7 +48,7 @@ export default function Hero() {
 
       <div
         ref={ref}
-        className={`relative container-width py-20 lg:py-28 reveal ${isVisible ? "visible" : ""}`}
+        className={`relative z-10 container-width py-20 lg:py-28 reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
           {/* ── Left column: copy (60%) ── */}
@@ -58,9 +59,24 @@ export default function Hero() {
             </h1>
 
             {/* Social proof line */}
-            <p className="text-sm text-slate-400 mb-6 tracking-wide uppercase font-medium">
+            <p className="text-sm text-slate-400 tracking-wide uppercase font-medium">
               Trusted by 2,400+ Sydney homeowners since 2009
             </p>
+
+            {/* Google Reviews badge */}
+            <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg key={star} className="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-xs font-semibold text-white ml-1">4.9</span>
+                <span className="text-xs text-slate-400">&middot; 127 Google Reviews</span>
+              </div>
+            </div>
 
             {/* Subheadline — personalised for returning visitors */}
             <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
@@ -75,13 +91,11 @@ export default function Hero() {
                 variant="accent"
                 size="xl"
                 className="shadow-lg shadow-orange-500/20"
-                asChild
+                onClick={() => openQuoteModal()}
               >
-                <Link href="/?quote=open">
-                  {showReturning
-                    ? "Continue Your Quote"
-                    : "Get Your Free Quote"}
-                </Link>
+                {showReturning
+                  ? "Continue Your Quote"
+                  : "Get Your Free Quote"}
               </Button>
               <Button
                 variant="outline"

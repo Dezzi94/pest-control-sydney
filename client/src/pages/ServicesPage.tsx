@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, Bug, Search, Rat, Shield, Bird, Building, Bed, ClipboardCheck, Filter } from "lucide-react";
+import { ArrowRight, Filter } from "lucide-react";
+import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import CTASection from "@/components/sections/CTASection";
 import { SERVICES, type ServiceData } from "@shared/routes/all-routes";
-
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Search, Bug, Rat, Bed, Bird, Shield, Building, ClipboardCheck, Cookie: Bug, Squirrel: Bug,
-};
 
 const CATEGORIES = [
   { value: "all", label: "All Services" },
@@ -63,7 +60,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filtered.map((service) => {
-              const Icon = ICON_MAP[service.icon] || Bug;
+              const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
               return (
                 <Link key={service.slug} href={`/services/${service.slug}`}>
                   <Card className="h-full hover-lift cursor-pointer group">

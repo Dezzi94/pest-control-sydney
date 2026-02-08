@@ -69,7 +69,7 @@ export default function TrustBadges() {
 
             {/* Right column — 2x3 badge grid */}
             <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8">
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8 stagger-children", isVisible && "visible")}>
                 {BADGES.map((badge) => (
                   <div
                     key={badge.title}

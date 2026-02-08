@@ -253,6 +253,27 @@ export const STATIC_PAGES: Record<string, Omit<PageMeta, "path" | "canonical">> 
     changefreq: "weekly",
     priority: 0.9,
   },
+  "/about": {
+    title: "About Us | Pest Control Sydney | Licensed #PCL4892 | Since 2009",
+    description: "Learn about Sydney's trusted pest control experts. Licensed #PCL4892, AEPMA certified, 15+ years experience. Family-owned, eco-friendly pest control across Sydney.",
+    pageType: "static",
+    changefreq: "monthly",
+    priority: 0.7,
+  },
+  "/contact": {
+    title: "Contact Us | Pest Control Sydney | Call (02) 8765-4321",
+    description: "Contact Pest Control Sydney for a free quote. Call (02) 8765-4321, email info@pestcontrolsydney.org, or fill out our contact form. Same-day service available.",
+    pageType: "static",
+    changefreq: "monthly",
+    priority: 0.7,
+  },
+  "/reviews": {
+    title: "Customer Reviews | Pest Control Sydney | 4.9\u2605 Rating | 127+ Reviews",
+    description: "Read verified customer reviews for Pest Control Sydney. 4.9/5 average rating from 127+ reviews. See what Sydney homeowners say about our pest control services.",
+    pageType: "static",
+    changefreq: "monthly",
+    priority: 0.7,
+  },
 };
 
 // ─── Route Generators ─────────────────────────────────────────────────────────

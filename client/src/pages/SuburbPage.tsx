@@ -1,5 +1,6 @@
 import { useParams, Link } from "wouter";
-import { MapPin, ArrowRight, ChevronRight, Phone, Bug, Search, Rat, Shield, Bird, Building, Bed, ClipboardCheck } from "lucide-react";
+import { MapPin, ArrowRight, ChevronRight, Phone } from "lucide-react";
+import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
-
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Search, Bug, Rat, Bed, Bird, Shield, Building, ClipboardCheck, Cookie: Bug, Squirrel: Bug,
-};
 
 export default function SuburbPage() {
   const params = useParams<{ councilSlug: string; suburbSlug: string }>();
@@ -84,7 +81,7 @@ export default function SuburbPage() {
           <h2 className="mb-8">Pest Control Services in {suburb.name}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {SERVICES.map((service) => {
-              const Icon = ICON_MAP[service.icon] || Bug;
+              const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
               return (
                 <Link
                   key={service.slug}

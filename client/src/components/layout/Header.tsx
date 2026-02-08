@@ -9,6 +9,9 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Locations", href: "/locations" },
+  { label: "About", href: "/about" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -17,7 +20,7 @@ export default function Header() {
   const { openQuoteModal } = useQuoteModal();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="container-width">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}

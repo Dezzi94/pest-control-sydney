@@ -1,51 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.05" />
-    </linearGradient>
+    <radialGradient id="bg" cx="0.6" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#accent)" opacity="0.4"/>
-  <circle cx="660" cy="100" r="110" fill="#f59e0b" opacity="0.04"/>
-  <circle cx="140" cy="500" r="75" fill="#3b82f6" opacity="0.04"/>
-  <!-- Rat/Mouse Icon -->
-  <g transform="translate(400,230)" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Body -->
-    <ellipse cx="0" cy="10" rx="45" ry="30" fill="#f59e0b" opacity="0.12" stroke="#f59e0b"/>
-    <!-- Head -->
-    <ellipse cx="-45" cy="-10" rx="28" ry="22" fill="#f59e0b" opacity="0.12" stroke="#f59e0b"/>
-    <!-- Ears -->
-    <ellipse cx="-55" cy="-35" rx="14" ry="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/>
-    <ellipse cx="-35" cy="-33" rx="12" ry="14" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/>
-    <!-- Eye -->
-    <circle cx="-55" cy="-12" r="4" fill="#f59e0b" opacity="0.5"/>
-    <!-- Nose -->
-    <circle cx="-72" cy="-8" r="3" fill="#f59e0b" opacity="0.4"/>
-    <!-- Whiskers -->
-    <line x1="-72" y1="-10" x2="-95" y2="-20" stroke-width="1.5" opacity="0.4"/>
-    <line x1="-72" y1="-8" x2="-96" y2="-8" stroke-width="1.5" opacity="0.4"/>
-    <line x1="-72" y1="-6" x2="-95" y2="4" stroke-width="1.5" opacity="0.4"/>
-    <!-- Tail -->
-    <path d="M45,10 Q65,5 80,-10 Q90,-20 95,-35" stroke-width="2.5" fill="none"/>
-    <!-- Legs -->
-    <line x1="-20" y1="35" x2="-25" y2="50" stroke-width="2"/>
-    <line x1="5" y1="38" x2="5" y2="52" stroke-width="2"/>
-    <line x1="25" y1="35" x2="28" y2="50" stroke-width="2"/>
-    <!-- Feet -->
-    <path d="M-28,50 L-22,50" stroke-width="2"/>
-    <path d="M2,52 L8,52" stroke-width="2"/>
-    <path d="M25,50 L31,50" stroke-width="2"/>
-    <!-- No-entry circle -->
-    <circle cx="0" cy="5" r="75" stroke="#f59e0b" stroke-width="2" opacity="0.15" fill="none"/>
-    <line x1="-55" y1="55" x2="55" y2="-45" stroke="#f59e0b" stroke-width="2" opacity="0.15"/>
+  <!-- House foundation -->
+  <g stroke="#3b82f6" stroke-opacity="0.1" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Foundation wall -->
+    <line x1="350" y1="420" x2="750" y2="420"/>
+    <line x1="750" y1="420" x2="750" y2="200"/>
+    <!-- Wall surface lines -->
+    <line x1="370" y1="420" x2="370" y2="340"/>
+    <line x1="370" y1="340" x2="740" y2="340"/>
+    <!-- Brick pattern -->
+    <line x1="400" y1="380" x2="500" y2="380" stroke-opacity="0.06"/>
+    <line x1="420" y1="400" x2="520" y2="400" stroke-opacity="0.06"/>
+    <line x1="450" y1="360" x2="550" y2="360" stroke-opacity="0.06"/>
+    <line x1="520" y1="380" x2="620" y2="380" stroke-opacity="0.06"/>
+    <line x1="540" y1="400" x2="640" y2="400" stroke-opacity="0.06"/>
+    <line x1="570" y1="360" x2="670" y2="360" stroke-opacity="0.06"/>
+    <line x1="640" y1="380" x2="740" y2="380" stroke-opacity="0.06"/>
+    <line x1="660" y1="400" x2="740" y2="400" stroke-opacity="0.06"/>
+    <!-- Roof line -->
+    <path d="M340 340 L550 200 L760 340" stroke-opacity="0.08"/>
+    <!-- Window -->
+    <rect x="500" y="260" width="60" height="50" rx="2" stroke-opacity="0.08"/>
+    <line x1="530" y1="260" x2="530" y2="310" stroke-opacity="0.06"/>
+    <line x1="500" y1="285" x2="560" y2="285" stroke-opacity="0.06"/>
+    <!-- Door -->
+    <rect x="620" y="350" width="45" height="70" rx="2" stroke-opacity="0.08"/>
+    <circle cx="655" cy="388" r="3" stroke-opacity="0.08"/>
   </g>
-  <!-- Label -->
-  <text x="400" y="380" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Rodent Control</text>
-  <text x="400" y="415" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Mice &amp; Rat Removal Specialists</text>
-  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+  <!-- Ground line -->
+  <line x1="300" y1="420" x2="780" y2="420" stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- Mouse/rat silhouette near foundation -->
+  <g transform="translate(460, 390)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="40" ry="22" stroke-opacity="0.3"/>
+    <!-- Head -->
+    <ellipse cx="-42" cy="-8" rx="22" ry="18" stroke-opacity="0.3"/>
+    <!-- Ears -->
+    <ellipse cx="-50" cy="-28" rx="12" ry="14" stroke-opacity="0.25"/>
+    <ellipse cx="-34" cy="-26" rx="10" ry="12" stroke-opacity="0.25"/>
+    <!-- Inner ear -->
+    <ellipse cx="-50" cy="-28" rx="6" ry="8" stroke-opacity="0.12"/>
+    <ellipse cx="-34" cy="-26" rx="5" ry="7" stroke-opacity="0.12"/>
+    <!-- Eye -->
+    <circle cx="-50" cy="-10" r="4" stroke-opacity="0.35" fill="#3b82f6" fill-opacity="0.08"/>
+    <!-- Nose -->
+    <circle cx="-63" cy="-6" r="3" stroke-opacity="0.3" fill="#3b82f6" fill-opacity="0.06"/>
+    <!-- Whiskers -->
+    <line x1="-63" y1="-8" x2="-82" y2="-16" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="-63" y1="-6" x2="-84" y2="-6" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="-63" y1="-4" x2="-82" y2="4" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="-63" y1="-8" x2="-80" y2="-20" stroke-opacity="0.15" stroke-width="1"/>
+    <line x1="-63" y1="-4" x2="-80" y2="8" stroke-opacity="0.15" stroke-width="1"/>
+    <!-- Tail -->
+    <path d="M40 0 Q60 -5 75 -15 Q88 -25 92 -40 Q95 -50 90 -60" stroke-opacity="0.25" stroke-width="1.8"/>
+    <!-- Front legs -->
+    <path d="M-28 18 L-32 28" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M-22 20 L-24 28" stroke-opacity="0.25" stroke-width="1.8"/>
+    <!-- Feet -->
+    <path d="M-35 28 L-29 28" stroke-opacity="0.2" stroke-width="1.5"/>
+    <path d="M-27 28 L-21 28" stroke-opacity="0.2" stroke-width="1.5"/>
+    <!-- Back legs -->
+    <path d="M20 20 L22 28" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M28 18 L32 28" stroke-opacity="0.25" stroke-width="1.8"/>
+    <path d="M19 28 L25 28" stroke-opacity="0.2" stroke-width="1.5"/>
+    <path d="M29 28 L35 28" stroke-opacity="0.2" stroke-width="1.5"/>
+  </g>
+  <!-- Small gap/hole in foundation -->
+  <ellipse cx="400" cy="416" rx="14" ry="6" stroke="#3b82f6" stroke-opacity="0.15" stroke-width="1.5" fill="#3b82f6" fill-opacity="0.03"/>
+  <!-- Droppings near entry point -->
+  <g fill="#3b82f6" fill-opacity="0.08">
+    <ellipse cx="415" cy="418" rx="2" ry="1.5"/>
+    <ellipse cx="422" cy="416" rx="2" ry="1.5"/>
+    <ellipse cx="428" cy="419" rx="1.5" ry="1"/>
+  </g>
 </svg>

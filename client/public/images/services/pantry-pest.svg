@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0.6" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Pantry shelves -->
+  <g stroke="#3b82f6" stroke-opacity="0.1" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Shelf boards -->
+    <line x1="380" y1="180" x2="750" y2="180" stroke-opacity="0.1"/>
+    <line x1="380" y1="320" x2="750" y2="320" stroke-opacity="0.1"/>
+    <line x1="380" y1="460" x2="750" y2="460" stroke-opacity="0.1"/>
+    <!-- Shelf supports -->
+    <line x1="380" y1="100" x2="380" y2="520" stroke-opacity="0.06"/>
+    <line x1="750" y1="100" x2="750" y2="520" stroke-opacity="0.06"/>
+  </g>
+  <!-- Food containers on shelves -->
+  <g stroke="#3b82f6" stroke-opacity="0.08" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top shelf - cereal box -->
+    <rect x="400" y="120" width="40" height="58" rx="2"/>
+    <line x1="410" y1="140" x2="430" y2="140" stroke-opacity="0.04"/>
+    <line x1="405" y1="148" x2="435" y2="148" stroke-opacity="0.04"/>
+    <line x1="410" y1="156" x2="430" y2="156" stroke-opacity="0.04"/>
+    <!-- Jar -->
+    <path d="M470 170 Q470 140 472 130 Q475 120 490 120 Q505 120 508 130 Q510 140 510 170" stroke-opacity="0.08"/>
+    <line x1="470" y1="170" x2="510" y2="170" stroke-opacity="0.06"/>
+    <rect x="475" y="115" width="30" height="8" rx="2" stroke-opacity="0.06"/>
+    <!-- Fill suggestion (grain) -->
+    <g fill="#3b82f6" fill-opacity="0.02">
+      <circle cx="480" cy="155" r="2"/>
+      <circle cx="486" cy="158" r="2"/>
+      <circle cx="492" cy="154" r="2"/>
+      <circle cx="498" cy="157" r="2"/>
+      <circle cx="484" cy="148" r="2"/>
+      <circle cx="490" cy="150" r="2"/>
+      <circle cx="496" cy="148" r="2"/>
+    </g>
+    <!-- Flour bag -->
+    <path d="M550 178 L550 130 Q560 120 580 120 Q600 120 610 130 L610 178" stroke-opacity="0.08"/>
+    <path d="M548 130 Q580 118 612 130" stroke-opacity="0.06"/>
+    <!-- Middle shelf - pasta box -->
+    <rect x="400" y="260" width="50" height="58" rx="2" stroke-opacity="0.08"/>
+    <line x1="410" y1="280" x2="440" y2="280" stroke-opacity="0.04"/>
+    <!-- Rice container -->
+    <rect x="470" y="270" width="40" height="48" rx="3" stroke-opacity="0.08"/>
+    <rect x="475" y="265" width="30" height="8" rx="2" stroke-opacity="0.06"/>
+    <!-- Can -->
+    <ellipse cx="550" cy="295" rx="18" ry="5" stroke-opacity="0.06"/>
+    <path d="M532 295 L532 316 Q532 320 550 320 Q568 320 568 316 L568 295" stroke-opacity="0.08"/>
+    <!-- Spice jars -->
+    <rect x="600" y="290" width="16" height="28" rx="2" stroke-opacity="0.06"/>
+    <rect x="625" y="290" width="16" height="28" rx="2" stroke-opacity="0.06"/>
+    <!-- Bottom shelf - bag of grain -->
+    <path d="M410 458 L410 400 Q420 390 445 390 Q470 390 480 400 L480 458" stroke-opacity="0.08"/>
+    <path d="M408 400 Q445 386 482 400" stroke-opacity="0.06"/>
+    <!-- Open box -->
+    <rect x="510" y="410" width="55" height="48" rx="2" stroke-opacity="0.08"/>
+    <line x1="510" y1="415" x2="565" y2="415" stroke-opacity="0.05"/>
+  </g>
+  <!-- Indian meal moth (main pest) -->
+  <g transform="translate(520, 240)" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body (slender) -->
+    <ellipse cx="0" cy="0" rx="5" ry="14" stroke-opacity="0.3"/>
+    <!-- Head -->
+    <circle cx="0" cy="-18" r="5" stroke-opacity="0.3"/>
+    <!-- Eyes -->
+    <circle cx="-2" cy="-20" r="1.5" stroke-opacity="0.25"/>
+    <circle cx="2" cy="-20" r="1.5" stroke-opacity="0.25"/>
+    <!-- Antennae (long, thin) -->
+    <path d="M-3 -22 Q-10 -34 -14 -42" stroke-opacity="0.25" stroke-width="1.2"/>
+    <path d="M3 -22 Q10 -34 14 -42" stroke-opacity="0.25" stroke-width="1.2"/>
+    <!-- Wings (triangular, folded tent-like) -->
+    <!-- Left wing -->
+    <path d="M-4 -10 Q-30 -16 -45 -4 Q-50 4 -44 14 Q-34 24 -5 12" stroke-opacity="0.2"/>
+    <!-- Right wing -->
+    <path d="M4 -10 Q30 -16 45 -4 Q50 4 44 14 Q34 24 5 12" stroke-opacity="0.2"/>
+    <!-- Wing pattern (darker tips) -->
+    <path d="M-25 -6 Q-38 0 -44 8" stroke-opacity="0.12" stroke-width="1"/>
+    <path d="M25 -6 Q38 0 44 8" stroke-opacity="0.12" stroke-width="1"/>
+    <!-- Wing color bands -->
+    <path d="M-20 -8 Q-15 -2 -12 4" stroke-opacity="0.06" stroke-width="3"/>
+    <path d="M20 -8 Q15 -2 12 4" stroke-opacity="0.06" stroke-width="3"/>
+    <!-- Legs -->
+    <path d="M-4 0 L-10 6" stroke-opacity="0.12" stroke-width="1"/>
+    <path d="M-3 4 L-8 12" stroke-opacity="0.12" stroke-width="1"/>
+    <path d="M4 0 L10 6" stroke-opacity="0.12" stroke-width="1"/>
+    <path d="M3 4 L8 12" stroke-opacity="0.12" stroke-width="1"/>
+  </g>
+  <!-- Second moth (flying) -->
+  <g transform="translate(650, 180) scale(0.7) rotate(-15)" stroke="#3b82f6" stroke-opacity="0.15" stroke-width="2" fill="none" stroke-linecap="round">
+    <ellipse cx="0" cy="0" rx="5" ry="14"/>
+    <circle cx="0" cy="-18" r="5"/>
+    <path d="M-3 -22 Q-10 -34 -14 -42"/>
+    <path d="M3 -22 Q10 -34 14 -42"/>
+    <path d="M-4 -10 Q-30 -16 -45 -4 Q-50 4 -44 14 Q-34 24 -5 12"/>
+    <path d="M4 -10 Q30 -16 45 -4 Q50 4 44 14 Q34 24 5 12"/>
+  </g>
+  <!-- Third moth (tiny, near food) -->
+  <g transform="translate(440, 150) scale(0.4) rotate(10)" stroke="#3b82f6" stroke-opacity="0.12" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <ellipse cx="0" cy="0" rx="5" ry="14"/>
+    <circle cx="0" cy="-18" r="5"/>
+    <path d="M-4 -10 Q-30 -16 -45 -4 Q-50 4 -44 14 Q-34 24 -5 12"/>
+    <path d="M4 -10 Q30 -16 45 -4 Q50 4 44 14 Q34 24 5 12"/>
+  </g>
+  <!-- Small larvae near grain bag -->
+  <g stroke="#3b82f6" stroke-opacity="0.08" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M445 440 Q450 436 455 440 Q460 444 465 440"/>
+    <path d="M460 448 Q465 444 470 448 Q475 452 480 448"/>
+  </g>
+</svg>

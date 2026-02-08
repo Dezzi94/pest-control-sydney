@@ -5,29 +5,25 @@ import {
   CheckCircle,
   Loader2,
   Shield,
-  Bug,
-  Search,
-  Rat,
-  Bird,
-  Bed,
   Phone,
   X,
 } from "lucide-react";
+import { SERVICE_SLUG_ICON_MAP } from "@/components/icons/PestIcons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 
 // ── Pest options ──
 const PEST_OPTIONS = [
-  { slug: "cockroach-treatment", label: "Cockroaches", icon: Bug },
-  { slug: "termite-inspection", label: "Termites", icon: Search },
-  { slug: "rodent-control", label: "Rats & Mice", icon: Rat },
-  { slug: "spider-treatment", label: "Spiders", icon: Bug },
-  { slug: "ant-control", label: "Ants", icon: Bug },
-  { slug: "bedbug-treatment", label: "Bed Bugs", icon: Bed },
-  { slug: "bird-control", label: "Birds", icon: Bird },
-  { slug: "general-pest-control", label: "General", icon: Shield },
-] as const;
+  { slug: "cockroach-treatment", label: "Cockroaches", icon: SERVICE_SLUG_ICON_MAP["cockroach-treatment"] },
+  { slug: "termite-inspection", label: "Termites", icon: SERVICE_SLUG_ICON_MAP["termite-inspection"] },
+  { slug: "rodent-control", label: "Rats & Mice", icon: SERVICE_SLUG_ICON_MAP["rodent-control"] },
+  { slug: "spider-treatment", label: "Spiders", icon: SERVICE_SLUG_ICON_MAP["spider-treatment"] },
+  { slug: "ant-control", label: "Ants", icon: SERVICE_SLUG_ICON_MAP["ant-control"] },
+  { slug: "bedbug-treatment", label: "Bed Bugs", icon: SERVICE_SLUG_ICON_MAP["bedbug-treatment"] },
+  { slug: "bird-control", label: "Birds", icon: SERVICE_SLUG_ICON_MAP["bird-control"] },
+  { slug: "general-pest-control", label: "General", icon: SERVICE_SLUG_ICON_MAP["general-pest-control"] },
+];
 
 const CALLBACK_TIMES = ["ASAP", "Morning", "Afternoon", "Evening"] as const;
 type CallbackTime = (typeof CALLBACK_TIMES)[number];
@@ -210,7 +206,7 @@ export default function HeroQuoteForm() {
     const pestLabel = getPestLabel(pestType);
     const serviceHref = `/services/${pestType}`;
     return (
-      <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-8 text-center relative overflow-hidden">
+      <div className="w-full max-w-sm rounded-2xl gradient-border bg-slate-800/90 backdrop-blur-xl shadow-2xl shadow-black/30 p-8 text-center relative">
         {/* Confetti dots */}
         {CONFETTI_COLOURS.map((colour, i) => (
           <span
@@ -256,7 +252,7 @@ export default function HeroQuoteForm() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-6 sm:p-8">
+    <div className="w-full max-w-sm rounded-2xl gradient-border bg-slate-800/90 backdrop-blur-xl shadow-2xl shadow-black/30 p-6 sm:p-8">
       {/* Draft restoration banner */}
       {showDraftBanner && (
         <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-400/20">
@@ -320,7 +316,7 @@ export default function HeroQuoteForm() {
                       key={pest.slug}
                       type="button"
                       onClick={() => setPestType(pest.slug)}
-                      className={`relative flex flex-col items-center gap-1.5 rounded-xl p-2.5 text-center transition-all duration-200 hover:scale-[1.04] hover:shadow-md ${
+                      className={`relative flex flex-col items-center gap-1.5 rounded-xl p-3 text-center transition-all duration-200 hover:scale-[1.04] hover:shadow-md ${
                         isSelected
                           ? "bg-blue-500/15 border border-blue-400/40 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.3)]"
                           : "bg-white/[0.03] border border-white/5 text-slate-400 hover:bg-white/[0.06] hover:text-slate-300"
@@ -330,7 +326,7 @@ export default function HeroQuoteForm() {
                         <CheckCircle className="absolute top-1 right-1 h-3.5 w-3.5 text-blue-400" />
                       )}
                       <Icon className="h-5 w-5" />
-                      <span className="text-[10px] font-medium leading-tight">
+                      <span className="text-xs font-medium leading-tight">
                         {pest.label}
                       </span>
                     </button>
@@ -425,7 +421,7 @@ export default function HeroQuoteForm() {
               </div>
 
               {/* Trust copy */}
-              <p className="text-[11px] text-slate-500 mb-4">
+              <p className="text-xs text-slate-500 mb-4">
                 We'll call once to discuss your quote — no spam, ever
               </p>
 
@@ -501,7 +497,7 @@ export default function HeroQuoteForm() {
                 )}
               </div>
 
-              <p className="text-[11px] text-slate-500 mb-4">
+              <p className="text-xs text-slate-500 mb-4">
                 Your details are only used for this quote. That's a promise.
               </p>
 
@@ -538,7 +534,7 @@ export default function HeroQuoteForm() {
                 </Button>
               </div>
 
-              <p className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-3">
+              <p className="flex items-center gap-1.5 text-xs text-slate-500 mt-3">
                 <Shield className="h-3 w-3 text-green-500/70" />
                 Your info is secure &amp; never shared
               </p>

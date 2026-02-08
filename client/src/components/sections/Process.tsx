@@ -55,14 +55,14 @@ export default function Process() {
                 <div
                   key={step.step}
                   className={cn(
-                    "relative reveal",
+                    "relative process-step cursor-default reveal",
                     isVisible && "visible",
                     `reveal-delay-${i + 1}`
                   )}
                 >
                   {/* Numbered circle on the line */}
                   <div className="absolute -left-14 md:-left-20 top-0 flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-background">
+                    <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-background step-circle">
                       {step.step}
                     </div>
                   </div>
