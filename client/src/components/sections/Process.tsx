@@ -1,85 +1,84 @@
-import { Phone, ClipboardCheck, Zap, ShieldCheck, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
 
 const STEPS = [
   {
     step: 1,
-    icon: Phone,
     title: "Call or Book Online",
-    description: "Contact us for a free consultation. We'll discuss your pest problem and schedule a convenient inspection time.",
-    color: "bg-blue-500",
-    lightColor: "bg-blue-50",
-    textColor: "text-blue-600",
+    description:
+      "Describe what you're seeing -- droppings, damage, live pests -- and we'll narrow down the species over the phone. We book a 2-hour window that suits your schedule, usually within 24 hours.",
   },
   {
     step: 2,
-    icon: ClipboardCheck,
-    title: "Free Inspection",
-    description: "Our licensed technician inspects your property, identifies the pest species, and assesses the extent of the infestation.",
-    color: "bg-green-500",
-    lightColor: "bg-green-50",
-    textColor: "text-green-600",
+    title: "On-Site Inspection",
+    description:
+      "Our licensed technician checks roof voids, subfloor, walls, and entry points with thermal imaging and moisture meters. You'll get a written report with photos, even if no treatment is needed.",
   },
   {
     step: 3,
-    icon: Zap,
     title: "Targeted Treatment",
-    description: "We apply the most effective, eco-friendly treatment plan tailored to your specific pest problem and property type.",
-    color: "bg-orange-500",
-    lightColor: "bg-orange-50",
-    textColor: "text-orange-600",
+    description:
+      "We match the method to the pest: gel baits for cockroaches, chemical barriers for termites, humane traps for possums. Every product is TGA-approved and safe around children and pets.",
   },
   {
     step: 4,
-    icon: ShieldCheck,
-    title: "Ongoing Protection",
-    description: "We provide a detailed report, prevention advice, and warranty. If pests return during the warranty period, we re-treat free.",
-    color: "bg-purple-500",
-    lightColor: "bg-purple-50",
-    textColor: "text-purple-600",
+    title: "Warranty and Follow-Up",
+    description:
+      "You'll receive a detailed service report, prevention advice, and a written warranty. If pests return within the warranty period, we re-treat at no charge.",
   },
 ];
 
 export default function Process() {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="section-padding bg-gradient-to-b from-background to-muted/30">
       <div className="container-width">
-        <div className="text-center mb-14">
-          <Badge variant="secondary" className="mb-4">How It Works</Badge>
-          <h2 className="mb-4">Our 4-Step Process</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            From your first call to ongoing protection, we make pest control simple,
-            effective, and stress-free.
-          </p>
-          <div className="section-divider mt-6" />
-        </div>
+        <div ref={ref} className={cn("reveal", isVisible && "visible")}>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {STEPS.map((step, i) => (
-            <div key={step.step} className="relative group">
-              {/* Connector arrow (desktop) */}
-              {i < STEPS.length - 1 && (
-                <div className="hidden lg:flex absolute top-10 -right-4 z-10 w-8 items-center justify-center">
-                  <ArrowRight className="h-5 w-5 text-border" />
-                </div>
-              )}
+          {/* Left-aligned heading with accent bar */}
+          <div className="mb-14">
+            <div className="w-12 h-2 bg-primary rounded mb-4" />
+            <h2 className="mb-4">How It Works</h2>
+            <p className="text-muted-foreground max-w-xl">
+              From your first call to ongoing protection -- four steps, no surprises.
+            </p>
+          </div>
 
-              <div className="text-center p-6 rounded-xl border border-transparent hover:border-border/50 hover:bg-white/50 transition-all duration-300">
-                {/* Step number + icon */}
-                <div className="relative inline-flex flex-col items-center mb-6">
-                  <div className={`w-20 h-20 rounded-2xl ${step.color} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300`}>
-                    <step.icon className="h-9 w-9 text-white" />
+          {/* Vertical timeline */}
+          <div className="relative pl-14 md:pl-20">
+            {/* Vertical line */}
+            <div className="absolute left-5 md:left-5 top-0 bottom-0 w-px bg-border" />
+
+            <div className="space-y-12">
+              {STEPS.map((step, i) => (
+                <div
+                  key={step.step}
+                  className={cn(
+                    "relative reveal",
+                    isVisible && "visible",
+                    `reveal-delay-${i + 1}`
+                  )}
+                >
+                  {/* Numbered circle on the line */}
+                  <div className="absolute -left-14 md:-left-20 top-0 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-background">
+                      {step.step}
+                    </div>
                   </div>
-                  <span className={`absolute -top-2 -right-2 w-8 h-8 rounded-full ${step.lightColor} border-2 border-white flex items-center justify-center text-xs font-bold ${step.textColor} shadow-sm`}>
-                    {step.step}
-                  </span>
-                </div>
 
-                <h3 className="font-semibold mb-2 text-lg">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-              </div>
+                  {/* Content */}
+                  <div className="pb-2">
+                    <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed max-w-lg">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
     </section>

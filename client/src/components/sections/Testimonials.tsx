@@ -1,8 +1,9 @@
-import { Star, Quote } from "lucide-react";
+import { Star, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
 
-// Inline testimonials (will be replaced by shared/data/testimonials.ts import later)
 const TESTIMONIALS = [
   { name: "Sarah M.", suburb: "Bondi", service: "Termite Inspection", rating: 5, text: "Incredibly thorough inspection. They found early signs of termite activity that two other companies missed. Saved us thousands in potential damage. Highly recommend their thermal imaging service." },
   { name: "James T.", suburb: "Newtown", service: "Cockroach Treatment", rating: 5, text: "Had a serious cockroach problem in our terrace house. One treatment and they were gone completely. The technician was professional, on time, and explained everything clearly." },
@@ -12,40 +13,78 @@ const TESTIMONIALS = [
   { name: "Tom H.", suburb: "Coogee", service: "Bedbug Treatment", rating: 5, text: "Dealt with our bedbug nightmare quickly and discreetly. The heat treatment was incredibly effective. The follow-up inspection gave us complete peace of mind." },
 ];
 
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: 5 }).map((_, j) => (
+        <Star
+          key={j}
+          className={cn(
+            "h-4 w-4",
+            j < count ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
+          )}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function Testimonials() {
+  const { ref, isVisible } = useScrollReveal();
+  const [featured, ...rest] = TESTIMONIALS;
+
   return (
     <section className="section-padding bg-muted/30">
-      <div className="container-width">
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">Testimonials</Badge>
-          <h2 className="mb-4">What Sydney Homeowners Say</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it — hear from real customers across Sydney
-            who trust us to keep their homes pest-free.
+      <div
+        ref={ref}
+        className={cn("container-width", "reveal", isVisible && "visible")}
+      >
+        {/* Header row */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
+          <div>
+            <div className="w-12 h-2 bg-primary rounded-full mb-4" />
+            <h2 className="mb-0">What Sydney Homeowners Say</h2>
+          </div>
+          <p className="text-sm text-muted-foreground whitespace-nowrap">
+            4.9 out of 5 — based on 127 reviews
           </p>
         </div>
 
+        {/* Featured testimonial */}
+        <div className="bg-slate-900 text-white rounded-2xl p-8 mb-8">
+          <Stars count={featured.rating} />
+          <p className="text-lg leading-relaxed mt-4 mb-6">
+            "{featured.text}"
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                <span className="text-sm font-bold text-primary">
+                  {featured.name.charAt(0)}
+                </span>
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <p className="font-semibold text-sm">{featured.name}</p>
+                  <CheckCircle className="h-4 w-4 text-green-400 fill-green-400/20" />
+                </div>
+                <p className="text-xs text-slate-400">{featured.suburb}</p>
+              </div>
+            </div>
+            <Badge variant="outline" className="text-xs border-slate-600 text-slate-300">
+              {featured.service}
+            </Badge>
+          </div>
+        </div>
+
+        {/* Remaining testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((testimonial, i) => (
+          {rest.map((testimonial, i) => (
             <Card key={i} className="hover-lift">
               <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-primary/20 mb-3" />
+                <Stars count={testimonial.rating} />
 
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star
-                      key={j}
-                      className={`h-4 w-4 ${
-                        j < testimonial.rating
-                          ? "text-yellow-400 fill-yellow-400"
-                          : "text-slate-200"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 mt-3 leading-relaxed">
                   "{testimonial.text}"
                 </p>
 
