@@ -210,6 +210,20 @@ export default function SuburbServicePage() {
                 </CardContent>
               </Card>
 
+              {/* Back-link to service hub (hub-and-spoke) */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">About {service.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Learn more about our {service.name.toLowerCase()} process, pricing, and warranty.
+                  </p>
+                  <Link href={`/services/${service.slug}`} className="text-sm text-primary font-medium hover:underline inline-flex items-center gap-1">
+                    View {service.name} details
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </CardContent>
+              </Card>
+
               <Card className="bg-primary text-primary-foreground">
                 <CardContent className="p-6 text-center">
                   <h3 className="font-semibold mb-2">Need Help Now?</h3>

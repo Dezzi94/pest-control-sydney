@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
+import { SERVICES, COUNCILS, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
 import { getServiceContent } from "@shared/data/services";
 import { TESTIMONIALS } from "@shared/data/testimonials";
 
@@ -257,6 +257,42 @@ export default function ServiceDetailPage() {
                   <p className="text-sm text-muted-foreground leading-relaxed">{content.priceNote}</p>
                 </div>
               )}
+
+              {/* Service Areas — hub-and-spoke cross-link to combo pages */}
+              <div>
+                <h2 className="mb-4">{service.name} Across Sydney</h2>
+                <p className="text-muted-foreground mb-6">
+                  We provide professional {service.name.toLowerCase()} in {COUNCILS.reduce((sum, c) => sum + c.suburbs.length, 0)}+ suburbs
+                  across {COUNCILS.length} council areas in Sydney.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {COUNCILS.map((council) => (
+                    <div key={council.slug}>
+                      <h3 className="text-sm font-semibold mb-2">
+                        <Link href={`/locations/sydney/${council.slug}`} className="hover:text-primary transition-colors">
+                          {council.name}
+                        </Link>
+                      </h3>
+                      <div className="flex flex-wrap gap-1.5">
+                        {council.suburbs.map((sub) => (
+                          <Link
+                            key={sub.slug}
+                            href={`/locations/sydney/${council.slug}/${sub.slug}/services/${service.slug}`}
+                            className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4">
+                  <Link href="/locations" className="text-sm text-primary font-medium hover:underline">
+                    View all locations →
+                  </Link>
+                </div>
+              </div>
 
               {/* FAQ — unique per service from data */}
               <div>

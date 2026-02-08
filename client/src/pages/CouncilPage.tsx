@@ -136,7 +136,7 @@ export default function CouncilPage() {
         <div className="container-width">
           <h2 className="mb-8">Services Available in {council.name}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SERVICES.slice(0, 8).map((service) => (
+            {SERVICES.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`}>
                 <Card className="hover-lift cursor-pointer group">
                   <CardContent className="p-4">
@@ -151,7 +151,7 @@ export default function CouncilPage() {
           </div>
           <div className="text-center mt-6">
             <Button variant="outline" asChild>
-              <Link href="/services">View All Services</Link>
+              <Link href="/services">Learn More About Our Services</Link>
             </Button>
           </div>
         </div>
