@@ -100,6 +100,13 @@ export default function Header() {
                     Get Free Quote
                   </Link>
                 </Button>
+                <Link
+                  href="/admin/login"
+                  className="text-center text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Admin Portal
+                </Link>
               </div>
             </nav>
           </div>

@@ -49,10 +49,17 @@ export default function Testimonials() {
                   "{testimonial.text}"
                 </p>
 
-                <div className="flex items-center justify-between pt-3 border-t border-border">
-                  <div>
-                    <p className="font-semibold text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.suburb}</p>
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <span className="text-sm font-bold text-primary">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">{testimonial.name}</p>
+                      <p className="text-xs text-muted-foreground">{testimonial.suburb}</p>
+                    </div>
                   </div>
                   <Badge variant="outline" className="text-xs">
                     {testimonial.service}

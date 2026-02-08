@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, Mail, MapPin, Clock, Shield, Award, Leaf } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Shield, Award, Leaf, Lock } from "lucide-react";
 import { PHONE, PHONE_HREF, SERVICES, COUNCILS } from "@shared/routes/all-routes";
 
 const QUICK_LINKS = [
@@ -142,6 +142,10 @@ export default function Footer() {
               </Link>
               <Link href="/terms-conditions" className="hover:text-slate-300 transition-colors">
                 Terms & Conditions
+              </Link>
+              <Link href="/admin/login" className="flex items-center gap-1 hover:text-slate-300 transition-colors">
+                <Lock className="h-3 w-3" />
+                Admin
               </Link>
             </div>
           </div>

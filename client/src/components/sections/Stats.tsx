@@ -1,25 +1,27 @@
 import { Clock, Users, Shield, ThumbsUp } from "lucide-react";
 
 const STATS = [
-  { icon: Clock, value: "15+", label: "Years Experience", color: "text-blue-500" },
-  { icon: Users, value: "10,000+", label: "Happy Customers", color: "text-green-500" },
-  { icon: Shield, value: "100%", label: "Satisfaction Guarantee", color: "text-orange-500" },
-  { icon: ThumbsUp, value: "4.9/5", label: "Customer Rating", color: "text-yellow-500" },
+  { icon: Clock, value: "15+", label: "Years Experience", iconColor: "text-blue-500", bg: "bg-blue-50" },
+  { icon: Users, value: "10,000+", label: "Happy Customers", iconColor: "text-green-500", bg: "bg-green-50" },
+  { icon: Shield, value: "100%", label: "Satisfaction Guarantee", iconColor: "text-orange-500", bg: "bg-orange-50" },
+  { icon: ThumbsUp, value: "4.9/5", label: "Customer Rating", iconColor: "text-yellow-500", bg: "bg-yellow-50" },
 ];
 
 export default function Stats() {
   return (
     <section className="relative -mt-8 z-10">
       <div className="container-width">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {STATS.map((stat, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {STATS.map((stat) => (
             <div
               key={stat.label}
-              className="glass-card p-6 text-center hover-lift"
+              className="glass-card p-6 lg:p-8 text-center hover-lift group"
             >
-              <stat.icon className={`h-8 w-8 mx-auto mb-3 ${stat.color}`} />
-              <p className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</p>
-              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+              <div className={`w-14 h-14 rounded-xl ${stat.bg} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <stat.icon className={`h-7 w-7 ${stat.iconColor}`} />
+              </div>
+              <p className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">{stat.value}</p>
+              <p className="text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
