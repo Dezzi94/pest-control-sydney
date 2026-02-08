@@ -8,7 +8,7 @@ let db: ReturnType<typeof drizzle> | null = null;
 
 export function getDb() {
   if (!db) {
-    const url = process.env.DATABASE_URL;
+    const url = process.env.DATABASE_URL || process.env.NETLIFY_DATABASE_URL;
     if (!url) {
       console.warn("DATABASE_URL not set — database operations will fail");
       return null;
