@@ -4,27 +4,27 @@ import { cn } from "@/lib/utils";
 const STEPS = [
   {
     step: 1,
-    title: "Call or Book Online",
+    title: "Tell Us What's Wrong",
     description:
-      "Describe what you're seeing -- droppings, damage, live pests -- and we'll narrow down the species over the phone. We book a 2-hour window that suits your schedule, usually within 24 hours.",
+      "Call us or fill out the form — describe what you're seeing and we'll listen without judgement. We'll narrow down the species over the phone and book a 2-hour window that suits your schedule, usually within 24 hours.",
   },
   {
     step: 2,
-    title: "On-Site Inspection",
+    title: "We Inspect Your Property",
     description:
-      "Our licensed technician checks roof voids, subfloor, walls, and entry points with thermal imaging and moisture meters. You'll get a written report with photos, even if no treatment is needed.",
+      "Our licensed technician inspects roof voids, subfloor, walls, and entry points using thermal imaging and moisture meters. You'll receive a written report with photos — even if no treatment is needed.",
   },
   {
     step: 3,
-    title: "Targeted Treatment",
+    title: "Targeted, Safe Treatment",
     description:
-      "We match the method to the pest: gel baits for cockroaches, chemical barriers for termites, humane traps for possums. Every product is TGA-approved and safe around children and pets.",
+      "We match the method to the pest: gel baits for cockroaches, chemical barriers for termites, humane traps for possums. Every product is TGA-approved and safe around children and pets. Applied by licensed technicians (Lic. #PCL4892).",
   },
   {
     step: 4,
-    title: "Warranty and Follow-Up",
+    title: "Your Warranty Kicks In",
     description:
-      "You'll receive a detailed service report, prevention advice, and a written warranty. If pests return within the warranty period, we re-treat at no charge.",
+      "You'll receive a detailed service report, prevention advice, and a written warranty. If pests return during the warranty period, we re-treat at no charge. No questions asked.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Process() {
             <div className="w-12 h-2 bg-primary rounded mb-4" />
             <h2 className="mb-4">How It Works</h2>
             <p className="text-muted-foreground max-w-xl">
-              From your first call to ongoing protection -- four steps, no surprises.
+              From your first call to ongoing protection — four steps, no surprises, no hidden fees.
             </p>
           </div>
 

@@ -1,7 +1,7 @@
-import { Link } from "wouter";
 import { Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 const AVATARS = [
   { src: "/images/team/avatar-1.svg", alt: "Customer A" },
@@ -12,12 +12,14 @@ const AVATARS = [
 ];
 
 export default function CTASection() {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <section className="bg-slate-900">
       <div className="container-width section-padding">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-            Get Your Free Quote in 60 Seconds
+            Stop Worrying. Get Your Free Quote in 60 Seconds.
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
             Tell us about your pest problem and we'll call you back within
@@ -25,11 +27,9 @@ export default function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-            <Button variant="accent" size="lg" asChild>
-              <Link href="/?quote=open">
-                Request Free Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
+              Request Free Quote
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               size="lg"
@@ -59,6 +59,9 @@ export default function CTASection() {
               Trusted by 2,400+ Sydney homeowners
             </p>
           </div>
+          <p className="text-xs text-slate-500 mt-4">
+            No credit card. No commitment. Just honest advice from licensed professionals.
+          </p>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Shield, Award, Leaf, Lock } from "lucide-react";
-import { PHONE, PHONE_HREF, SERVICES, COUNCILS } from "@shared/routes/all-routes";
+import { PHONE, PHONE_HREF, SERVICES, COUNCILS, getServiceBySlug } from "@shared/routes/all-routes";
+import { usePersonalisation } from "@/hooks/usePersonalisation";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -13,6 +14,11 @@ const TOP_COUNCILS = COUNCILS.slice(0, 6);
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { viewedServices } = usePersonalisation();
+  const recentServices = viewedServices
+    .slice(0, 4)
+    .map((slug) => getServiceBySlug(slug))
+    .filter(Boolean);
 
   return (
     <footer className="bg-slate-900 text-slate-300">
@@ -21,14 +27,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-lg">PC</span>
-              </div>
-              <div>
-                <span className="font-bold text-white">Pest Control</span>
-                <span className="font-bold text-primary ml-1">Sydney</span>
-              </div>
+            <div className="mb-4">
+              <img
+                src="/images/brand/logo-white.svg"
+                alt="Pest Control Sydney"
+                className="h-11 w-auto"
+                width={220}
+                height={44}
+              />
             </div>
             <p className="text-sm mb-6 text-slate-400">
               Sydney's trusted pest control experts. Licensed technicians, eco-friendly treatments,
@@ -129,13 +135,26 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {recentServices.length > 0 && (
+          <div className="border-t border-slate-800 mt-8 pt-8">
+            <h3 className="text-white font-semibold mb-3 text-sm">Recently Viewed</h3>
+            <div className="flex flex-wrap gap-2">
+              {recentServices.map((service) => (
+                <Link key={service!.slug} href={`/services/${service!.slug}`} className="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition-colors">
+                  {service!.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
         <div className="container-width py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-            <p>&copy; {year} Pest Control Sydney. All rights reserved.</p>
+            <p>&copy; {year} Pest Control Sydney. All rights reserved. Licensed #PCL4892 &middot; Proudly Australian owned and operated.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
                 Privacy Policy

@@ -1,22 +1,29 @@
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const STATS = [
-  { value: "15+ Years", label: "In Business" },
-  { value: "10,000+ Jobs", label: "Completed" },
-  { value: "100% Guarantee", label: "Satisfaction" },
-  { value: "4.9\u2605 Rating", label: "Google Reviews" },
+  { numericValue: 15, suffix: "+", unit: "Years", label: "In Business", decimals: 0 },
+  { numericValue: 10000, suffix: "+", unit: "Jobs", label: "Completed", decimals: 0 },
+  { numericValue: 100, suffix: "%", unit: "", label: "Money-Back Guarantee", decimals: 0 },
+  { numericValue: 4.9, suffix: "\u2605", unit: "", label: "Verified Reviews", decimals: 1 },
 ];
 
-export default function Stats() {
-  const { ref, isVisible } = useScrollReveal(0.2);
-
+function StatItem({ stat }: { stat: typeof STATS[number] }) {
+  const { ref, displayValue } = useCountUp(stat.numericValue, { decimals: stat.decimals });
   return (
-    <section
-      ref={ref}
-      className={`bg-amber-50/60 border-y border-amber-100/80 py-5 reveal ${isVisible ? "visible" : ""}`}
-    >
+    <p className="text-sm text-slate-700">
+      <span ref={ref} className="font-bold text-slate-900">{displayValue}{stat.suffix}</span>
+      {stat.unit && <span className="font-bold text-slate-900"> {stat.unit}</span>}
+      {" "}
+      <span className="text-slate-500">{stat.label}</span>
+    </p>
+  );
+}
+
+export default function Stats() {
+  return (
+    <section className="bg-amber-50/60 border-y border-amber-100/80 py-5">
       <div className="container-width">
-        {/* Desktop: single row with pipe separators. Mobile: 2x2 grid */}
+        {/* Desktop: single row with pipe separators */}
         <div className="hidden sm:flex items-center justify-center gap-0">
           {STATS.map((stat, i) => (
             <div key={stat.label} className="flex items-center">
@@ -25,11 +32,7 @@ export default function Stats() {
                   |
                 </span>
               )}
-              <p className="text-sm text-slate-700">
-                <span className="font-bold text-slate-900">{stat.value}</span>
-                {" "}
-                <span className="text-slate-500">{stat.label}</span>
-              </p>
+              <StatItem stat={stat} />
             </div>
           ))}
         </div>
@@ -37,10 +40,9 @@ export default function Stats() {
         {/* Mobile: 2x2 compact grid */}
         <div className="grid grid-cols-2 gap-y-3 gap-x-8 sm:hidden">
           {STATS.map((stat) => (
-            <p key={stat.label} className="text-sm text-slate-700 text-center">
-              <span className="font-bold text-slate-900 block">{stat.value}</span>
-              <span className="text-slate-500 text-xs">{stat.label}</span>
-            </p>
+            <div key={stat.label} className="text-center">
+              <StatItem stat={stat} />
+            </div>
           ))}
         </div>
       </div>

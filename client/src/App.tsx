@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
+import { QuoteModalProvider } from "@/hooks/useQuoteModal";
+import QuoteFormModal from "@/components/forms/QuoteFormModal";
 
 // Eagerly loaded (critical path)
 import HomePage from "@/pages/HomePage";
@@ -28,7 +30,7 @@ function PageLoader() {
 
 function App() {
   return (
-    <>
+    <QuoteModalProvider>
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" component={HomePage} />
@@ -45,8 +47,9 @@ function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Suspense>
+      <QuoteFormModal />
       <Toaster />
-    </>
+    </QuoteModalProvider>
   );
 }
 

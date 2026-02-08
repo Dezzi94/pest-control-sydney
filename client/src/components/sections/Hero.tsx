@@ -1,29 +1,47 @@
 import { Link } from "wouter";
-import { Phone, Shield, Clock } from "lucide-react";
+import { Phone, Shield, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { usePersonalisation } from "@/hooks/usePersonalisation";
 import HeroQuoteForm from "@/components/forms/HeroQuoteForm";
+
+const PEST_LABELS: Record<string, string> = {
+  "cockroach-treatment": "cockroaches",
+  "termite-inspection": "termites",
+  "rodent-control": "rats and mice",
+  "spider-treatment": "spiders",
+  "ant-control": "ants",
+  "bedbug-treatment": "bed bugs",
+  "bird-control": "birds",
+  "general-pest-control": "pests",
+};
 
 export default function Hero() {
   const { ref, isVisible } = useScrollReveal(0.1);
+  const { selectedPest, isReturningVisitor } = usePersonalisation();
+
+  const pestLabel = selectedPest ? PEST_LABELS[selectedPest] ?? null : null;
+  const showReturning = isReturningVisitor && pestLabel;
 
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-slate-900">
+    <section className="noise-overlay relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-slate-900">
       {/* Background image with dark overlay */}
       <img
         src="/images/hero/homepage-hero.jpg"
-        alt=""
+        alt="Professional pest control technician inspecting a Sydney home"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />
-      <div className="absolute inset-0 bg-slate-900/80" />
+      <div className="absolute inset-0 bg-slate-900/[0.88]" />
+      {/* Bottom gradient for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
       {/* Subtle blue accent wash */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 30% 60%, rgba(59,130,246,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 20% 50%, rgba(59,130,246,0.18) 0%, transparent 70%)",
         }}
       />
 
@@ -44,11 +62,11 @@ export default function Hero() {
               Trusted by 2,400+ Sydney homeowners since 2009
             </p>
 
-            {/* Subheadline — specific, not generic */}
+            {/* Subheadline — personalised for returning visitors */}
             <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
-              Licensed technicians serving every Sydney suburb — from the
-              Northern Beaches to Sutherland Shire. Same-day service,
-              eco-friendly treatments, guaranteed results.
+              {showReturning
+                ? `Welcome back \u2014 still dealing with ${pestLabel}? Our licensed technicians (Lic. #PCL4892) are ready to help. Pick up where you left off.`
+                : "Don't let pests take over your home. Our licensed technicians (Lic. #PCL4892) arrive on time, explain everything upfront, and guarantee their work \u2014 or we come back free."}
             </p>
 
             {/* CTAs */}
@@ -59,7 +77,11 @@ export default function Hero() {
                 className="shadow-lg shadow-orange-500/20"
                 asChild
               >
-                <Link href="/?quote=open">Get Your Free Quote</Link>
+                <Link href="/?quote=open">
+                  {showReturning
+                    ? "Continue Your Quote"
+                    : "Get Your Free Quote"}
+                </Link>
               </Button>
               <Button
                 variant="outline"
@@ -74,15 +96,19 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* Two trust badges — just two, not four */}
+            {/* Three trust badges */}
             <div className="flex flex-wrap gap-6">
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <Shield className="h-4 w-4 text-green-400" />
-                Licensed &amp; Insured
+                Licensed #PCL4892
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <Clock className="h-4 w-4 text-blue-400" />
-                Same-Day Available
+                Same-Day Service
+              </span>
+              <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
+                <CheckCircle className="h-4 w-4 text-orange-400" />
+                100% Money-Back Guarantee
               </span>
             </div>
           </div>

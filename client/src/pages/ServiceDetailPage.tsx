@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -46,6 +47,7 @@ const DEFAULT_FAQS = [
 export default function ServiceDetailPage() {
   const params = useParams<{ serviceSlug: string }>();
   const service = getServiceBySlug(params.serviceSlug || "");
+  const { openQuoteModal } = useQuoteModal();
 
   if (!service) {
     return (
@@ -112,8 +114,8 @@ export default function ServiceDetailPage() {
                   {service.priceFrom === "Quote" ? "Free Quote" : service.priceFrom}
                 </p>
                 <div className="space-y-3">
-                  <Button variant="accent" size="lg" className="w-full" asChild>
-                    <Link href="/?quote=open">Get Free Quote</Link>
+                  <Button variant="accent" size="lg" className="w-full" onClick={() => openQuoteModal(service.slug)}>
+                    Get Free Quote
                   </Button>
                   <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
                     <a href={PHONE_HREF}>
@@ -145,6 +147,23 @@ export default function ServiceDetailPage() {
                     Every treatment comes with our 100% satisfaction guarantee — if pests return during the
                     warranty period, we'll re-treat your property at no extra cost.
                   </p>
+                </div>
+              </div>
+
+              {/* Our Promise */}
+              <div className="border-l-4 border-green-500 bg-green-50 rounded-r-lg p-6">
+                <h3 className="font-semibold text-green-900 mb-3">Our Promise to You</h3>
+                <div className="space-y-2">
+                  {[
+                    "If pests return during warranty, we re-treat free — no questions asked",
+                    "Fixed pricing — the quote you get is the price you pay",
+                    "Licensed technicians (Lic. #PCL4892) with current NSW pest control licences",
+                  ].map((promise) => (
+                    <div key={promise} className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                      <span className="text-sm text-green-800">{promise}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 

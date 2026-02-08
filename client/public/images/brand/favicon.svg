@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Shield shape scaled to 32x32 -->
+  <path d="M16 1L3 7.2v9.1c0 8.58 5.54 16.6 13 18.53C23.46 32.9 29 24.88 29 16.3V7.2L16 1z" fill="#3b82f6"/>
+  <path d="M16 3.6L5.6 8.8v7.5c0 7.3 4.7 14.1 10.4 15.8V3.6z" fill="#60a5fa" opacity="0.3"/>
+  <path d="M12 16l3.2 3.2L21 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

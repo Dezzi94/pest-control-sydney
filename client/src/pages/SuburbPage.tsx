@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import CTASection from "@/components/sections/CTASection";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -15,6 +16,7 @@ export default function SuburbPage() {
   const params = useParams<{ councilSlug: string; suburbSlug: string }>();
   const council = getCouncilBySlug(params.councilSlug || "");
   const suburb = getSuburbBySlug(params.councilSlug || "", params.suburbSlug || "");
+  const { openQuoteModal } = useQuoteModal();
 
   if (!council || !suburb) {
     return (
@@ -64,9 +66,7 @@ export default function SuburbPage() {
             </div>
 
             <div className="flex flex-col gap-3 lg:min-w-[250px]">
-              <Button variant="accent" size="lg" asChild>
-                <Link href="/?quote=open">Get Free Quote</Link>
-              </Button>
+              <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>Get Free Quote</Button>
               <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
                 <a href={PHONE_HREF}>
                   <Phone className="mr-2 h-4 w-4" />

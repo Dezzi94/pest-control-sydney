@@ -51,7 +51,7 @@ export default function TrustBadges() {
             <div className="lg:col-span-2">
               <div className="w-12 h-2 bg-primary rounded-full mb-6" />
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-5">
-                Why Sydney Trusts Us
+                Why 2,400+ Sydney Homeowners Choose Us
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 For over 15 years, we have protected Sydney homes and businesses
@@ -63,7 +63,7 @@ export default function TrustBadges() {
                 href="/services"
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
               >
-                Learn About Our Guarantee
+                See Our Guarantee
               </Link>
             </div>
 

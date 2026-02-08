@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -13,20 +14,28 @@ const NAV_LINKS = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container-width">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">PC</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-bold text-lg text-foreground">Pest Control</span>
-              <span className="font-bold text-lg text-primary ml-1">Sydney</span>
-            </div>
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <img
+              src="/images/brand/logo-icon.svg"
+              alt=""
+              className="w-10 h-10 sm:hidden"
+              width={40}
+              height={40}
+            />
+            <img
+              src="/images/brand/logo.svg"
+              alt="Pest Control Sydney"
+              className="hidden sm:block h-11 w-auto"
+              width={220}
+              height={44}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -53,9 +62,7 @@ export default function Header() {
               <Phone className="h-4 w-4 text-primary" />
               {PHONE}
             </a>
-            <Button variant="accent" size="lg" asChild>
-              <Link href="/?quote=open">Get Free Quote</Link>
-            </Button>
+            <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>Get Free Quote</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,10 +102,8 @@ export default function Header() {
                   <Phone className="h-4 w-4" />
                   Call {PHONE}
                 </a>
-                <Button variant="accent" size="lg" className="w-full" asChild>
-                  <Link href="/?quote=open" onClick={() => setMobileOpen(false)}>
+                <Button variant="accent" size="lg" className="w-full" onClick={() => { openQuoteModal(); setMobileOpen(false); }}>
                     Get Free Quote
-                  </Link>
                 </Button>
                 <Link
                   href="/admin/login"

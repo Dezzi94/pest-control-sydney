@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
 
 export default function SuburbServicePage() {
@@ -13,6 +14,7 @@ export default function SuburbServicePage() {
   const council = getCouncilBySlug(params.councilSlug || "");
   const suburb = getSuburbBySlug(params.councilSlug || "", params.suburbSlug || "");
   const service = getServiceBySlug(params.serviceSlug || "");
+  const { openQuoteModal } = useQuoteModal();
 
   if (!council || !suburb || !service) {
     return (
@@ -72,8 +74,8 @@ export default function SuburbServicePage() {
                   {service.priceFrom === "Quote" ? "Free Quote" : service.priceFrom}
                 </p>
                 <div className="space-y-3">
-                  <Button variant="accent" className="w-full" asChild>
-                    <Link href="/?quote=open">Get Free Quote</Link>
+                  <Button variant="accent" className="w-full" onClick={() => openQuoteModal(service.slug)}>
+                    Get Free Quote
                   </Button>
                   <Button variant="outline" size="sm" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
                     <a href={PHONE_HREF}>

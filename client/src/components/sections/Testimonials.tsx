@@ -46,7 +46,7 @@ export default function Testimonials() {
             <h2 className="mb-0">What Sydney Homeowners Say</h2>
           </div>
           <p className="text-sm text-muted-foreground whitespace-nowrap">
-            4.9 out of 5 — based on 127 reviews
+            4.9 out of 5 — from 127 verified Google reviews
           </p>
         </div>
 
