@@ -358,6 +358,20 @@
   transition: all 0.3s ease;
 }
 
+/* Marquee animation for brand logos */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Reduced motion (accessibility) */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
@@ -387,5 +401,8 @@
   }
   .process-step:hover {
     transform: none !important;
+  }
+  .animate-marquee {
+    animation: none !important;
   }
 }

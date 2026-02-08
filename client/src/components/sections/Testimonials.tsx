@@ -66,7 +66,10 @@ export default function Testimonials() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <p className="font-semibold text-sm">{featured.name}</p>
-                  <CheckCircle className="h-4 w-4 text-green-400 fill-green-400/20" />
+                  <span className="inline-flex items-center gap-1 bg-green-500/15 text-green-400 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    <CheckCircle className="h-3 w-3" />
+                    Verified
+                  </span>
                 </div>
                 <p className="text-xs text-slate-400">{featured.suburb}</p>
               </div>

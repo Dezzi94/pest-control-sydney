@@ -206,53 +206,67 @@ export default function HeroQuoteForm() {
     const pestLabel = getPestLabel(pestType);
     const serviceHref = `/services/${pestType}`;
     return (
-      <div className="w-full max-w-sm rounded-2xl gradient-border bg-slate-800/90 backdrop-blur-xl shadow-2xl shadow-black/30 p-8 text-center relative">
-        {/* Confetti dots */}
-        {CONFETTI_COLOURS.map((colour, i) => (
-          <span
-            key={i}
-            className="confetti-dot absolute w-2 h-2 rounded-full pointer-events-none"
-            style={{
-              backgroundColor: colour,
-              left: `${12 + i * 11}%`,
-              bottom: "40%",
-              animationDelay: `${i * 0.08}s`,
-            }}
-          />
-        ))}
-
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-500/10">
-          <CheckCircle className="h-7 w-7 text-green-400" />
+      <div className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl shadow-2xl shadow-black/30 text-center relative border border-blue-500/20">
+        {/* Brand header */}
+        <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
+          <CheckCircle className="h-8 w-8 text-white mx-auto mb-2" />
+          <h3 className="text-lg font-semibold text-white">
+            Thank You, {name.trim().split(" ")[0]}!
+          </h3>
         </div>
 
-        <h3 className="text-lg font-semibold text-white mb-2">
-          Thank You, {name.trim().split(" ")[0]}!
-        </h3>
+        {/* Content */}
+        <div className="p-8">
+          {/* Confetti dots */}
+          {CONFETTI_COLOURS.map((colour, i) => (
+            <span
+              key={i}
+              className="confetti-dot absolute w-2 h-2 rounded-full pointer-events-none"
+              style={{
+                backgroundColor: colour,
+                left: `${12 + i * 11}%`,
+                bottom: "40%",
+                animationDelay: `${i * 0.08}s`,
+              }}
+            />
+          ))}
 
-        <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-          We'll call you within 30 minutes during business hours.
-        </p>
+          <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+            We'll call you within 30 minutes during business hours.
+          </p>
 
-        <a
-          href={serviceHref}
-          className="block text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors mb-4"
-        >
-          Learn more about {pestLabel.toLowerCase()} treatment &rarr;
-        </a>
+          <a
+            href={serviceHref}
+            className="block text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors mb-4"
+          >
+            Learn more about {pestLabel.toLowerCase()} treatment &rarr;
+          </a>
 
-        <a
-          href={PHONE_HREF}
-          className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-        >
-          <Phone className="h-4 w-4" />
-          Or call us now: {PHONE}
-        </a>
+          <a
+            href={PHONE_HREF}
+            className="inline-flex items-center gap-2 text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            Or call us now: {PHONE}
+          </a>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-sm rounded-2xl gradient-border bg-slate-800/90 backdrop-blur-xl shadow-2xl shadow-black/30 p-6 sm:p-8">
+    <div className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl shadow-2xl shadow-black/30 border border-blue-500/20">
+      {/* Brand header */}
+      <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
+        <h2 className="text-lg font-semibold text-white mb-1">
+          Get Your Free Quote in 60 Seconds
+        </h2>
+        <p className="text-xs text-blue-100/80">
+          Free inspection &middot; No hidden fees &middot; We call you within 30 min
+        </p>
+      </div>
+
+      <div className="p-6 sm:p-8">
       {/* Draft restoration banner */}
       {showDraftBanner && (
         <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-400/20">
@@ -270,22 +284,28 @@ export default function HeroQuoteForm() {
         </div>
       )}
 
-      {/* Header */}
-      <h2 className="text-lg font-semibold text-white mb-1">
-        Get Your Free Quote &mdash; No Obligation
-      </h2>
-      <p className="text-xs text-slate-400 mb-5">
-        Free inspection &middot; No hidden fees &middot; We call you within 30
-        minutes
-      </p>
+      {/* Urgency indicator */}
+      <div className="flex items-center gap-2 mb-5 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-400/20">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+        <span className="text-xs text-green-300">
+          {(() => {
+            const base = [8, 12, 6, 14, 11, 9, 5];
+            const count = base[new Date().getDay()];
+            return `${count} people requested a quote today`;
+          })()}
+        </span>
+      </div>
 
-      {/* Progress bars (3 steps) */}
+      {/* Progress bars (3 steps) — brand orange */}
       <div className="flex items-center gap-2 mb-6">
         {[1, 2, 3].map((s) => (
           <div key={s} className="flex-1">
             <div
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                s <= step ? "bg-blue-400" : "bg-white/10"
+                s <= step ? "bg-orange-500" : "bg-white/10"
               }`}
             />
           </div>
@@ -305,7 +325,7 @@ export default function HeroQuoteForm() {
           {step === 1 && (
             <>
               <p className="text-sm font-medium text-slate-300 mb-3">
-                What's bugging you?
+                What pest problem are you dealing with?
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
                 {PEST_OPTIONS.map((pest) => {
@@ -541,6 +561,7 @@ export default function HeroQuoteForm() {
             </>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

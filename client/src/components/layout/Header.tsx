@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
@@ -16,11 +16,32 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
   const { openQuoteModal } = useQuoteModal();
+  const isHome = location === "/";
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 50);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const showTransparent = isHome && !scrolled && !mobileOpen;
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <header
+      className={cn(
+        "sticky top-0 z-40 transition-all duration-300",
+        showTransparent
+          ? "bg-transparent border-b border-transparent"
+          : "bg-white/95 backdrop-blur-md border-b border-border shadow-sm"
+      )}
+      style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
+    >
       <div className="container-width">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -33,7 +54,7 @@ export default function Header() {
               height={40}
             />
             <img
-              src="/images/brand/logo.svg"
+              src={showTransparent ? "/images/brand/logo-white.svg" : "/images/brand/logo.svg"}
               alt="Pest Control Sydney"
               className="hidden sm:block h-11 w-auto"
               width={220}
@@ -50,8 +71,12 @@ export default function Header() {
                 className={cn(
                   "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                   location === link.href || location.startsWith(link.href + "/")
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? showTransparent
+                      ? "bg-white/15 text-white"
+                      : "bg-primary/10 text-primary"
+                    : showTransparent
+                      ? "text-white/80 hover:text-white hover:bg-white/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {link.label}
@@ -61,16 +86,27 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href={PHONE_HREF} className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <Phone className="h-4 w-4 text-primary" />
+            <a
+              href={PHONE_HREF}
+              className={cn(
+                "flex items-center gap-2 text-sm font-semibold",
+                showTransparent ? "text-white" : "text-foreground"
+              )}
+            >
+              <Phone className={cn("h-4 w-4", showTransparent ? "text-blue-300" : "text-primary")} />
               {PHONE}
             </a>
-            <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>Get Free Quote</Button>
+            <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
+              Get My Free Quote
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className={cn(
+              "lg:hidden p-2 rounded-lg transition-colors",
+              showTransparent ? "text-white hover:bg-white/10" : "hover:bg-muted"
+            )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
@@ -80,7 +116,7 @@ export default function Header() {
 
         {/* Mobile Nav */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-border py-4 animate-fade-in">
+          <div className="lg:hidden border-t border-border py-4 animate-fade-in bg-white rounded-b-xl">
             <nav className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -106,15 +142,8 @@ export default function Header() {
                   Call {PHONE}
                 </a>
                 <Button variant="accent" size="lg" className="w-full" onClick={() => { openQuoteModal(); setMobileOpen(false); }}>
-                    Get Free Quote
+                  Get My Free Quote
                 </Button>
-                <Link
-                  href="/admin/login"
-                  className="text-center text-xs text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Admin Portal
-                </Link>
               </div>
             </nav>
           </div>

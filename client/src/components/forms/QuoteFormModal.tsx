@@ -105,7 +105,7 @@ export default function QuoteFormModal() {
       <DialogContent className="sm:max-w-md backdrop-blur-sm">
         <DialogHeader>
           <DialogTitle>
-            {isSuccess ? "Quote Requested!" : "Get Your Free Quote"}
+            {isSuccess ? "Quote Requested!" : "Get My Free Quote"}
           </DialogTitle>
           <DialogDescription>
             {isSuccess
@@ -243,7 +243,7 @@ export default function QuoteFormModal() {
                   </>
                 ) : (
                   <>
-                    Get Free Quote
+                    Get My Free Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </>
                 )}

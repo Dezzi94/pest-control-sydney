@@ -5,7 +5,7 @@ const STATS = [
   { numericValue: 10000, suffix: "+", unit: "Jobs", label: "Completed", decimals: 0 },
   { numericValue: 100, suffix: "%", unit: "", label: "Money-Back Guarantee", decimals: 0 },
   { numericValue: 4.9, suffix: "\u2605", unit: "", label: "Verified Reviews", decimals: 1 },
-];
+] as const;
 
 function StatItem({ stat }: { stat: typeof STATS[number] }) {
   const { ref, displayValue } = useCountUp(stat.numericValue, { decimals: stat.decimals });

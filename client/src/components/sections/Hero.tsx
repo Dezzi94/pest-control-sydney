@@ -54,17 +54,16 @@ export default function Hero() {
           {/* ── Left column: copy (60%) ── */}
           <div className="lg:w-[58%]">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
-              Sydney's Most Trusted{" "}
-              <span className="text-blue-400">Pest Control</span> Experts
+              End Your <span className="text-blue-400">Pest Problem</span> Today — Guaranteed
             </h1>
 
             {/* Social proof line */}
-            <p className="text-sm text-slate-400 tracking-wide uppercase font-medium">
+            <p className="text-sm text-slate-400 tracking-wide uppercase font-medium mb-3">
               Trusted by 2,400+ Sydney homeowners since 2009
             </p>
 
-            {/* Google Reviews badge */}
-            <div className="flex items-center gap-2 mb-6">
+            {/* Google Reviews badge + Credential pill */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <div className="flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -76,13 +75,17 @@ export default function Hero() {
                 <span className="text-xs font-semibold text-white ml-1">4.9</span>
                 <span className="text-xs text-slate-400">&middot; 127 Google Reviews</span>
               </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                <Shield className="h-3.5 w-3.5 text-green-400" />
+                <span className="text-xs font-semibold text-white">NSW Lic. #PCL4892</span>
+              </div>
             </div>
 
             {/* Subheadline — personalised for returning visitors */}
             <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-xl leading-relaxed">
               {showReturning
-                ? `Welcome back \u2014 still dealing with ${pestLabel}? Our licensed technicians (Lic. #PCL4892) are ready to help. Pick up where you left off.`
-                : "Don't let pests take over your home. Our licensed technicians (Lic. #PCL4892) arrive on time, explain everything upfront, and guarantee their work \u2014 or we come back free."}
+                ? `Welcome back \u2014 still dealing with ${pestLabel}? Our licensed technicians are ready to help. Pick up where you left off.`
+                : "Hear scratching at night? Finding droppings in the kitchen? Our licensed technicians arrive same-day, fix the problem at the source, and guarantee their work \u2014 or we come back free. No upfront cost to quote."}
             </p>
 
             {/* CTAs */}
@@ -94,8 +97,8 @@ export default function Hero() {
                 onClick={() => openQuoteModal()}
               >
                 {showReturning
-                  ? "Continue Your Quote"
-                  : "Get Your Free Quote"}
+                  ? "Continue My Quote"
+                  : "Get My Free Quote Now"}
               </Button>
               <Button
                 variant="outline"

@@ -1,4 +1,4 @@
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
@@ -18,17 +18,26 @@ export default function CTASection() {
     <section className="bg-slate-900">
       <div className="container-width section-padding">
         <div className="text-center max-w-2xl mx-auto">
+          {/* Same-day badge */}
+          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400/20 rounded-full px-4 py-1.5 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-xs font-medium text-green-300">Same-day service available</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-            Stop Worrying. Get Your Free Quote in 60 Seconds.
+            Still Thinking About It? Your Pest Problem Won't Fix Itself.
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
-            Tell us about your pest problem and we'll call you back within
-            30 minutes with a fixed-price quote. No obligation.
+            Every hour you wait, the problem grows. Tell us what you're dealing with
+            — we'll call you within 30 minutes with a fixed-price quote. If our
+            treatment doesn't work, we come back free.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
             <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
-              Request Free Quote
+              Get My Free Quote
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button

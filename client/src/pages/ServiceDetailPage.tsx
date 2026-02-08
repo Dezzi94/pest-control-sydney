@@ -9,6 +9,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
+import { getServiceContent } from "@shared/data/services";
+import { TESTIMONIALS } from "@shared/data/testimonials";
 
 // Map service slugs to background images
 const SERVICE_IMAGES: Record<string, string> = {
@@ -41,6 +43,15 @@ const DEFAULT_PROCESS = [
   { title: "Follow-Up", description: "We provide a detailed report, prevention advice, and warranty. If pests return during warranty, we re-treat at no cost." },
 ];
 
+const DEFAULT_BENEFITS = [
+  "Licensed & fully insured technicians",
+  "Eco-friendly, pet-safe products",
+  "Same-day service available",
+  "100% satisfaction guarantee",
+  "Transparent pricing — no hidden fees",
+  "Written warranty on all treatments",
+];
+
 const DEFAULT_FAQS = [
   { question: "How long does the treatment take?", answer: "Most treatments take 1-2 hours depending on the size of your property and the extent of the infestation. We'll give you a time estimate before we begin." },
   { question: "Is the treatment safe for children and pets?", answer: "Yes. We use eco-friendly, low-toxicity products that are safe for your family and pets. We'll advise on any precautions needed during and after treatment." },
@@ -68,8 +79,19 @@ export default function ServiceDetailPage() {
     );
   }
 
+  // Wire up rich content from data files — fall back to defaults
+  const content = getServiceContent(service.slug);
+  const process = content?.process ?? DEFAULT_PROCESS;
+  const benefits = content?.benefits ?? DEFAULT_BENEFITS;
+  const faqs = content?.faqs ?? DEFAULT_FAQS;
+
   const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
   const relatedServices = SERVICES.filter((s) => s.category === service.category && s.slug !== service.slug).slice(0, 4);
+
+  // Find matching testimonials for this service
+  const serviceTestimonials = TESTIMONIALS.filter(
+    (t) => t.service === service.slug
+  ).slice(0, 2);
 
   return (
     <Layout>
@@ -112,6 +134,7 @@ export default function ServiceDetailPage() {
               <p className="text-lg text-slate-300">{service.shortDescription}</p>
             </div>
 
+            {/* Sticky pricing card on desktop */}
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white lg:min-w-[300px]">
               <CardContent className="p-6 text-center">
                 <p className="text-sm text-slate-300 mb-2">Starting from</p>
@@ -120,7 +143,7 @@ export default function ServiceDetailPage() {
                 </p>
                 <div className="space-y-3">
                   <Button variant="accent" size="lg" className="w-full" onClick={() => openQuoteModal(service.slug)}>
-                    Get Free Quote
+                    Get My Free Quote
                   </Button>
                   <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
                     <a href={PHONE_HREF}>
@@ -141,17 +164,25 @@ export default function ServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main content */}
             <div className="lg:col-span-2 space-y-12">
-              {/* Description */}
+              {/* Long description — unique 800+ words from data */}
               <div>
                 <h2 className="mb-4">Professional {service.name} in Sydney</h2>
                 <div className="prose prose-slate max-w-none">
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our {service.name.toLowerCase()} service provides comprehensive protection for homes and
-                    businesses across Sydney. With over 15 years of experience, our licensed technicians use
-                    the latest equipment and eco-friendly products to deliver effective, long-lasting results.
-                    Every treatment comes with our 100% satisfaction guarantee — if pests return during the
-                    warranty period, we'll re-treat your property at no extra cost.
-                  </p>
+                  {content?.longDescription ? (
+                    content.longDescription.split("\n\n").map((paragraph, i) => (
+                      <p key={i} className="text-muted-foreground leading-relaxed mb-4">
+                        {paragraph}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed">
+                      Our {service.name.toLowerCase()} service provides comprehensive protection for homes and
+                      businesses across Sydney. With over 15 years of experience, our licensed technicians use
+                      the latest equipment and eco-friendly products to deliver effective, long-lasting results.
+                      Every treatment comes with our 100% satisfaction guarantee — if pests return during the
+                      warranty period, we'll re-treat your property at no extra cost.
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -172,11 +203,27 @@ export default function ServiceDetailPage() {
                 </div>
               </div>
 
-              {/* Process */}
+              {/* Inline testimonial */}
+              {serviceTestimonials.length > 0 && (
+                <div className="space-y-4">
+                  {serviceTestimonials.map((testimonial, i) => (
+                    <blockquote key={i} className="border-l-4 border-primary/30 bg-muted/40 rounded-r-lg p-6">
+                      <p className="text-muted-foreground italic leading-relaxed mb-3">
+                        "{testimonial.text}"
+                      </p>
+                      <footer className="text-sm font-medium">
+                        — {testimonial.name}, {testimonial.suburb}
+                      </footer>
+                    </blockquote>
+                  ))}
+                </div>
+              )}
+
+              {/* Process — unique per service from data */}
               <div>
                 <h2 className="mb-6">Our {service.name} Process</h2>
                 <div className="space-y-4">
-                  {DEFAULT_PROCESS.map((step, i) => (
+                  {process.map((step, i) => (
                     <div key={i} className="flex gap-4 p-4 rounded-lg border border-border">
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <span className="text-sm font-bold text-primary">{i + 1}</span>
@@ -190,18 +237,11 @@ export default function ServiceDetailPage() {
                 </div>
               </div>
 
-              {/* Benefits */}
+              {/* Benefits — unique per service from data */}
               <div>
                 <h2 className="mb-6">Why Choose Our {service.name}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                    "Licensed & fully insured technicians",
-                    "Eco-friendly, pet-safe products",
-                    "Same-day service available",
-                    "100% satisfaction guarantee",
-                    "Transparent pricing — no hidden fees",
-                    "Written warranty on all treatments",
-                  ].map((benefit) => (
+                  {benefits.map((benefit) => (
                     <div key={benefit} className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                       <span className="text-sm">{benefit}</span>
@@ -210,11 +250,19 @@ export default function ServiceDetailPage() {
                 </div>
               </div>
 
-              {/* FAQ */}
+              {/* Price note */}
+              {content?.priceNote && (
+                <div className="bg-muted/50 rounded-lg p-6">
+                  <h3 className="font-semibold mb-2">Pricing Information</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{content.priceNote}</p>
+                </div>
+              )}
+
+              {/* FAQ — unique per service from data */}
               <div>
                 <h2 className="mb-6">{service.name} FAQ</h2>
                 <Accordion type="single" collapsible className="w-full">
-                  {DEFAULT_FAQS.map((faq, i) => (
+                  {faqs.map((faq, i) => (
                     <AccordionItem key={i} value={`faq-${i}`}>
                       <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
@@ -226,8 +274,8 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <aside className="space-y-6">
+            {/* Sidebar — sticky on desktop */}
+            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               {/* Related services */}
               <Card>
                 <CardContent className="p-6">

@@ -1,13 +1,15 @@
 import { useParams, Link } from "wouter";
-import { MapPin, ArrowRight, ChevronRight, Phone } from "lucide-react";
+import { MapPin, ArrowRight, ChevronRight, Phone, Bug } from "lucide-react";
 import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, PHONE, PHONE_HREF, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
+import { getSuburbContent } from "@shared/data/suburbs";
 
 export default function SuburbPage() {
   const params = useParams<{ councilSlug: string; suburbSlug: string }>();
@@ -27,6 +29,8 @@ export default function SuburbPage() {
       </Layout>
     );
   }
+
+  const content = getSuburbContent(suburb.slug);
 
   return (
     <Layout>
@@ -63,7 +67,9 @@ export default function SuburbPage() {
             </div>
 
             <div className="flex flex-col gap-3 lg:min-w-[250px]">
-              <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>Get Free Quote</Button>
+              <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
+                Get My Free Quote
+              </Button>
               <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
                 <a href={PHONE_HREF}>
                   <Phone className="mr-2 h-4 w-4" />
@@ -71,6 +77,49 @@ export default function SuburbPage() {
                 </a>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local intro from data */}
+      {content?.localIntro && (
+        <section className="section-padding pb-0">
+          <div className="container-width">
+            <div className="prose prose-slate max-w-none">
+              <p className="text-muted-foreground leading-relaxed text-lg">{content.localIntro}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Common pests from data */}
+      {content?.commonPests && content.commonPests.length > 0 && (
+        <section className="section-padding pb-0">
+          <div className="container-width">
+            <h2 className="mb-6">Common Pests in {suburb.name}</h2>
+            <div className="flex flex-wrap gap-2">
+              {content.commonPests.map((pest) => (
+                <Badge key={pest} variant="outline" className="py-2 px-4 text-sm">
+                  <Bug className="h-3.5 w-3.5 mr-1.5" />
+                  {pest}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Inline CTA */}
+      <section className="section-padding pb-0">
+        <div className="container-width">
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h3 className="font-semibold mb-1">Need pest control in {suburb.name}?</h3>
+              <p className="text-sm text-muted-foreground">Same-day service available. We'll call you within 30 minutes.</p>
+            </div>
+            <Button variant="accent" onClick={() => openQuoteModal()} className="shrink-0">
+              Get My Free Quote
+            </Button>
           </div>
         </div>
       </section>
@@ -110,8 +159,27 @@ export default function SuburbPage() {
         </div>
       </section>
 
+      {/* FAQ accordion from data */}
+      {content?.faqs && content.faqs.length > 0 && (
+        <section className="section-padding bg-muted/30">
+          <div className="container-width max-w-3xl">
+            <h2 className="mb-8">Pest Control FAQ — {suburb.name} {suburb.postcode}</h2>
+            <Accordion type="single" collapsible className="w-full">
+              {content.faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+      )}
+
       {/* Other suburbs in this council */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding">
         <div className="container-width">
           <h2 className="mb-6">Other Suburbs in {council.name}</h2>
           <div className="flex flex-wrap gap-2">

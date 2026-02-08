@@ -81,18 +81,7 @@ export function registerRoutes(app: Express) {
 
     const db = getDb();
     if (!db) {
-      // Return mock response when DB not connected
-      return res.status(201).json({
-        id: Date.now(),
-        name, email: email || null, phone, pestType,
-        message: message || null, address: address || null,
-        suburb: suburb || null, postcode: postcode || null,
-        urgency: urgency || "medium", status: "new",
-        source: source || "website", notes: null,
-        assignedTo: null, quotedAmount: null, followUpDate: null,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      });
+      return res.status(503).json({ error: "Database not connected. Please try again later." });
     }
 
     try {
@@ -112,7 +101,7 @@ export function registerRoutes(app: Express) {
 
   app.get("/api/leads", requireAuth, async (req, res) => {
     const db = getDb();
-    if (!db) return res.json({ leads: [], total: 0, page: 1, pageSize: 50 });
+    if (!db) return res.status(503).json({ error: "Database not connected" });
 
     try {
       const page = parseInt(req.query.page as string) || 1;
