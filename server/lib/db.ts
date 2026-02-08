@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import * as schema from "@shared/schema";
+import * as schema from "../../shared/schema";
 
 // Database connection — falls back to a no-op if DATABASE_URL isn't set
 // This allows the dev server and build to work without a database

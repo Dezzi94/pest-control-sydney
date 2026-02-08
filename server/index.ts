@@ -1,17 +1,9 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import { registerRoutes } from "./routes";
+import app from "./app";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// API routes
-registerRoutes(app);
 
 // In production, serve static files from dist/public
 if (process.env.NODE_ENV === "production") {

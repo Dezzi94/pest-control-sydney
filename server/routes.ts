@@ -1,9 +1,9 @@
 import type { Express } from "express";
 import { eq, desc, like, or, sql } from "drizzle-orm";
-import { SERVICES, COUNCILS } from "@shared/routes/all-routes";
-import { leads } from "@shared/schema";
+import { SERVICES, COUNCILS } from "../shared/routes/all-routes";
+import { leads } from "../shared/schema";
 import { getDb } from "./lib/db";
-import { generateToken, requireAuth } from "./middleware/auth";
+import { generateToken, verifyToken, requireAuth } from "./middleware/auth";
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@pestcontrolsydney.org";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
@@ -62,7 +62,6 @@ export function registerRoutes(app: Express) {
     if (!authHeader?.startsWith("Bearer ")) {
       return res.json(null);
     }
-    const { verifyToken } = require("./middleware/auth");
     const payload = verifyToken(authHeader.slice(7));
     if (!payload) return res.json(null);
     res.json({ id: payload.id, email: payload.email, name: "Admin", role: payload.role });

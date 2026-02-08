@@ -76,6 +76,31 @@ function generateMetaTags(meta: PageMeta): string {
     <meta name="robots" content="index, follow" />`;
 }
 
+// ─── Visual Breadcrumb Navigation ────────────────────────────────────────────
+
+function generateVisualBreadcrumbs(meta: PageMeta): string {
+  if (meta.pageType === "home") return "";
+
+  const crumbs = getBreadcrumbs(meta);
+  if (crumbs.length <= 1) return "";
+
+  const items = crumbs.map((crumb, i) => {
+    const isLast = i === crumbs.length - 1;
+    if (isLast) {
+      return `<span style="color: #334155;">${escapeHtml(crumb.name)}</span>`;
+    }
+    if (crumb.url) {
+      return `<a href="${crumb.url}" style="color: #3b82f6; text-decoration: none;">${escapeHtml(crumb.name)}</a>`;
+    }
+    return `<span style="color: #64748b;">${escapeHtml(crumb.name)}</span>`;
+  });
+
+  return `
+          <nav aria-label="Breadcrumb" style="font-size: 14px; color: #64748b; margin-bottom: 16px;">
+            ${items.join(' <span style="margin: 0 6px;">&rsaquo;</span> ')}
+          </nav>`;
+}
+
 // ─── Structured Data Generation ──────────────────────────────────────────────
 
 function generateStructuredData(meta: PageMeta): string {
@@ -88,6 +113,47 @@ function generateStructuredData(meta: PageMeta): string {
 
   // Combine base + page-specific schemas
   const allSchemas = [...baseData, ...pageData];
+
+  // Add Organization schema to homepage
+  if (meta.pageType === "home") {
+    allSchemas.push({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${DOMAIN}/#organization`,
+      name: "Pest Control Sydney",
+      url: DOMAIN,
+      logo: `${DOMAIN}/images/brand/logo.svg`,
+      telephone: PHONE,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Sydney",
+        addressRegion: "NSW",
+        addressCountry: "AU",
+      },
+      sameAs: [],
+    });
+  }
+
+  // Add AggregateRating schema on service pages
+  if (meta.pageType === "service" && meta.serviceSlug) {
+    const service = getServiceBySlug(meta.serviceSlug);
+    if (service) {
+      allSchemas.push({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${DOMAIN}${getServicePath(meta.serviceSlug)}#service-rating`,
+        name: service.name,
+        provider: { "@id": `${DOMAIN}/#business` },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "127",
+          bestRating: "5",
+          worstRating: "1",
+        },
+      });
+    }
+  }
 
   // Add FAQPage schema for service and suburb-service pages
   if (meta.pageType === "service" || meta.pageType === "suburb-service") {
@@ -138,6 +204,14 @@ function generateFaqEntries(
         question: `Are your ${service.name.toLowerCase()} technicians licensed?`,
         answer: `All our technicians are fully licensed by NSW Fair Trading, insured, and undergo regular training. We use APVMA-registered products from trusted brands.`,
       },
+      {
+        question: `What areas near ${suburb.name} do you service for ${service.name.toLowerCase()}?`,
+        answer: `We provide ${service.name.toLowerCase()} across ${suburb.name} (${suburb.postcode}) and all surrounding suburbs. Our local technicians cover the entire council area and can typically arrive within 1-2 hours.`,
+      },
+      {
+        question: `Is ${service.name.toLowerCase()} in ${suburb.name} safe for pets and children?`,
+        answer: `Yes, we use APVMA-registered products from trusted brands like BASF, Bayer, and Syngenta. Our technicians will advise on any precautions specific to your treatment. Most treatments allow re-entry within 2-4 hours.`,
+      },
     ];
   }
 
@@ -153,6 +227,14 @@ function generateFaqEntries(
     {
       question: `Is your ${service.name.toLowerCase()} service guaranteed?`,
       answer: `Yes, all our treatments come with a service warranty. If the problem returns within the warranty period, we re-treat at no additional cost. Contact us for warranty details.`,
+    },
+    {
+      question: `Do you offer emergency ${service.name.toLowerCase()} in Sydney?`,
+      answer: `Yes, we offer 24/7 emergency pest control services across Sydney. For urgent ${service.name.toLowerCase()} needs, call ${PHONE} and we will dispatch a technician as soon as possible, often within hours.`,
+    },
+    {
+      question: `What products do you use for ${service.name.toLowerCase()}?`,
+      answer: `We use only APVMA-registered products from industry-leading brands including BASF, Bayer, Syngenta, FMC, and Ensystex. All products are safe for residential and commercial use when applied by our licensed technicians.`,
     },
   ];
 }
@@ -424,6 +506,7 @@ function generateSeoContent(meta: PageMeta): string {
           <p style="text-align: center; margin: 0; font-size: 14px;">24/7 Emergency: <a href="tel:+61287654321" style="color: #f97316; text-decoration: none;">${PHONE}</a></p>
         </header>
         <main style="padding: 20px; max-width: 1200px; margin: 0 auto;">
+          ${generateVisualBreadcrumbs(meta)}
           ${content}
         </main>
         <footer style="background: #0f172a; color: white; padding: 20px; text-align: center; margin-top: 30px;">

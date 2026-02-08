@@ -2,6 +2,10 @@
   command = "npm run build:netlify"
   publish = "dist/public"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # ============================================
 # PRERENDERED PAGE REWRITES (serve .html files)
 # ============================================
@@ -44,12 +48,12 @@
   status = 200
 
 # ============================================
-# API PROXY (if using serverless functions)
+# API PROXY (serverless functions)
 # ============================================
-# [[redirects]]
-#   from = "/api/*"
-#   to = "/.netlify/functions/api/:splat"
-#   status = 200
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
 
 # ============================================
 # SPA FALLBACK (MUST BE LAST)
@@ -78,6 +82,7 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+    X-Robots-Tag = "all"
 
 # Sitemaps — moderate cache
 [[headers]]
@@ -100,3 +105,4 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com"
