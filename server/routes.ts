@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { eq, desc } from "drizzle-orm";
 import { SERVICES, COUNCILS } from "../shared/routes/all-routes";
-import { leads } from "../shared/schema";
+import { leads, type InsertLead } from "../shared/schema";
 import { getDb } from "./lib/db";
 import { generateToken, verifyToken, requireAuth } from "./middleware/auth";
 
@@ -85,13 +85,20 @@ export function registerRoutes(app: Express) {
     }
 
     try {
-      const [lead] = await db.insert(leads).values({
-        name, email: email || null, phone, pestType: pestType || "general-enquiry",
-        message: message || null, address: address || null,
-        suburb: suburb || null, postcode: postcode || null,
+      const values: InsertLead = {
+        name,
+        phone,
+        pestType: pestType || "general-enquiry",
         urgency: urgency || "medium",
         source: source || "website",
-      }).returning();
+      };
+      if (email) values.email = email;
+      if (message) values.message = message;
+      if (address) values.address = address;
+      if (suburb) values.suburb = suburb;
+      if (postcode) values.postcode = postcode;
+
+      const [lead] = await db.insert(leads).values(values).returning();
       res.status(201).json(lead);
     } catch (err: any) {
       console.error("Failed to create lead:", err);
