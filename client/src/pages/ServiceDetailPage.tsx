@@ -12,6 +12,22 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Search, Bug, Rat, Bed, Bird, Shield, Building, ClipboardCheck, Cookie: Bug, Squirrel: Bug,
 };
 
+// Map service slugs to background images
+const SERVICE_IMAGES: Record<string, string> = {
+  "termite-inspection": "/images/services/termite.svg",
+  "termite-control": "/images/services/termite.svg",
+  "rodent-control": "/images/services/rodent.jpg",
+  "cockroach-treatment": "/images/services/cockroach.svg",
+  "spider-treatment": "/images/services/spider.svg",
+  "ant-control": "/images/services/ant.svg",
+  "flea-treatment": "/images/services/flea.svg",
+  "bedbug-treatment": "/images/services/bedbug.svg",
+  "wasp-removal": "/images/services/wasp.svg",
+  "general-pest-control": "/images/services/general.svg",
+  "commercial-pest-control": "/images/services/commercial.svg",
+  "pre-purchase-inspection": "/images/services/termite.svg",
+};
+
 const DEFAULT_PROCESS = [
   { title: "Inspection", description: "We thoroughly inspect your property to identify the pest species, locate nesting sites, and assess the extent of the problem." },
   { title: "Treatment Plan", description: "Based on our findings, we develop a targeted treatment plan using the most effective, eco-friendly methods available." },
@@ -64,8 +80,19 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16">
-        <div className="container-width">
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16 overflow-hidden">
+        {SERVICE_IMAGES[service.slug] && (
+          <>
+            <img
+              src={SERVICE_IMAGES[service.slug]}
+              alt=""
+              className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-10 lg:opacity-15"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-transparent" />
+          </>
+        )}
+        <div className="container-width relative">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">

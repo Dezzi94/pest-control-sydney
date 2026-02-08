@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#accent)" opacity="0.3"/>
+  <circle cx="660" cy="100" r="100" fill="#dc2626" opacity="0.04"/>
+  <circle cx="140" cy="500" r="70" fill="#3b82f6" opacity="0.04"/>
+  <!-- Ant Icon -->
+  <g transform="translate(400,230)" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Abdomen -->
+    <ellipse cx="30" cy="10" rx="28" ry="22" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
+    <!-- Thorax -->
+    <ellipse cx="-10" cy="0" rx="18" ry="14" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
+    <!-- Head -->
+    <ellipse cx="-40" cy="-5" rx="16" ry="14" fill="#dc2626" opacity="0.12" stroke="#dc2626"/>
+    <!-- Antennae -->
+    <path d="M-52,-15 Q-65,-40 -75,-48" stroke-width="2"/>
+    <path d="M-48,-18 Q-55,-42 -60,-52" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="-46" cy="-8" r="3" fill="#dc2626" opacity="0.4"/>
+    <!-- Mandibles -->
+    <path d="M-55,-2 L-62,-8" stroke-width="2"/>
+    <path d="M-55,2 L-62,8" stroke-width="2"/>
+    <!-- 6 legs -->
+    <path d="M-20,-12 Q-35,-35 -45,-42" stroke-width="2"/>
+    <path d="M-8,-13 Q-18,-38 -22,-48" stroke-width="2"/>
+    <path d="M5,-12 Q8,-38 12,-48" stroke-width="2"/>
+    <path d="M-20,12 Q-35,35 -42,42" stroke-width="2"/>
+    <path d="M-5,13 Q-8,38 -10,48" stroke-width="2"/>
+    <path d="M12,12 Q20,35 25,42" stroke-width="2"/>
+    <!-- Trail dots (ant trail concept) -->
+    <circle cx="75" cy="15" r="2" fill="#dc2626" opacity="0.2"/>
+    <circle cx="90" cy="18" r="2" fill="#dc2626" opacity="0.15"/>
+    <circle cx="105" cy="20" r="2" fill="#dc2626" opacity="0.1"/>
+  </g>
+  <text x="400" y="375" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Ant Control</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Colony Elimination Treatment</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+</svg>

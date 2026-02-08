@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#accent)" opacity="0.4"/>
+  <circle cx="660" cy="100" r="110" fill="#f59e0b" opacity="0.04"/>
+  <circle cx="140" cy="500" r="75" fill="#3b82f6" opacity="0.04"/>
+  <!-- Rat/Mouse Icon -->
+  <g transform="translate(400,230)" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <ellipse cx="0" cy="10" rx="45" ry="30" fill="#f59e0b" opacity="0.12" stroke="#f59e0b"/>
+    <!-- Head -->
+    <ellipse cx="-45" cy="-10" rx="28" ry="22" fill="#f59e0b" opacity="0.12" stroke="#f59e0b"/>
+    <!-- Ears -->
+    <ellipse cx="-55" cy="-35" rx="14" ry="16" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/>
+    <ellipse cx="-35" cy="-33" rx="12" ry="14" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Eye -->
+    <circle cx="-55" cy="-12" r="4" fill="#f59e0b" opacity="0.5"/>
+    <!-- Nose -->
+    <circle cx="-72" cy="-8" r="3" fill="#f59e0b" opacity="0.4"/>
+    <!-- Whiskers -->
+    <line x1="-72" y1="-10" x2="-95" y2="-20" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-72" y1="-8" x2="-96" y2="-8" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-72" y1="-6" x2="-95" y2="4" stroke-width="1.5" opacity="0.4"/>
+    <!-- Tail -->
+    <path d="M45,10 Q65,5 80,-10 Q90,-20 95,-35" stroke-width="2.5" fill="none"/>
+    <!-- Legs -->
+    <line x1="-20" y1="35" x2="-25" y2="50" stroke-width="2"/>
+    <line x1="5" y1="38" x2="5" y2="52" stroke-width="2"/>
+    <line x1="25" y1="35" x2="28" y2="50" stroke-width="2"/>
+    <!-- Feet -->
+    <path d="M-28,50 L-22,50" stroke-width="2"/>
+    <path d="M2,52 L8,52" stroke-width="2"/>
+    <path d="M25,50 L31,50" stroke-width="2"/>
+    <!-- No-entry circle -->
+    <circle cx="0" cy="5" r="75" stroke="#f59e0b" stroke-width="2" opacity="0.15" fill="none"/>
+    <line x1="-55" y1="55" x2="55" y2="-45" stroke="#f59e0b" stroke-width="2" opacity="0.15"/>
+  </g>
+  <!-- Label -->
+  <text x="400" y="380" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Rodent Control</text>
+  <text x="400" y="415" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Mice &amp; Rat Removal Specialists</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+</svg>

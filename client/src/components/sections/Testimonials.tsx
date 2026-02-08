@@ -58,11 +58,11 @@ export default function Testimonials() {
           </p>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                <span className="text-sm font-bold text-primary">
-                  {featured.name.charAt(0)}
-                </span>
-              </div>
+              <img
+                src="/images/team/avatar-1.svg"
+                alt={featured.name}
+                className="w-14 h-14 rounded-full shrink-0"
+              />
               <div>
                 <div className="flex items-center gap-1.5">
                   <p className="font-semibold text-sm">{featured.name}</p>
@@ -90,11 +90,11 @@ export default function Testimonials() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="text-sm font-bold text-primary">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
+                    <img
+                      src={`/images/team/avatar-${i + 2}.svg`}
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full shrink-0"
+                    />
                     <div>
                       <p className="font-semibold text-sm">{testimonial.name}</p>
                       <p className="text-xs text-muted-foreground">{testimonial.suburb}</p>

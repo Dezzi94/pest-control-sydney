@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#accent)" opacity="0.3"/>
+  <circle cx="660" cy="100" r="100" fill="#f97316" opacity="0.04"/>
+  <circle cx="140" cy="500" r="70" fill="#3b82f6" opacity="0.04"/>
+  <!-- Flea Icon (magnified) -->
+  <g transform="translate(400,225)" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body (oval, compressed laterally) -->
+    <ellipse cx="0" cy="0" rx="22" ry="35" fill="#f97316" opacity="0.12" stroke="#f97316"/>
+    <!-- Head -->
+    <ellipse cx="-5" cy="-40" rx="12" ry="14" fill="#f97316" opacity="0.12" stroke="#f97316"/>
+    <!-- Eye -->
+    <circle cx="-8" cy="-42" r="3" fill="#f97316" opacity="0.4"/>
+    <!-- Proboscis (mouthpart) -->
+    <path d="M-12,-50 L-18,-62 L-14,-64" stroke-width="2"/>
+    <!-- Antennae (short) -->
+    <path d="M0,-52 Q5,-58 8,-56" stroke-width="1.5"/>
+    <!-- Strong jumping legs (back) -->
+    <path d="M15,20 Q35,25 42,15 Q48,5 55,-15" stroke-width="3"/>
+    <path d="M12,30 Q30,38 38,30 Q45,20 50,5" stroke-width="2.5"/>
+    <!-- Front legs -->
+    <path d="M-18,-20 Q-30,-18 -35,-25" stroke-width="2"/>
+    <path d="M-18,-8 Q-32,-5 -38,-12" stroke-width="2"/>
+    <!-- Middle legs -->
+    <path d="M-15,10 Q-30,15 -35,10" stroke-width="2"/>
+    <!-- Spines on body -->
+    <line x1="5" y1="-15" x2="12" y2="-18" stroke-width="1" opacity="0.3"/>
+    <line x1="8" y1="-5" x2="15" y2="-8" stroke-width="1" opacity="0.3"/>
+    <line x1="8" y1="5" x2="15" y2="3" stroke-width="1" opacity="0.3"/>
+    <!-- Jump trajectory arc -->
+    <path d="M55,-15 Q70,-50 90,-45 Q110,-40 115,-20" stroke="#f97316" stroke-width="1.5" opacity="0.15" stroke-dasharray="4,4" fill="none"/>
+    <!-- Magnifying glass frame -->
+    <circle cx="0" cy="-5" r="75" stroke="#f97316" stroke-width="2" opacity="0.15" fill="none"/>
+    <line x1="53" y1="50" x2="80" y2="77" stroke="#f97316" stroke-width="4" opacity="0.15"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff" opacity="0.9">Flea Treatment</text>
+  <text x="400" y="415" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" opacity="0.7">Pet-Safe Flea Elimination</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="12" fill="#475569" opacity="0.4">800 x 600</text>
+</svg>

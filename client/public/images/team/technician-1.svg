@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <!-- Subtle circle background -->
+  <circle cx="200" cy="190" r="130" fill="#3b82f6" opacity="0.05"/>
+  <!-- Person silhouette -->
+  <g transform="translate(200,180)">
+    <!-- Head -->
+    <circle cx="0" cy="-50" r="45" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Hard hat -->
+    <path d="M-40,-60 Q-40,-85 0,-90 Q40,-85 40,-60" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1.5"/>
+    <line x1="-45" y1="-58" x2="45" y2="-58" stroke="#f59e0b" stroke-width="2" opacity="0.3"/>
+    <!-- Eyes -->
+    <circle cx="-15" cy="-52" r="3" fill="#94a3b8" opacity="0.4"/>
+    <circle cx="15" cy="-52" r="3" fill="#94a3b8" opacity="0.4"/>
+    <!-- Smile -->
+    <path d="M-10,-38 Q0,-32 10,-38" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.3"/>
+    <!-- Body / uniform -->
+    <path d="M-45,0 Q-50,80 -45,140 L45,140 Q50,80 45,0 Q25,-10 0,-8 Q-25,-10 -45,0" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
+    <!-- Collar -->
+    <path d="M-15,-5 L0,15 L15,-5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+    <!-- Badge -->
+    <rect x="15" y="20" width="18" height="22" rx="3" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1"/>
+    <!-- Spray equipment (on back) -->
+    <rect x="-55" y="10" width="15" height="50" rx="4" fill="#94a3b8" opacity="0.1" stroke="#94a3b8" stroke-width="1"/>
+    <path d="M-48,10 Q-48,-5 -40,0" fill="none" stroke="#94a3b8" stroke-width="1" opacity="0.2"/>
+  </g>
+  <!-- Name -->
+  <text x="200" y="390" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#ffffff" opacity="0.85">Senior Technician</text>
+  <text x="200" y="418" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" fill="#94a3b8" opacity="0.6">Licensed &amp; Certified</text>
+  <text x="200" y="480" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" opacity="0.3">400 x 500</text>
+</svg>

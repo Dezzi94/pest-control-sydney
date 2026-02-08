@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <circle cx="200" cy="190" r="130" fill="#f97316" opacity="0.04"/>
+  <!-- Person silhouette -->
+  <g transform="translate(200,180)">
+    <!-- Head -->
+    <circle cx="0" cy="-50" r="45" fill="#f97316" opacity="0.1" stroke="#f97316" stroke-width="2"/>
+    <!-- Safety goggles -->
+    <ellipse cx="-15" cy="-52" rx="14" ry="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.3"/>
+    <ellipse cx="15" cy="-52" rx="14" ry="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.3"/>
+    <line x1="1" y1="-52" x2="-1" y2="-52" stroke="#f97316" stroke-width="1.5" opacity="0.3"/>
+    <line x1="-29" y1="-52" x2="-38" y2="-55" stroke="#f97316" stroke-width="1.5" opacity="0.2"/>
+    <line x1="29" y1="-52" x2="38" y2="-55" stroke="#f97316" stroke-width="1.5" opacity="0.2"/>
+    <!-- Eyes behind goggles -->
+    <circle cx="-15" cy="-52" r="2.5" fill="#94a3b8" opacity="0.3"/>
+    <circle cx="15" cy="-52" r="2.5" fill="#94a3b8" opacity="0.3"/>
+    <!-- Smile -->
+    <path d="M-10,-36 Q0,-30 10,-36" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.3"/>
+    <!-- Coveralls / work suit -->
+    <path d="M-45,0 Q-50,80 -45,140 L45,140 Q50,80 45,0 Q25,-10 0,-8 Q-25,-10 -45,0" fill="#f97316" opacity="0.1" stroke="#f97316" stroke-width="1.5"/>
+    <!-- Zipper -->
+    <line x1="0" y1="-5" x2="0" y2="80" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+    <!-- Pockets -->
+    <rect x="-35" y="50" width="20" height="18" rx="2" fill="none" stroke="#f97316" stroke-width="1" opacity="0.15"/>
+    <rect x="15" y="50" width="20" height="18" rx="2" fill="none" stroke="#f97316" stroke-width="1" opacity="0.15"/>
+    <!-- Spray wand in hand -->
+    <line x1="48" y1="30" x2="60" y2="-20" stroke="#94a3b8" stroke-width="3" opacity="0.2"/>
+    <circle cx="60" cy="-22" r="5" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity="0.2"/>
+  </g>
+  <text x="200" y="390" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#ffffff" opacity="0.85">Treatment Specialist</text>
+  <text x="200" y="418" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" fill="#94a3b8" opacity="0.6">10+ Years Experience</text>
+  <text x="200" y="480" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" opacity="0.3">400 x 500</text>
+</svg>

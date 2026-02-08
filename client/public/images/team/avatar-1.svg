@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="60" fill="#6366f1"/>
+  <!-- Shoulders -->
+  <ellipse cx="60" cy="115" rx="40" ry="28" fill="#e0e7ff" opacity="0.95"/>
+  <!-- Neck -->
+  <rect x="50" y="68" width="20" height="14" rx="4" fill="#e0e7ff" opacity="0.95"/>
+  <!-- Head -->
+  <circle cx="60" cy="50" r="22" fill="#e0e7ff" opacity="0.95"/>
+  <!-- Short hair (male) -->
+  <path d="M38 46 C38 28, 82 28, 82 46 L82 40 C82 24, 38 24, 38 40 Z" fill="#c7d2fe" opacity="0.9"/>
+  <!-- Hair top crop -->
+  <ellipse cx="60" cy="30" rx="22" ry="6" fill="#c7d2fe" opacity="0.9"/>
+</svg>

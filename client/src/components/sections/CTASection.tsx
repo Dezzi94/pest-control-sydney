@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 
 const AVATARS = [
-  { initials: "A", bg: "bg-blue-500" },
-  { initials: "K", bg: "bg-emerald-500" },
-  { initials: "R", bg: "bg-orange-500" },
-  { initials: "M", bg: "bg-violet-500" },
-  { initials: "J", bg: "bg-rose-500" },
+  { src: "/images/team/avatar-1.svg", alt: "Customer A" },
+  { src: "/images/team/avatar-2.svg", alt: "Customer K" },
+  { src: "/images/team/avatar-3.svg", alt: "Customer R" },
+  { src: "/images/team/avatar-4.svg", alt: "Customer M" },
+  { src: "/images/team/avatar-5.svg", alt: "Customer J" },
 ];
 
 export default function CTASection() {
@@ -47,12 +47,12 @@ export default function CTASection() {
           <div className="flex items-center justify-center gap-3">
             <div className="flex -space-x-2">
               {AVATARS.map((a) => (
-                <div
-                  key={a.initials}
-                  className={`w-8 h-8 rounded-full ${a.bg} flex items-center justify-center text-xs font-bold text-white ring-2 ring-slate-900`}
-                >
-                  {a.initials}
-                </div>
+                <img
+                  key={a.src}
+                  src={a.src}
+                  alt={a.alt}
+                  className="w-8 h-8 rounded-full ring-2 ring-slate-900"
+                />
               ))}
             </div>
             <p className="text-sm text-slate-400">

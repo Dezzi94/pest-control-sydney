@@ -10,12 +10,20 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-slate-900">
-      {/* Single subtle radial accent — not orbs, not a grid, just a wash of colour */}
+      {/* Background image with dark overlay */}
+      <img
+        src="/images/hero/homepage-hero.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+      />
+      <div className="absolute inset-0 bg-slate-900/80" />
+      {/* Subtle blue accent wash */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 30% 60%, rgba(59,130,246,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 30% 60%, rgba(59,130,246,0.12) 0%, transparent 70%)",
         }}
       />
 
