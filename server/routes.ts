@@ -104,9 +104,9 @@ export function registerRoutes(app: Express) {
         source: source || "website",
       }).returning();
       res.status(201).json(lead);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Failed to create lead:", err);
-      res.status(500).json({ error: "Failed to create lead" });
+      res.status(500).json({ error: "Failed to create lead", detail: err?.message || String(err) });
     }
   });
 
