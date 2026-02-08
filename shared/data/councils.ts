@@ -186,7 +186,7 @@ export const COUNCIL_CONTENT: CouncilContent[] = [
       {
         question: "How quickly can you come out for a rodent problem in Bondi Junction?",
         answer:
-          "We typically offer same-day service for Bondi Junction and surrounding suburbs. Rodent sightings in food premises or homes with children are treated as a priority. Call us on (02) 8765-4321 for the earliest available appointment.",
+          "We typically offer same-day service for Bondi Junction and surrounding suburbs. Rodent sightings in food premises or homes with children are treated as a priority. Request a quote online for the earliest available appointment.",
       },
       {
         question: "Do you offer strata pest control packages for Waverley buildings?",
@@ -329,7 +329,7 @@ export const COUNCIL_CONTENT: CouncilContent[] = [
       {
         question: "What is the cost of a general pest treatment in the Sutherland Shire?",
         answer:
-          "A standard general pest treatment for a 3-bedroom home in the Shire starts from $189. This covers cockroaches, spiders, ants, and silverfish. Exact pricing depends on property size and pest type. We provide free quotes over the phone or online.",
+          "A standard general pest treatment for a 3-bedroom home in the Shire starts from $189. This covers cockroaches, spiders, ants, and silverfish. Exact pricing depends on property size and pest type. We provide free quotes online.",
       },
     ],
   },
@@ -559,7 +559,7 @@ export const COUNCIL_CONTENT: CouncilContent[] = [
       {
         question: "How much is general pest control for a 3-bedroom home in Lakemba?",
         answer:
-          "A standard general pest treatment covering cockroaches, spiders, ants, and silverfish for a typical 3-bedroom home in Lakemba starts from $189. We offer free phone and online quotes, and same-day service is often available for the Canterbury-Bankstown area.",
+          "A standard general pest treatment covering cockroaches, spiders, ants, and silverfish for a typical 3-bedroom home in Lakemba starts from $189. We offer free online quotes, and same-day service is often available for the Canterbury-Bankstown area.",
       },
     ],
   },

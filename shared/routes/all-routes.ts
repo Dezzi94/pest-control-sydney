@@ -3,8 +3,6 @@
 // If you add a new page, add it here FIRST.
 
 export const DOMAIN = "https://pestcontrolsydney.org";
-export const PHONE = "(02) 8765-4321";
-export const PHONE_HREF = "tel:+61287654321";
 
 // ─── Services ─────────────────────────────────────────────────────────────────
 
@@ -234,7 +232,7 @@ export interface PageMeta {
 export const STATIC_PAGES: Record<string, Omit<PageMeta, "path" | "canonical">> = {
   "/": {
     title: "Pest Control Sydney | #1 Trusted Pest Exterminators | Same-Day Service",
-    description: "Sydney's most trusted pest control experts. Licensed technicians, same-day service, 100% satisfaction guarantee. Termites, cockroaches, rodents & more. Call (02) 8765-4321.",
+    description: "Sydney's most trusted pest control experts. Licensed technicians, same-day service, 100% satisfaction guarantee. Termites, cockroaches, rodents & more. Get a free quote today.",
     pageType: "home",
     changefreq: "weekly",
     priority: 1.0,
@@ -254,15 +252,15 @@ export const STATIC_PAGES: Record<string, Omit<PageMeta, "path" | "canonical">> 
     priority: 0.9,
   },
   "/about": {
-    title: "About Us | Pest Control Sydney | Licensed #PCL4892 | Since 2009",
-    description: "Learn about Sydney's trusted pest control experts. Licensed #PCL4892, AEPMA certified, 15+ years experience. Family-owned, eco-friendly pest control across Sydney.",
+    title: "About Us | Pest Control Sydney | Since 2009",
+    description: "Learn about Sydney's trusted pest control experts. Licensed & insured, AEPMA certified, 15+ years experience. Family-owned, eco-friendly pest control across Sydney.",
     pageType: "static",
     changefreq: "monthly",
     priority: 0.7,
   },
   "/contact": {
-    title: "Contact Us | Pest Control Sydney | Call (02) 8765-4321",
-    description: "Contact Pest Control Sydney for a free quote. Call (02) 8765-4321, email info@pestcontrolsydney.org, or fill out our contact form. Same-day service available.",
+    title: "Contact Us | Pest Control Sydney | Get a Free Quote",
+    description: "Contact Pest Control Sydney for a free quote. Email info@pestcontrolsydney.org or fill out our contact form. Same-day service available across Sydney.",
     pageType: "static",
     changefreq: "monthly",
     priority: 0.7,
@@ -328,7 +326,7 @@ export function getAllRoutes(): PageMeta[] {
     routes.push({
       path,
       title: `${service.name} Sydney | Professional ${service.name} | From ${service.priceFrom}`,
-      description: `Professional ${service.name.toLowerCase()} services across Sydney. ${service.shortDescription} Licensed & insured. Call (02) 8765-4321.`,
+      description: `Professional ${service.name.toLowerCase()} services across Sydney. ${service.shortDescription} Licensed & insured. Get a free quote today.`,
       canonical: `${DOMAIN}${path}`,
       pageType: "service",
       changefreq: "monthly",
@@ -343,7 +341,7 @@ export function getAllRoutes(): PageMeta[] {
     routes.push({
       path: councilPath,
       title: `Pest Control ${council.name} | Local Technicians | Same-Day Service`,
-      description: `Professional pest control in ${council.name}. Servicing ${council.suburbs.map((s) => s.name).join(", ")}. Licensed technicians, fast response. Call (02) 8765-4321.`,
+      description: `Professional pest control in ${council.name}. Servicing ${council.suburbs.map((s) => s.name).join(", ")}. Licensed technicians, fast response. Get a free quote today.`,
       canonical: `${DOMAIN}${councilPath}`,
       pageType: "council",
       changefreq: "monthly",
@@ -357,7 +355,7 @@ export function getAllRoutes(): PageMeta[] {
       routes.push({
         path: suburbPath,
         title: `Pest Control ${suburb.name} ${suburb.postcode} | Local Experts | Same-Day Service`,
-        description: `Trusted pest control in ${suburb.name} (${suburb.postcode}), ${council.name}. Termites, cockroaches, rodents & more. Local technicians, same-day service. Call (02) 8765-4321.`,
+        description: `Trusted pest control in ${suburb.name} (${suburb.postcode}), ${council.name}. Termites, cockroaches, rodents & more. Local technicians, same-day service. Get a free quote today.`,
         canonical: `${DOMAIN}${suburbPath}`,
         pageType: "suburb",
         changefreq: "monthly",
@@ -371,8 +369,8 @@ export function getAllRoutes(): PageMeta[] {
         const comboPath = getSuburbServicePath(council.slug, suburb.slug, service.slug);
         routes.push({
           path: comboPath,
-          title: `${service.name} ${suburb.name} ${suburb.postcode} | From ${service.priceFrom} | Call Now`,
-          description: `${service.name} in ${suburb.name} (${suburb.postcode}). ${service.shortDescription} Licensed & insured, same-day service available. Call (02) 8765-4321.`,
+          title: `${service.name} ${suburb.name} ${suburb.postcode} | From ${service.priceFrom} | Free Quote`,
+          description: `${service.name} in ${suburb.name} (${suburb.postcode}). ${service.shortDescription} Licensed & insured, same-day service available. Get a free quote today.`,
           canonical: `${DOMAIN}${comboPath}`,
           pageType: "suburb-service",
           changefreq: "monthly",

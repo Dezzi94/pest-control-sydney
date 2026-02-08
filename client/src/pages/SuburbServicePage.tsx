@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { MapPin, ChevronRight, Phone, CheckCircle, ArrowRight } from "lucide-react";
+import { MapPin, ChevronRight, CheckCircle, ArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { SERVICES, PHONE, PHONE_HREF, getServiceBySlug, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
+import { SERVICES, getServiceBySlug, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
 import { getComboContent } from "@shared/data/combo-content";
 
 export default function SuburbServicePage() {
@@ -86,12 +86,6 @@ export default function SuburbServicePage() {
                 <div className="space-y-3">
                   <Button variant="accent" className="w-full" onClick={() => openQuoteModal(service.slug)}>
                     Get My Free Quote
-                  </Button>
-                  <Button variant="outline" size="sm" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
-                    <a href={PHONE_HREF}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      {PHONE}
-                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -228,11 +222,8 @@ export default function SuburbServicePage() {
                 <CardContent className="p-6 text-center">
                   <h3 className="font-semibold mb-2">Need Help Now?</h3>
                   <p className="text-sm text-blue-100 mb-4">Same-day service in {suburb.name}</p>
-                  <Button variant="accent" className="w-full" asChild>
-                    <a href={PHONE_HREF}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call {PHONE}
-                    </a>
+                  <Button variant="accent" className="w-full" onClick={() => openQuoteModal(service.slug)}>
+                    Get My Free Quote
                   </Button>
                 </CardContent>
               </Card>

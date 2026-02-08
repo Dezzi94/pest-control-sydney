@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { MapPin, ArrowRight, ChevronRight, Phone, Bug } from "lucide-react";
+import { MapPin, ArrowRight, ChevronRight, Bug } from "lucide-react";
 import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { SERVICES, PHONE, PHONE_HREF, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
+import { SERVICES, getCouncilBySlug, getSuburbBySlug } from "@shared/routes/all-routes";
 import { getSuburbContent } from "@shared/data/suburbs";
 
 export default function SuburbPage() {
@@ -69,12 +69,6 @@ export default function SuburbPage() {
             <div className="flex flex-col gap-3 lg:min-w-[250px]">
               <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
                 Get My Free Quote
-              </Button>
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
-                <a href={PHONE_HREF}>
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call {PHONE}
-                </a>
               </Button>
             </div>
           </div>

@@ -53,7 +53,7 @@ export default function BeforeAfter() {
             <div className="w-12 h-2 bg-primary rounded mx-auto mb-4" />
             <h2 className="mb-4">The Difference We Make</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              From stressful pest problems to lasting protection — here's what changes when you call us.
+              From stressful pest problems to lasting protection — here's what changes when you choose us.
             </p>
           </div>
 

@@ -3,7 +3,6 @@
 
 import {
   DOMAIN,
-  PHONE,
   type PageType,
   type PageMeta,
   SERVICES,
@@ -44,7 +43,6 @@ export function getBaseStructuredData(origin: string = DOMAIN) {
       name: "Pest Control Sydney",
       image: `${origin}/images/brand/logo.svg`,
       url: origin,
-      telephone: PHONE,
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",

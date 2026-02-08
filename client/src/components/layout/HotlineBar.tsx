@@ -1,7 +1,8 @@
-import { Phone, Clock } from "lucide-react";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
+import { Clock, ArrowRight } from "lucide-react";
+import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 export default function HotlineBar() {
+  const { openQuoteModal } = useQuoteModal();
   return (
     <div className="bg-slate-900 text-white py-2 text-sm" style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 0.5rem)' }}>
       <div className="container-width flex items-center justify-between">
@@ -18,16 +19,16 @@ export default function HotlineBar() {
             <span>Mon-Fri 7am-6pm | Sat 8am-2pm</span>
           </div>
         </div>
-        <a
-          href={PHONE_HREF}
+        <button
+          onClick={() => openQuoteModal()}
           className="flex items-center gap-2 font-semibold hover:text-blue-400 transition-colors"
         >
           <span className="relative flex h-2 w-2 emergency-pulse">
-            <span className="inline-flex rounded-full h-2 w-2 bg-red-500" />
+            <span className="inline-flex rounded-full h-2 w-2 bg-green-500" />
           </span>
-          <Phone className="h-3.5 w-3.5" />
-          <span>24/7 Emergency: {PHONE}</span>
-        </a>
+          Get a Free Quote
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
       </div>
     </div>
   );

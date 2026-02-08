@@ -5,7 +5,6 @@ import {
   CheckCircle,
   Loader2,
   Shield,
-  Phone,
 } from "lucide-react";
 import { SERVICE_SLUG_ICON_MAP } from "@/components/icons/PestIcons";
 import {
@@ -18,7 +17,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 
 const PEST_OPTIONS = [
   { slug: "cockroach-treatment", label: "Cockroaches", icon: SERVICE_SLUG_ICON_MAP["cockroach-treatment"] },
@@ -89,7 +87,7 @@ export default function QuoteFormModal() {
       if (!res.ok) throw new Error("Submit failed");
       setIsSuccess(true);
     } catch {
-      setError("Something went wrong. Please call us directly.");
+      setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -121,16 +119,9 @@ export default function QuoteFormModal() {
               <CheckCircle className="h-7 w-7 text-green-600" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
-            <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               We'll call you within 30 minutes during business hours.
             </p>
-            <a
-              href={PHONE_HREF}
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              Or call us now: {PHONE}
-            </a>
           </div>
         )}
 

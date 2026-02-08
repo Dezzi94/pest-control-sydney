@@ -1,14 +1,14 @@
-import { Phone, Search, FlaskConical, ShieldCheck } from "lucide-react";
+import { ClipboardList, Search, FlaskConical, ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 
 const STEPS = [
   {
     step: 1,
-    title: "Tell Us What's Wrong",
+    title: "Request a Quote",
     description:
-      "Call us or fill out the form — describe what you're seeing and we'll listen without judgement. We'll narrow down the species over the phone and book a 2-hour window that suits your schedule, usually within 24 hours.",
-    icon: Phone,
+      "Fill out the form — describe what you're seeing and we'll get back to you promptly. We'll narrow down the species and book a 2-hour window that suits your schedule, usually within 24 hours.",
+    icon: ClipboardList,
   },
   {
     step: 2,
@@ -21,7 +21,7 @@ const STEPS = [
     step: 3,
     title: "Targeted, Safe Treatment",
     description:
-      "We match the method to the pest: gel baits for cockroaches, chemical barriers for termites, humane traps for possums. Every product is TGA-approved and safe around children and pets. Applied by licensed technicians (Lic. #PCL4892).",
+      "We match the method to the pest: gel baits for cockroaches, chemical barriers for termites, humane traps for possums. Every product is TGA-approved and safe around children and pets. Applied by licensed technicians.",
     icon: FlaskConical,
   },
   {
@@ -46,7 +46,7 @@ export default function Process() {
             <div className="w-12 h-2 bg-primary rounded mb-4" />
             <h2 className="mb-4">How It Works</h2>
             <p className="text-muted-foreground max-w-xl">
-              From your first call to ongoing protection — four steps, no surprises, no hidden fees.
+              From your first enquiry to ongoing protection — four steps, no surprises, no hidden fees.
             </p>
           </div>
 

@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { Phone, ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle, ChevronRight } from "lucide-react";
 import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { SERVICES, COUNCILS, PHONE, PHONE_HREF, getServiceBySlug } from "@shared/routes/all-routes";
+import { SERVICES, COUNCILS, getServiceBySlug } from "@shared/routes/all-routes";
 import { getServiceContent } from "@shared/data/services";
 import { TESTIMONIALS } from "@shared/data/testimonials";
 
@@ -145,12 +145,6 @@ export default function ServiceDetailPage() {
                   <Button variant="accent" size="lg" className="w-full" onClick={() => openQuoteModal(service.slug)}>
                     Get My Free Quote
                   </Button>
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white" asChild>
-                    <a href={PHONE_HREF}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call {PHONE}
-                    </a>
-                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -193,7 +187,7 @@ export default function ServiceDetailPage() {
                   {[
                     "If pests return during warranty, we re-treat free — no questions asked",
                     "Fixed pricing — the quote you get is the price you pay",
-                    "Licensed technicians (Lic. #PCL4892) with current NSW pest control licences",
+                    "Licensed technicians with current NSW pest control licences",
                   ].map((promise) => (
                     <div key={promise} className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
@@ -347,11 +341,8 @@ export default function ServiceDetailPage() {
                   <p className="text-sm text-blue-100 mb-4">
                     Our team is ready to help with your pest problem.
                   </p>
-                  <Button variant="accent" className="w-full" asChild>
-                    <a href={PHONE_HREF}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call {PHONE}
-                    </a>
+                  <Button variant="accent" className="w-full" onClick={() => openQuoteModal(service.slug)}>
+                    Get My Free Quote
                   </Button>
                 </CardContent>
               </Card>

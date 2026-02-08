@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { cn } from "@/lib/utils";
 
@@ -86,16 +85,6 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={PHONE_HREF}
-              className={cn(
-                "flex items-center gap-2 text-sm font-semibold",
-                showTransparent ? "text-white" : "text-foreground"
-              )}
-            >
-              <Phone className={cn("h-4 w-4", showTransparent ? "text-blue-300" : "text-primary")} />
-              {PHONE}
-            </a>
             <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
               Get My Free Quote
             </Button>
@@ -134,13 +123,6 @@ export default function Header() {
                 </Link>
               ))}
               <div className="mt-4 px-4 flex flex-col gap-3">
-                <a
-                  href={PHONE_HREF}
-                  className="flex items-center justify-center gap-2 py-3 rounded-lg bg-slate-900 text-white font-semibold"
-                >
-                  <Phone className="h-4 w-4" />
-                  Call {PHONE}
-                </a>
                 <Button variant="accent" size="lg" className="w-full" onClick={() => { openQuoteModal(); setMobileOpen(false); }}>
                   Get My Free Quote
                 </Button>

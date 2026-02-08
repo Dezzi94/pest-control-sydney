@@ -901,12 +901,12 @@ const FAQ_TEMPLATES: ((
 ) => { question: string; answer: string })[] = [
   (serviceName, suburbName, _, __, ctx) => ({
     question: `How much does ${serviceName.toLowerCase()} cost in ${suburbName}?`,
-    answer: `The cost of ${serviceName.toLowerCase()} in ${suburbName} depends on the size of your property, the severity of the issue, and the treatment method required. We provide free, no-obligation quotes and transparent pricing. ${ctx.warrantyInfo.charAt(0).toUpperCase() + ctx.warrantyInfo.slice(1)}. Call us on (02) 8765-4321 for a quote tailored to your situation.`,
+    answer: `The cost of ${serviceName.toLowerCase()} in ${suburbName} depends on the size of your property, the severity of the issue, and the treatment method required. We provide free, no-obligation quotes and transparent pricing. ${ctx.warrantyInfo.charAt(0).toUpperCase() + ctx.warrantyInfo.slice(1)}. Request a quote online for pricing tailored to your situation.`,
   }),
 
   (serviceName, suburbName, postcode, councilName, ctx) => ({
     question: `How quickly can you get to ${suburbName} for ${serviceName.toLowerCase()}?`,
-    answer: `We have technicians servicing the ${councilName} area daily and can typically attend ${suburbName} (${postcode}) ${ctx.responseTime}. For urgent situations, same-day service is often available — call (02) 8765-4321 to check current availability.`,
+    answer: `We have technicians servicing the ${councilName} area daily and can typically attend ${suburbName} (${postcode}) ${ctx.responseTime}. For urgent situations, same-day service is often available — request a quote online to check current availability.`,
   }),
 
   (serviceName, suburbName, _, __, ctx) => ({

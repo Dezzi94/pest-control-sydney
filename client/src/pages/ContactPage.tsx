@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "wouter";
 import {
-  Phone,
   Mail,
   Clock,
   MapPin,
@@ -28,17 +27,10 @@ import {
 import CTASection from "@/components/sections/CTASection";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { PHONE, PHONE_HREF, SERVICES } from "@shared/routes/all-routes";
+import { SERVICES } from "@shared/routes/all-routes";
 import { cn } from "@/lib/utils";
 
 const CONTACT_CARDS = [
-  {
-    icon: Phone,
-    title: "Phone",
-    detail: PHONE,
-    sub: "Call us for immediate assistance",
-    href: PHONE_HREF,
-  },
   {
     icon: Mail,
     title: "Email",
@@ -63,7 +55,7 @@ const CONTACT_CARDS = [
 ];
 
 const TRUST_ITEMS = [
-  { icon: Shield, label: "Licensed #PCL4892" },
+  { icon: Shield, label: "Licensed & Insured" },
   { icon: Clock, label: "Same-Day Service" },
   { icon: ThumbsUp, label: "100% Satisfaction Guarantee" },
 ];
@@ -160,7 +152,7 @@ export default function ContactPage() {
             infoReveal.isVisible && "visible"
           )}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {CONTACT_CARDS.map((card) => {
               const Icon = card.icon;
               const content = (
@@ -378,23 +370,13 @@ export default function ContactPage() {
                   Need Help Right Now?
                 </h3>
                 <p className="text-slate-400 mb-6">
-                  For urgent pest problems, call us directly or request a
-                  free quote online. We offer same-day service across Sydney.
+                  For urgent pest problems, request a free quote online.
+                  We offer same-day service across Sydney.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
                   <Button
                     variant="accent"
                     size="lg"
-                    asChild
-                  >
-                    <a href={PHONE_HREF}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call {PHONE}
-                    </a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    className="bg-transparent text-white border-2 border-slate-600 hover:bg-slate-800 hover:border-slate-500"
                     onClick={() => openQuoteModal()}
                   >
                     Get My Free Quote

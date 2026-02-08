@@ -1,6 +1,5 @@
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
 
 const AVATARS = [
@@ -39,16 +38,6 @@ export default function CTASection() {
             <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
               Get My Free Quote
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              className="bg-transparent text-white border-2 border-slate-600 hover:bg-slate-800 hover:border-slate-500"
-              asChild
-            >
-              <a href={PHONE_HREF}>
-                <Phone className="mr-2 h-4 w-4" />
-                Call {PHONE}
-              </a>
             </Button>
           </div>
 

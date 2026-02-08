@@ -1,6 +1,5 @@
-import { Phone, Shield, Clock, CheckCircle } from "lucide-react";
+import { Shield, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { usePersonalisation } from "@/hooks/usePersonalisation";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
@@ -75,10 +74,6 @@ export default function Hero() {
                 <span className="text-xs font-semibold text-white ml-1">4.9</span>
                 <span className="text-xs text-slate-400">&middot; 127 Google Reviews</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
-                <Shield className="h-3.5 w-3.5 text-green-400" />
-                <span className="text-xs font-semibold text-white">NSW Lic. #PCL4892</span>
-              </div>
             </div>
 
             {/* Subheadline — personalised for returning visitors */}
@@ -100,24 +95,13 @@ export default function Hero() {
                   ? "Continue My Quote"
                   : "Get My Free Quote Now"}
               </Button>
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-white/25 text-white hover:bg-white/10 hover:text-white"
-                asChild
-              >
-                <a href={PHONE_HREF}>
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call {PHONE}
-                </a>
-              </Button>
             </div>
 
             {/* Three trust badges */}
             <div className="flex flex-wrap gap-6">
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <Shield className="h-4 w-4 text-green-400" />
-                Licensed #PCL4892
+                Licensed & Insured
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <Clock className="h-4 w-4 text-blue-400" />

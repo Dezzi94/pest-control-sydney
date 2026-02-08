@@ -32,7 +32,7 @@ Whether you are a homeowner wanting peace of mind, a buyer conducting due dilige
       {
         title: "Book Your Inspection",
         description:
-          "Call us on (02) 8765-4321 or book online. We will confirm a convenient time, often within 24 hours.",
+          "Request a quote online and we will confirm a convenient time, often within 24 hours.",
       },
       {
         title: "Comprehensive Property Assessment",
@@ -694,7 +694,7 @@ Our service covers residential homes, schools, childcare centres, outdoor dining
       {
         question: "How quickly can you come out for a wasp nest?",
         answer:
-          "We offer same-day service for wasp callouts in most areas of Sydney. Nests near children, schools, or outdoor dining areas are treated as a priority. Call us on (02) 8765-4321 and we'll arrange the earliest available technician.",
+          "We offer same-day service for wasp callouts in most areas of Sydney. Nests near children, schools, or outdoor dining areas are treated as a priority. Request a quote online and we'll arrange the earliest available technician.",
       },
       {
         question: "What is the difference between paper wasps and European wasps?",
@@ -1419,7 +1419,7 @@ We stand behind every general pest treatment with a service warranty. If pests r
       },
     ],
     priceNote:
-      "General pest control for a standard 3-bedroom home starts from $189 and includes cockroaches, spiders, ants, and silverfish. Larger homes and properties requiring roof void or subfloor access may be priced slightly higher. We offer free phone and online quotes.",
+      "General pest control for a standard 3-bedroom home starts from $189 and includes cockroaches, spiders, ants, and silverfish. Larger homes and properties requiring roof void or subfloor access may be priced slightly higher. We offer free online quotes.",
   },
 
   // ──────────────────────────────────────────────────────────────────────────

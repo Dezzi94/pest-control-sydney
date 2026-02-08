@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, ArrowLeft, CheckCircle, Loader2, Phone, Shield } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle, Loader2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { SERVICES, PHONE } from "@shared/routes/all-routes";
+import { SERVICES } from "@shared/routes/all-routes";
 
 const quoteSchema = z.object({
   pestType: z.string().min(1, "Please select a pest type"),
@@ -75,7 +75,7 @@ export default function QuoteForm({ defaultPestType, onSuccess }: QuoteFormProps
     } catch {
       toast({
         title: "Something went wrong",
-        description: "Please try again or call us directly.",
+        description: "Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -88,12 +88,8 @@ export default function QuoteForm({ defaultPestType, onSuccess }: QuoteFormProps
       <div className="text-center py-8">
         <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-muted-foreground">
           Your quote request has been received. We'll call you within 30 minutes during business hours.
-        </p>
-        <p className="text-sm text-muted-foreground">
-          For urgent issues, call us directly at{" "}
-          <a href={`tel:${PHONE}`} className="text-primary font-semibold">{PHONE}</a>
         </p>
       </div>
     );

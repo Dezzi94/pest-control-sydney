@@ -14,7 +14,6 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 import {
   DOMAIN,
-  PHONE,
   SERVICES,
   COUNCILS,
   getAllRoutes,
@@ -123,7 +122,6 @@ function generateStructuredData(meta: PageMeta): string {
       name: "Pest Control Sydney",
       url: DOMAIN,
       logo: `${DOMAIN}/images/brand/logo.svg`,
-      telephone: PHONE,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Sydney",
@@ -194,11 +192,11 @@ function generateFaqEntries(
     return [
       {
         question: `How much does ${service.name.toLowerCase()} cost in ${suburb.name}?`,
-        answer: `${service.name} pricing in ${suburb.name} (${suburb.postcode}) starts ${service.priceFrom === "Quote" ? "with a free quote" : `from ${service.priceFrom}`}. Contact us on ${PHONE} for an accurate quote based on your specific situation.`,
+        answer: `${service.name} pricing in ${suburb.name} (${suburb.postcode}) starts ${service.priceFrom === "Quote" ? "with a free quote" : `from ${service.priceFrom}`}. Contact us for an accurate quote based on your specific situation.`,
       },
       {
         question: `Do you offer same-day ${service.name.toLowerCase()} in ${suburb.name}?`,
-        answer: `Yes, we offer same-day ${service.name.toLowerCase()} service in ${suburb.name} and surrounding suburbs. Call ${PHONE} before midday for same-day availability.`,
+        answer: `Yes, we offer same-day ${service.name.toLowerCase()} service in ${suburb.name} and surrounding suburbs. Request a quote before midday for same-day availability.`,
       },
       {
         question: `Are your ${service.name.toLowerCase()} technicians licensed?`,
@@ -218,7 +216,7 @@ function generateFaqEntries(
   return [
     {
       question: `How much does ${service.name.toLowerCase()} cost in Sydney?`,
-      answer: `Our ${service.name.toLowerCase()} service ${service.priceFrom === "Quote" ? "is quoted based on your situation — contact us for a free, no-obligation quote" : `starts from ${service.priceFrom}`}. Call ${PHONE} for accurate pricing.`,
+      answer: `Our ${service.name.toLowerCase()} service ${service.priceFrom === "Quote" ? "is quoted based on your situation — contact us for a free, no-obligation quote" : `starts from ${service.priceFrom}`}. Request a quote for accurate pricing.`,
     },
     {
       question: `How long does ${service.name.toLowerCase()} take?`,
@@ -230,7 +228,7 @@ function generateFaqEntries(
     },
     {
       question: `Do you offer emergency ${service.name.toLowerCase()} in Sydney?`,
-      answer: `Yes, we offer 24/7 emergency pest control services across Sydney. For urgent ${service.name.toLowerCase()} needs, call ${PHONE} and we will dispatch a technician as soon as possible, often within hours.`,
+      answer: `Yes, we offer 24/7 emergency pest control services across Sydney. For urgent ${service.name.toLowerCase()} needs, contact us and we will dispatch a technician as soon as possible, often within hours.`,
     },
     {
       question: `What products do you use for ${service.name.toLowerCase()}?`,
@@ -368,7 +366,7 @@ function generateSuburbServiceContent(meta: PageMeta): string {
           <section>
             <h2>${escapeHtml(service.name)} in ${escapeHtml(suburb.name)}</h2>
             <p>Need professional ${service.name.toLowerCase()} in ${suburb.name} (${suburb.postcode})? Our licensed technicians provide expert ${service.name.toLowerCase()} services throughout ${suburb.name} and the broader ${council.name} area. ${service.shortDescription}</p>
-            <p>Pricing ${service.priceFrom === "Quote" ? "is available via free quote" : `starts from ${service.priceFrom}`}. Call ${PHONE} for same-day service availability in ${suburb.name}.</p>
+            <p>Pricing ${service.priceFrom === "Quote" ? "is available via free quote" : `starts from ${service.priceFrom}`}. Contact us for same-day service availability in ${suburb.name}.</p>
 
             <h3>Why Choose Us for ${escapeHtml(service.name)} in ${escapeHtml(suburb.name)}</h3>
             <ul>
@@ -440,7 +438,7 @@ function generateHomeContent(meta: PageMeta): string {
 
           <section>
             <h2>Sydney's Trusted Pest Control Experts</h2>
-            <p>Pest Control Sydney provides professional, licensed pest management services across all Sydney suburbs. With 15+ years of experience, we deliver fast, effective treatments for homes and businesses. Same-day service available — call ${PHONE}.</p>
+            <p>Pest Control Sydney provides professional, licensed pest management services across all Sydney suburbs. With 15+ years of experience, we deliver fast, effective treatments for homes and businesses. Same-day service available.</p>
 
             <h3>Our Services</h3>
             <ul>
@@ -503,7 +501,7 @@ function generateSeoContent(meta: PageMeta): string {
             <a href="/services" style="color: #3b82f6; text-decoration: none;">Services</a>
             <a href="/locations" style="color: #3b82f6; text-decoration: none;">Locations</a>
           </nav>
-          <p style="text-align: center; margin: 0; font-size: 14px;">24/7 Emergency: <a href="tel:+61287654321" style="color: #f97316; text-decoration: none;">${PHONE}</a></p>
+          <p style="text-align: center; margin: 0; font-size: 14px;">Professional Pest Control Across Sydney</p>
         </header>
         <main style="padding: 20px; max-width: 1200px; margin: 0 auto;">
           ${generateVisualBreadcrumbs(meta)}

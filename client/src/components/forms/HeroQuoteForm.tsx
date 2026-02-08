@@ -5,13 +5,11 @@ import {
   CheckCircle,
   Loader2,
   Shield,
-  Phone,
   X,
 } from "lucide-react";
 import { SERVICE_SLUG_ICON_MAP } from "@/components/icons/PestIcons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 
 // ── Pest options ──
 const PEST_OPTIONS = [
@@ -189,7 +187,7 @@ export default function HeroQuoteForm() {
       clearDraft();
       setIsSuccess(true);
     } catch (err: any) {
-      setError(err?.message || "Something went wrong. Please call us directly.");
+      setError(err?.message || "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -251,17 +249,9 @@ export default function HeroQuoteForm() {
 
           <a
             href={serviceHref}
-            className="block text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors mb-4"
+            className="block text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
           >
             Learn more about {pestLabel.toLowerCase()} treatment &rarr;
-          </a>
-
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center gap-2 text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
-          >
-            <Phone className="h-4 w-4" />
-            Or call us now: {PHONE}
           </a>
         </div>
       </div>

@@ -155,7 +155,6 @@ export const TESTIMONIALS: Testimonial[] = [
 // ─── Trust Signals ───────────────────────────────────────────────────────────
 
 export const TRUST_SIGNALS = {
-  licenseNumber: "NSW PMT Licence #12345",
   aepma: "AEPMA Member #6789",
   yearsInBusiness: 15,
   guarantee:
@@ -180,10 +179,10 @@ export interface ProcessStep {
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: 1,
-    title: "Call or Book Online",
+    title: "Request a Quote",
     description:
-      "Give us a ring on (02) 8765-4321 or fill out our quick online form. We'll discuss your pest problem and schedule a convenient time — often the same day.",
-    icon: "Phone",
+      "Fill out our quick online form with details about your pest problem. We'll review your request and schedule a convenient time — often the same day.",
+    icon: "ClipboardList",
   },
   {
     step: 2,

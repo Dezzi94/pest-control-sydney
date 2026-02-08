@@ -25,7 +25,7 @@ export default function ServicesOverview() {
             <div className="w-12 h-2 bg-primary rounded mb-4" />
             <h2 className="mb-4">Professional Pest Control Services</h2>
             <p className="text-muted-foreground max-w-xl">
-              Every treatment includes a written warranty, fixed pricing, and eco-friendly products safe for your family and pets. Licensed technicians (Lic. #PCL4892).
+              Every treatment includes a written warranty, fixed pricing, and eco-friendly products safe for your family and pets. Delivered by licensed technicians.
             </p>
           </div>
 

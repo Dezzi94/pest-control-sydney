@@ -2,7 +2,6 @@ import { Link } from "wouter";
 import {
   Star,
   CheckCircle,
-  Phone,
   ChevronRight,
   Users,
   ThumbsUp,
@@ -15,7 +14,6 @@ import { Button } from "@/components/ui/button";
 import CTASection from "@/components/sections/CTASection";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { cn } from "@/lib/utils";
 
 interface Review {
@@ -363,7 +361,7 @@ export default function ReviewsPage() {
               </h2>
               <p className="text-slate-400 mb-8 max-w-xl mx-auto">
                 Join over 2,400 satisfied Sydney homeowners. Get a free quote
-                or call us today for same-day pest control service.
+                today for same-day pest control service.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
@@ -372,16 +370,6 @@ export default function ReviewsPage() {
                   onClick={() => openQuoteModal()}
                 >
                   Get My Free Quote
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-transparent text-white border-2 border-slate-600 hover:bg-slate-800 hover:border-slate-500"
-                  asChild
-                >
-                  <a href={PHONE_HREF}>
-                    <Phone className="mr-2 h-4 w-4" />
-                    Call {PHONE}
-                  </a>
                 </Button>
               </div>
             </CardContent>

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { Phone, Mail, MapPin, Clock, Shield, Award, Leaf, Lock } from "lucide-react";
-import { PHONE, PHONE_HREF, SERVICES, COUNCILS, getServiceBySlug } from "@shared/routes/all-routes";
+import { Mail, MapPin, Clock, Shield, Award, Leaf, Lock } from "lucide-react";
+import { SERVICES, COUNCILS, getServiceBySlug } from "@shared/routes/all-routes";
 import { usePersonalisation } from "@/hooks/usePersonalisation";
 
 const QUICK_LINKS = [
@@ -44,10 +44,6 @@ export default function Footer() {
               and a 100% satisfaction guarantee on every job.
             </p>
             <div className="space-y-3 text-sm">
-              <a href={PHONE_HREF} className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="h-4 w-4 text-primary" />
-                {PHONE}
-              </a>
               <a href="mailto:info@pestcontrolsydney.org" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Mail className="h-4 w-4 text-primary" />
                 info@pestcontrolsydney.org
@@ -157,7 +153,7 @@ export default function Footer() {
       <div className="border-t border-slate-800 safe-area-bottom">
         <div className="container-width py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-            <p>&copy; {year} Pest Control Sydney. All rights reserved. Licensed #PCL4892 &middot; Proudly Australian owned and operated.</p>
+            <p>&copy; {year} Pest Control Sydney. All rights reserved. Proudly Australian owned and operated.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
                 Privacy Policy

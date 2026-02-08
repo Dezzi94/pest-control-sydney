@@ -23,7 +23,7 @@ const WHY_CHOOSE_US = [
     icon: Shield,
     title: "Licensed & Insured",
     description:
-      "Fully licensed (Lic. #PCL4892) and comprehensively insured for your peace of mind.",
+      "Fully licensed and comprehensively insured for your peace of mind.",
   },
   {
     icon: Award,
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 Founded in 2009, Pest Control Sydney began as a family-owned
                 business with a simple mission: to protect Sydney homes and
                 businesses from pests using safe, effective, and honest methods.
-                Licensed under #PCL4892, we have grown from a small local
+                We have grown from a small local
                 operation into one of Sydney's most trusted pest management
                 providers.
               </p>
