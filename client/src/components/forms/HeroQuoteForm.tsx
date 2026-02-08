@@ -267,50 +267,50 @@ export default function HeroQuoteForm() {
       </div>
 
       <div className="p-6 sm:p-8">
-      {/* Draft restoration banner */}
-      {showDraftBanner && (
-        <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-400/20">
-          <p className="text-xs text-blue-300">
-            Welcome back — we saved your details
-          </p>
-          <button
-            type="button"
-            onClick={() => setShowDraftBanner(false)}
-            className="text-blue-400 hover:text-white transition-colors"
-            aria-label="Dismiss"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-        </div>
-      )}
-
-      {/* Urgency indicator */}
-      <div className="flex items-center gap-2 mb-5 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-400/20">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-        </span>
-        <span className="text-xs text-green-300">
-          {(() => {
-            const base = [8, 12, 6, 14, 11, 9, 5];
-            const count = base[new Date().getDay()];
-            return `${count} people requested a quote today`;
-          })()}
-        </span>
-      </div>
-
-      {/* Progress bars (3 steps) — brand orange */}
-      <div className="flex items-center gap-2 mb-6">
-        {[1, 2, 3].map((s) => (
-          <div key={s} className="flex-1">
-            <div
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                s <= step ? "bg-orange-500" : "bg-white/10"
-              }`}
-            />
+        {/* Draft restoration banner */}
+        {showDraftBanner && (
+          <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-400/20">
+            <p className="text-xs text-blue-300">
+              Welcome back — we saved your details
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowDraftBanner(false)}
+              className="text-blue-400 hover:text-white transition-colors"
+              aria-label="Dismiss"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
           </div>
-        ))}
-      </div>
+        )}
+
+        {/* Urgency indicator */}
+        <div className="flex items-center gap-2 mb-5 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-400/20">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-xs text-green-300">
+            {(() => {
+              const base = [8, 12, 6, 14, 11, 9, 5];
+              const count = base[new Date().getDay()];
+              return `${count} people requested a quote today`;
+            })()}
+          </span>
+        </div>
+
+        {/* Progress bars (3 steps) — brand orange */}
+        <div className="flex items-center gap-2 mb-6">
+          {[1, 2, 3].map((s) => (
+            <div key={s} className="flex-1">
+              <div
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  s <= step ? "bg-orange-500" : "bg-white/10"
+                }`}
+              />
+            </div>
+          ))}
+        </div>
 
       {/* Steps container — relative so absolute positioned steps stay in flow */}
       <div className="relative">
@@ -530,7 +530,7 @@ export default function HeroQuoteForm() {
                   type="button"
                   variant="ghost"
                   className="text-slate-400 hover:text-white hover:bg-white/5"
-                  onClick={() => goBack(1)}
+                  onClick={() => goBack(2)}
                 >
                   Edit Details
                 </Button>
@@ -562,7 +562,7 @@ export default function HeroQuoteForm() {
           )}
         </div>
       </div>
-      </div>
+    </div>
     </div>
   );
 }

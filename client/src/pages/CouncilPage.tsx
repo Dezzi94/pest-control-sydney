@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CTASection from "@/components/sections/CTASection";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
-import { COUNCILS, SERVICES, PHONE, PHONE_HREF, getCouncilBySlug } from "@shared/routes/all-routes";
+import { SERVICES, PHONE, PHONE_HREF, getCouncilBySlug } from "@shared/routes/all-routes";
 import { getCouncilContent } from "@shared/data/councils";
 
 export default function CouncilPage() {

@@ -1,5 +1,5 @@
 import type { Express } from "express";
-import { eq, desc, like, or, sql } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { SERVICES, COUNCILS } from "../shared/routes/all-routes";
 import { leads } from "../shared/schema";
 import { getDb } from "./lib/db";
@@ -75,8 +75,8 @@ export function registerRoutes(app: Express) {
   app.post("/api/leads", async (req, res) => {
     const { name, email, phone, pestType, message, address, suburb, postcode, urgency, source } = req.body;
 
-    if (!name || !phone || !pestType) {
-      return res.status(400).json({ error: "Name, phone, and pest type are required" });
+    if (!name || !phone) {
+      return res.status(400).json({ error: "Name and phone are required" });
     }
 
     const db = getDb();
@@ -86,7 +86,7 @@ export function registerRoutes(app: Express) {
 
     try {
       const [lead] = await db.insert(leads).values({
-        name, email: email || null, phone, pestType,
+        name, email: email || null, phone, pestType: pestType || "general-enquiry",
         message: message || null, address: address || null,
         suburb: suburb || null, postcode: postcode || null,
         urgency: urgency || "medium",
@@ -140,7 +140,7 @@ export function registerRoutes(app: Express) {
 
   app.get("/api/leads/export", requireAuth, async (_req, res) => {
     const db = getDb();
-    if (!db) return res.status(404).json({ error: "Database not connected" });
+    if (!db) return res.status(503).json({ error: "Database not connected" });
 
     try {
       const allLeads = await db.select().from(leads).orderBy(desc(leads.createdAt));
@@ -169,7 +169,7 @@ export function registerRoutes(app: Express) {
 
   app.get("/api/leads/:id", requireAuth, async (req, res) => {
     const db = getDb();
-    if (!db) return res.status(404).json({ error: "Database not connected" });
+    if (!db) return res.status(503).json({ error: "Database not connected" });
 
     try {
       const id = parseInt(req.params.id);
@@ -183,7 +183,7 @@ export function registerRoutes(app: Express) {
 
   app.patch("/api/leads/:id", requireAuth, async (req, res) => {
     const db = getDb();
-    if (!db) return res.status(404).json({ error: "Database not connected" });
+    if (!db) return res.status(503).json({ error: "Database not connected" });
 
     try {
       const id = parseInt(req.params.id);
@@ -206,7 +206,7 @@ export function registerRoutes(app: Express) {
 
   app.delete("/api/leads/:id", requireAuth, async (req, res) => {
     const db = getDb();
-    if (!db) return res.status(404).json({ error: "Database not connected" });
+    if (!db) return res.status(503).json({ error: "Database not connected" });
 
     try {
       const id = parseInt(req.params.id);

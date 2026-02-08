@@ -1,4 +1,4 @@
-import { Phone, ArrowRight, Clock } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@shared/routes/all-routes";
 import { useQuoteModal } from "@/hooks/useQuoteModal";
