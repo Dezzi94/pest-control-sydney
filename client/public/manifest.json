@@ -1,7 +1,7 @@
 {
   "name": "Pest Control Sydney",
   "short_name": "PCS",
-  "description": "Sydney's trusted pest control experts. Licensed #PCL4892. Same-day service available.",
+  "description": "Sydney's trusted pest control experts. Same-day service available.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
