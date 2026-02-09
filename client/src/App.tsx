@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { Route, Switch } from "wouter";
+import { lazy, Suspense, useEffect } from "react";
+import { Route, Switch, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { QuoteModalProvider } from "@/hooks/useQuoteModal";
 import QuoteFormModal from "@/components/forms/QuoteFormModal";
@@ -23,6 +23,14 @@ const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const ReviewsPage = lazy(() => import("@/pages/ReviewsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
+
 function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -34,6 +42,7 @@ function PageLoader() {
 function App() {
   return (
     <QuoteModalProvider>
+      <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" component={HomePage} />
