@@ -53,7 +53,7 @@ export default function Hero() {
           {/* ── Left column: copy (60%) ── */}
           <div className="lg:w-[58%]">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
-              End Your <span className="text-blue-400">Pest Problem</span> Today — Guaranteed
+              End Your <span className="text-primary">Pest Problem</span> Today — Guaranteed
             </h1>
 
             {/* Social proof line */}
@@ -100,15 +100,15 @@ export default function Hero() {
             {/* Three trust badges */}
             <div className="flex flex-wrap gap-6">
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <Shield className="h-4 w-4 text-green-400" />
+                <Shield className="h-4 w-4 text-secondary" />
                 Licensed & Insured
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <Clock className="h-4 w-4 text-blue-400" />
+                <Clock className="h-4 w-4 text-primary" />
                 Same-Day Service
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <CheckCircle className="h-4 w-4 text-orange-400" />
+                <CheckCircle className="h-4 w-4 text-accent" />
                 100% Money-Back Guarantee
               </span>
             </div>

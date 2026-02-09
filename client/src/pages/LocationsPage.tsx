@@ -25,15 +25,15 @@ export default function LocationsPage() {
           {/* Trust signals */}
           <div className="flex flex-wrap gap-4">
             <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-              <Shield className="h-4 w-4 text-green-400" />
+              <Shield className="h-4 w-4 text-secondary" />
               Licensed & Insured
             </span>
             <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-              <Clock className="h-4 w-4 text-blue-400" />
+              <Clock className="h-4 w-4 text-primary" />
               Same-Day Service
             </span>
             <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-              <CheckCircle className="h-4 w-4 text-orange-400" />
+              <CheckCircle className="h-4 w-4 text-accent" />
               100% Satisfaction Guarantee
             </span>
           </div>

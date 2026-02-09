@@ -23,12 +23,12 @@ export default function CTASection({ heading, subheading }: CTASectionProps = {}
       <div className="container-width section-padding">
         <div className="text-center max-w-2xl mx-auto">
           {/* Same-day badge */}
-          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400/20 rounded-full px-4 py-1.5 mb-6">
+          <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-4 py-1.5 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
             </span>
-            <span className="text-xs font-medium text-green-300">Same-day service available</span>
+            <span className="text-xs font-medium text-secondary">Same-day service available</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
             {heading || "Still Thinking About It? Your Pest Problem Won't Fix Itself."}

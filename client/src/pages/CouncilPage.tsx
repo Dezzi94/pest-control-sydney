@@ -79,7 +79,7 @@ export default function CouncilPage() {
             <div className="lg:w-[58%]">
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <div className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1">
-                  <MapPin className="h-3.5 w-3.5 text-blue-400" />
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
                   <span className="text-xs font-medium text-white">{council.name}</span>
                 </div>
                 <Badge className="bg-white/10 text-white border-white/20">{council.suburbs.length} Suburbs</Badge>
@@ -96,15 +96,15 @@ export default function CouncilPage() {
               {/* Trust signals */}
               <div className="flex flex-wrap gap-4 mb-6">
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Shield className="h-4 w-4 text-green-400" />
+                  <Shield className="h-4 w-4 text-secondary" />
                   Licensed & Insured
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Clock className="h-4 w-4 text-blue-400" />
+                  <Clock className="h-4 w-4 text-primary" />
                   Same-Day Service
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <CheckCircle className="h-4 w-4 text-orange-400" />
+                  <CheckCircle className="h-4 w-4 text-accent" />
                   100% Satisfaction Guarantee
                 </span>
               </div>

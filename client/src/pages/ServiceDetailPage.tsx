@@ -139,7 +139,7 @@ export default function ServiceDetailPage() {
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Icon className="h-7 w-7 text-blue-400" />
+                  <Icon className="h-7 w-7 text-primary" />
                 </div>
                 <Badge className="bg-white/10 text-white border-white/20 capitalize">{service.category}</Badge>
               </div>

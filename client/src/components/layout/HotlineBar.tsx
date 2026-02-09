@@ -9,8 +9,8 @@ export default function HotlineBar() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
             </span>
             <span className="hidden sm:inline text-slate-300">Available Now</span>
           </div>
@@ -21,10 +21,10 @@ export default function HotlineBar() {
         </div>
         <button
           onClick={() => openQuoteModal()}
-          className="flex items-center gap-2 font-semibold hover:text-blue-400 transition-colors"
+          className="flex items-center gap-2 font-semibold hover:text-primary transition-colors"
         >
           <span className="relative flex h-2 w-2 emergency-pulse">
-            <span className="inline-flex rounded-full h-2 w-2 bg-green-500" />
+            <span className="inline-flex rounded-full h-2 w-2 bg-secondary" />
           </span>
           Get a Free Quote
           <ArrowRight className="h-3.5 w-3.5" />

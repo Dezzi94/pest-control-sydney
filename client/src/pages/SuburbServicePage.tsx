@@ -100,10 +100,10 @@ export default function SuburbServicePage() {
               {/* Location + price badges */}
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <div className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1">
-                  <MapPin className="h-3.5 w-3.5 text-blue-400" />
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
                   <span className="text-xs font-medium text-white">{suburb.name} {suburb.postcode}</span>
                 </div>
-                <Badge className="bg-green-500/20 text-green-300 border-green-400/30">
+                <Badge className="bg-secondary/20 text-secondary border-secondary/30">
                   {service.priceFrom === "Quote" ? "Free Quote" : `From ${service.priceFrom}`}
                 </Badge>
               </div>
@@ -119,26 +119,26 @@ export default function SuburbServicePage() {
               </p>
 
               {/* Urgency badge */}
-              <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400/20 rounded-full px-4 py-1.5 mb-6">
+              <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-4 py-1.5 mb-6">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                 </span>
-                <span className="text-xs font-medium text-green-300">{urgencyBadge}</span>
+                <span className="text-xs font-medium text-secondary">{urgencyBadge}</span>
               </div>
 
               {/* Trust signals */}
               <div className="flex flex-wrap gap-4 mb-6">
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Shield className="h-4 w-4 text-green-400" />
+                  <Shield className="h-4 w-4 text-secondary" />
                   Licensed & Insured
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Clock className="h-4 w-4 text-blue-400" />
+                  <Clock className="h-4 w-4 text-primary" />
                   Same-Day Service
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <CheckCircle className="h-4 w-4 text-orange-400" />
+                  <CheckCircle className="h-4 w-4 text-accent" />
                   100% Money-Back Guarantee
                 </span>
               </div>

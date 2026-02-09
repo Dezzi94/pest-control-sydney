@@ -220,11 +220,11 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
     const serviceHref = `/services/${pestType}`;
     return (
       <div
-        className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl text-center relative border-2 border-blue-400/30"
+        className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl text-center relative border-2 border-primary/30"
         style={{ boxShadow: '0 0 50px rgba(59,130,246,0.2), 0 0 100px rgba(59,130,246,0.08), 0 25px 50px -12px rgba(0,0,0,0.3)' }}
       >
         {/* Brand header */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
+        <div className="bg-gradient-to-r from-primary to-primary/90 px-6 py-4">
           <CheckCircle className="h-8 w-8 text-white mx-auto mb-2" />
           <h3 className="text-lg font-semibold text-white">
             Thank You, {name.trim().split(" ")[0]}!
@@ -253,7 +253,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
 
           <a
             href={serviceHref}
-            className="block text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+            className="block text-sm font-medium text-primary hover:text-primary transition-colors"
           >
             Learn more about {pestLabel.toLowerCase()} treatment &rarr;
           </a>
@@ -264,15 +264,15 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
 
   return (
     <div
-      className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl border-2 border-blue-400/30"
+      className="w-full max-w-sm rounded-2xl overflow-hidden bg-slate-800/95 backdrop-blur-xl border-2 border-primary/30"
       style={{ boxShadow: '0 0 50px rgba(59,130,246,0.2), 0 0 100px rgba(59,130,246,0.08), 0 25px 50px -12px rgba(0,0,0,0.3)' }}
     >
       {/* Brand header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
+      <div className="bg-gradient-to-r from-primary to-primary/90 px-6 py-4">
         <h2 className="text-lg font-semibold text-white mb-1">
           Get Your Free Quote in 60 Seconds
         </h2>
-        <p className="text-xs text-blue-100/80">
+        <p className="text-xs text-primary-foreground/80">
           Free inspection &middot; No hidden fees &middot; We call you within 30 min
         </p>
       </div>
@@ -280,14 +280,14 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
       <div className="p-6 sm:p-8">
         {/* Draft restoration banner */}
         {showDraftBanner && (
-          <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-400/20">
-            <p className="text-xs text-blue-300">
+          <div className="flex items-center justify-between gap-2 mb-4 px-3 py-2 rounded-lg bg-primary/10 border border-primary/20">
+            <p className="text-xs text-primary">
               Welcome back — we saved your details
             </p>
             <button
               type="button"
               onClick={() => setShowDraftBanner(false)}
-              className="text-blue-400 hover:text-white transition-colors"
+              className="text-primary hover:text-white transition-colors"
               aria-label="Dismiss"
             >
               <X className="h-3.5 w-3.5" />
@@ -296,12 +296,12 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
         )}
 
         {/* Urgency indicator */}
-        <div className="flex items-center gap-2 mb-5 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-400/20">
+        <div className="flex items-center gap-2 mb-5 px-3 py-1.5 rounded-lg bg-secondary/10 border border-secondary/20">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
           </span>
-          <span className="text-xs text-green-300">
+          <span className="text-xs text-secondary">
             {(() => {
               const base = [8, 12, 6, 14, 11, 9, 5];
               const count = base[new Date().getDay()];
@@ -316,7 +316,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
             <div key={s} className="flex-1">
               <div
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  s <= step ? "bg-orange-500" : "bg-white/10"
+                  s <= step ? "bg-accent" : "bg-white/10"
                 }`}
               />
             </div>
@@ -349,12 +349,12 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                       onClick={() => setPestType(pest.slug)}
                       className={`relative flex flex-col items-center gap-1.5 rounded-xl p-3 text-center transition-all duration-200 hover:scale-[1.04] hover:shadow-md ${
                         isSelected
-                          ? "bg-blue-500/15 border border-blue-400/40 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.3)]"
+                          ? "bg-primary/15 border border-primary/40 text-primary shadow-[0_0_12px_rgba(59,130,246,0.3)]"
                           : "bg-white/[0.03] border border-white/5 text-slate-400 hover:bg-white/[0.06] hover:text-slate-300"
                       }`}
                     >
                       {isSelected && (
-                        <CheckCircle className="absolute top-1 right-1 h-3.5 w-3.5 text-blue-400" />
+                        <CheckCircle className="absolute top-1 right-1 h-3.5 w-3.5 text-primary" />
                       )}
                       <Icon className="h-5 w-5" />
                       <span className="text-xs font-medium leading-tight">
@@ -366,7 +366,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
               </div>
               <Button
                 type="button"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20"
+                className="w-full bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20"
                 disabled={!pestType}
                 onClick={() => {
                   if (pestType) goForward(2);
@@ -399,10 +399,10 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                     placeholder="Your name *"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400/50 focus:ring-blue-400/20 pr-9"
+                    className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-primary/50 focus:ring-primary/20 pr-9"
                   />
                   {isNameValid(name) && (
-                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-400" />
+                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-secondary" />
                   )}
                 </div>
 
@@ -413,14 +413,14 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400/50 focus:ring-blue-400/20 pr-9"
+                    className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-primary/50 focus:ring-primary/20 pr-9"
                   />
                   {isPhoneValid(phone) && (
-                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-400" />
+                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-secondary" />
                   )}
                 </div>
                 {phone.length > 0 && !isPhoneValid(phone) && (
-                  <p className="text-xs text-orange-400 -mt-1">Enter a valid Australian phone number</p>
+                  <p className="text-xs text-accent -mt-1">Enter a valid Australian phone number</p>
                 )}
 
                 {/* Email (optional, no validation indicator) */}
@@ -429,7 +429,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400/50 focus:ring-blue-400/20"
+                  className="bg-white/[0.06] border-white/10 text-white placeholder:text-slate-500 focus:border-primary/50 focus:ring-primary/20"
                 />
               </div>
 
@@ -445,7 +445,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                     onClick={() => setCallbackTime(time)}
                     className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                       callbackTime === time
-                        ? "bg-blue-500/20 border border-blue-400/40 text-blue-300"
+                        ? "bg-primary/20 border border-primary/40 text-primary"
                         : "bg-white/[0.04] border border-white/10 text-slate-400 hover:bg-white/[0.08] hover:text-slate-300"
                     }`}
                   >
@@ -475,7 +475,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                 </Button>
                 <Button
                   type="button"
-                  className="flex-1 bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20"
+                  className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20"
                   disabled={!isNameValid(name) || !isPhoneValid(phone)}
                   onClick={() => {
                     setError("");
@@ -550,7 +550,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
                 </Button>
                 <Button
                   type="button"
-                  className="flex-1 bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20"
+                  className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20"
                   disabled={isSubmitting}
                   onClick={handleSubmit}
                 >
@@ -569,7 +569,7 @@ export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = 
               </div>
 
               <p className="flex items-center gap-1.5 text-xs text-slate-500 mt-3">
-                <Shield className="h-3 w-3 text-green-500/70" />
+                <Shield className="h-3 w-3 text-secondary/70" />
                 Your info is secure &amp; never shared
               </p>
             </>

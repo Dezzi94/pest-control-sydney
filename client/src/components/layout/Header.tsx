@@ -37,7 +37,7 @@ export default function Header() {
         "sticky top-0 z-40 transition-all duration-300",
         showTransparent
           ? "bg-slate-900 border-b border-white/[0.06]"
-          : "bg-white/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-white border-b border-border shadow-sm"
       )}
       style={{ paddingTop: scrolled ? 'env(safe-area-inset-top, 0px)' : undefined }}
     >

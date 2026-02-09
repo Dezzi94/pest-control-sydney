@@ -74,7 +74,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/services" className="text-primary hover:text-blue-400 font-medium">
+                <Link href="/services" className="text-primary hover:text-primary/80 font-medium">
                   View All Services →
                 </Link>
               </li>
@@ -96,7 +96,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/locations" className="text-primary hover:text-blue-400 font-medium">
+                <Link href="/locations" className="text-primary hover:text-primary/80 font-medium">
                   View All Locations →
                 </Link>
               </li>
