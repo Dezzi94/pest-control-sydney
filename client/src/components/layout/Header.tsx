@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,32 +15,11 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
   const { openQuoteModal } = useQuoteModal();
-  const isHome = location === "/";
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 50);
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const showTransparent = isHome && !scrolled && !mobileOpen;
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 transition-all duration-300",
-        showTransparent
-          ? "bg-slate-900 border-b border-white/[0.06]"
-          : "bg-white border-b border-border shadow-sm"
-      )}
-      style={{ paddingTop: scrolled ? 'env(safe-area-inset-top, 0px)' : undefined }}
-    >
+    <header className="sticky top-0 z-40 bg-white border-b border-border shadow-sm">
       <div className="container-width">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -53,7 +32,7 @@ export default function Header() {
               height={40}
             />
             <img
-              src={showTransparent ? "/images/brand/logo-white.svg" : "/images/brand/logo.svg"}
+              src="/images/brand/logo.svg"
               alt="Pest Control Sydney"
               className="hidden sm:block h-11 w-auto"
               width={220}
@@ -70,12 +49,8 @@ export default function Header() {
                 className={cn(
                   "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                   location === link.href || location.startsWith(link.href + "/")
-                    ? showTransparent
-                      ? "bg-white/15 text-white"
-                      : "bg-primary/10 text-primary"
-                    : showTransparent
-                      ? "text-white/80 hover:text-white hover:bg-white/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {link.label}
@@ -92,10 +67,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={cn(
-              "lg:hidden p-2 rounded-lg transition-colors",
-              showTransparent ? "text-white hover:bg-white/10" : "hover:bg-muted"
-            )}
+            className="lg:hidden p-2 rounded-lg transition-colors hover:bg-muted"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
