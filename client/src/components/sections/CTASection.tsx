@@ -10,7 +10,12 @@ const AVATARS = [
   { src: "/images/team/avatar-5.svg", alt: "Customer J" },
 ];
 
-export default function CTASection() {
+interface CTASectionProps {
+  heading?: string;
+  subheading?: string;
+}
+
+export default function CTASection({ heading, subheading }: CTASectionProps = {}) {
   const { openQuoteModal } = useQuoteModal();
 
   return (
@@ -26,12 +31,10 @@ export default function CTASection() {
             <span className="text-xs font-medium text-green-300">Same-day service available</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-            Still Thinking About It? Your Pest Problem Won't Fix Itself.
+            {heading || "Still Thinking About It? Your Pest Problem Won't Fix Itself."}
           </h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
-            Every hour you wait, the problem grows. Tell us what you're dealing with
-            — we'll call you within 30 minutes with a fixed-price quote. If our
-            treatment doesn't work, we come back free.
+            {subheading || "Every hour you wait, the problem grows. Tell us what you're dealing with — we'll call you within 30 minutes with a fixed-price quote. If our treatment doesn't work, we come back free."}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
