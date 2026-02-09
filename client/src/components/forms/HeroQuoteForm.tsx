@@ -102,11 +102,15 @@ const CONFETTI_COLOURS = [
   "#ec4899", "#8b5cf6", "#06b6d4", "#ef4444",
 ];
 
-export default function HeroQuoteForm() {
-  // Form state
-  const [step, setStep] = useState(1);
+interface HeroQuoteFormProps {
+  initialPestType?: string;
+}
+
+export default function HeroQuoteForm({ initialPestType }: HeroQuoteFormProps = {}) {
+  // Form state — if initialPestType provided, skip step 1
+  const [step, setStep] = useState(initialPestType ? 2 : 1);
   const [direction, setDirection] = useState<"forward" | "back">("forward");
-  const [pestType, setPestType] = useState("");
+  const [pestType, setPestType] = useState(initialPestType || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -125,13 +129,13 @@ export default function HeroQuoteForm() {
     hasRestoredRef.current = true;
     const draft = loadDraft();
     if (draft) {
-      setPestType(draft.pestType);
+      setPestType(initialPestType || draft.pestType);
       setName(draft.name);
       setPhone(draft.phone);
       setEmail(draft.email);
       setCallbackTime(draft.callbackTime);
-      // Always start at step 1 on restore so user can review
-      setStep(1);
+      // Start at step 2 if pest is pre-selected, else step 1
+      setStep(initialPestType ? 2 : 1);
       setShowDraftBanner(true);
     }
   }, []);
