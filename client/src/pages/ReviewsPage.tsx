@@ -188,10 +188,9 @@ export default function ReviewsPage() {
       </div>
 
       {/* Hero */}
-      <section className="noise-overlay relative bg-slate-900 text-white py-16 lg:py-20 overflow-hidden">
-        <img src="/images/hero/clean-home.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+      <section className="noise-overlay relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
+        <img src="/images/hero/clean-home.jpg" alt="" className="absolute inset-0 w-full h-full object-cover object-center" loading="eager" />
+        <div className="absolute inset-0 bg-slate-900/40" />
         <div className="container-width relative z-10">
           <Badge className="mb-4 bg-white/10 text-white border-white/20">
             Customer Reviews

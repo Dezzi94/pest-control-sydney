@@ -112,19 +112,18 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* Hero */}
-      <section className="noise-overlay relative bg-slate-900 text-white py-16 overflow-hidden">
+      <section className="noise-overlay relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
         {/* Real pest photo background */}
         {pestPhoto && (
           <>
-            <img src={pestPhoto.src} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-            <div className="absolute inset-0 bg-slate-900/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+            <img src={pestPhoto.src} alt="" className="absolute inset-0 w-full h-full object-cover object-center" loading="eager" />
+            <div className="absolute inset-0 bg-slate-900/40" />
           </>
         )}
         {/* Fallback gradient when no photo */}
         {!pestPhoto && <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900" />}
-        {/* SVG illustration overlay */}
-        {SERVICE_IMAGES[service.slug] && (
+        {/* SVG illustration overlay — only show when NO pest photo */}
+        {!pestPhoto && SERVICE_IMAGES[service.slug] && (
           <>
             <img
               src={SERVICE_IMAGES[service.slug]}
