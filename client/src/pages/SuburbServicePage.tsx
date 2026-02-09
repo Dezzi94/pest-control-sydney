@@ -91,7 +91,7 @@ export default function SuburbServicePage() {
         {pestPhoto && (
           <img src={pestPhoto.src} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         )}
-        <div className="absolute inset-0 bg-slate-900/[0.90]" />
+        <div className="absolute inset-0 bg-slate-900/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 70%)" }} />
 
