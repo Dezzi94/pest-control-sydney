@@ -11,6 +11,7 @@ import { useQuoteModal } from "@/hooks/useQuoteModal";
 import { SERVICES, COUNCILS, getServiceBySlug } from "@shared/routes/all-routes";
 import { getServiceContent } from "@shared/data/services";
 import { TESTIMONIALS } from "@shared/data/testimonials";
+import { getPestPhoto } from "@/lib/images";
 
 // Map service slugs to background images
 const SERVICE_IMAGES: Record<string, string> = {
@@ -79,6 +80,8 @@ export default function ServiceDetailPage() {
     );
   }
 
+  const pestPhoto = getPestPhoto(service.slug);
+
   // Wire up rich content from data files — fall back to defaults
   const content = getServiceContent(service.slug);
   const process = content?.process ?? DEFAULT_PROCESS;
@@ -109,7 +112,18 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16 overflow-hidden">
+      <section className="noise-overlay relative bg-slate-900 text-white py-16 overflow-hidden">
+        {/* Real pest photo background */}
+        {pestPhoto && (
+          <>
+            <img src={pestPhoto.src} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+            <div className="absolute inset-0 bg-slate-900/[0.88]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+          </>
+        )}
+        {/* Fallback gradient when no photo */}
+        {!pestPhoto && <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900" />}
+        {/* SVG illustration overlay */}
         {SERVICE_IMAGES[service.slug] && (
           <>
             <img
@@ -121,7 +135,7 @@ export default function ServiceDetailPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-transparent" />
           </>
         )}
-        <div className="container-width relative">
+        <div className="container-width relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-4">
