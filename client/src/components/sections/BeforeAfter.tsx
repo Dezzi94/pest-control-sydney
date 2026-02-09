@@ -50,7 +50,7 @@ export default function BeforeAfter() {
       <div className="container-width">
         <div ref={ref} className={cn("reveal", isVisible && "visible")}>
           <div className="text-center mb-12">
-            <div className="w-12 h-2 bg-primary rounded mx-auto mb-4" />
+            <div className="w-12 h-2 accent-bar rounded mx-auto mb-4" />
             <h2 className="mb-4">The Difference We Make</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               From stressful pest problems to lasting protection — here's what changes when you choose us.

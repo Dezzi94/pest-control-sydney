@@ -22,7 +22,7 @@ export default function ServicesOverview() {
 
           {/* Left-aligned heading with accent bar */}
           <div className="mb-12">
-            <div className="w-12 h-2 bg-primary rounded mb-4" />
+            <div className="w-12 h-2 accent-bar rounded mb-4" />
             <h2 className="mb-4">Professional Pest Control Services</h2>
             <p className="text-muted-foreground max-w-xl">
               Every treatment includes a written warranty, fixed pricing, and eco-friendly products safe for your family and pets. Delivered by licensed technicians.
@@ -35,7 +35,7 @@ export default function ServicesOverview() {
               const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
               return (
                 <Link key={service.slug} href={`/services/${service.slug}`}>
-                  <Card className="h-full cursor-pointer group border border-border/60 hover:border-primary/30 bg-white hover:shadow-lg hover-glow transition-all duration-300">
+                  <Card className="h-full cursor-pointer group border border-border/60 hover:border-transparent bg-white card-premium-border transition-all duration-300">
                     <CardContent className="p-8">
                       <div className="flex items-start justify-between mb-5">
                         <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
@@ -75,7 +75,7 @@ export default function ServicesOverview() {
               const Icon = PEST_ICON_MAP[service.icon] || PEST_ICON_MAP["Bug"];
               return (
                 <Link key={service.slug} href={`/services/${service.slug}`}>
-                  <Card className="h-full hover-lift hover-glow cursor-pointer group border-transparent hover:border-primary/20">
+                  <Card className="h-full hover-lift cursor-pointer group border-transparent card-premium-border">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4 mb-3">
                         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">

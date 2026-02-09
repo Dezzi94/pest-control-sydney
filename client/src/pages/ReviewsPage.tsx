@@ -271,7 +271,7 @@ export default function ReviewsPage() {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <p className="font-semibold text-sm">{featured.name}</p>
-                    <CheckCircle className="h-4 w-4 text-secondary fill-secondary/20" />
+                    <CheckCircle className="h-4 w-4 text-green-400 fill-green-400/20" />
                   </div>
                   <p className="text-xs text-slate-400">{featured.suburb}</p>
                 </div>

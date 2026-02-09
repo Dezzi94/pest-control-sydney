@@ -43,7 +43,7 @@ export default function Process() {
 
           {/* Left-aligned heading with accent bar */}
           <div className="mb-14">
-            <div className="w-12 h-2 bg-primary rounded mb-4" />
+            <div className="w-12 h-2 accent-bar rounded mb-4" />
             <h2 className="mb-4">How It Works</h2>
             <p className="text-muted-foreground max-w-xl">
               From your first enquiry to ongoing protection — four steps, no surprises, no hidden fees.
@@ -52,8 +52,8 @@ export default function Process() {
 
           {/* Vertical timeline */}
           <div className="relative pl-14 md:pl-20">
-            {/* Vertical line */}
-            <div className="absolute left-5 md:left-5 top-0 bottom-0 w-px bg-primary/20" />
+            {/* Vertical line with gradient */}
+            <div className={cn("absolute left-5 md:left-5 top-0 bottom-0 w-px timeline-line", isVisible && "visible")} />
 
             <div className="space-y-12">
               {STEPS.map((step, i) => {

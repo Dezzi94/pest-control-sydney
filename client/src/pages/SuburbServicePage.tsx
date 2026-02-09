@@ -130,15 +130,15 @@ export default function SuburbServicePage() {
               {/* Trust signals */}
               <div className="flex flex-wrap gap-4 mb-6">
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Shield className="h-4 w-4 text-secondary" />
+                  <Shield className="h-4 w-4 text-green-400" />
                   Licensed & Insured
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <Clock className="h-4 w-4 text-primary" />
+                  <Clock className="h-4 w-4 text-blue-400" />
                   Same-Day Service
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <CheckCircle className="h-4 w-4 text-orange-400" />
                   100% Money-Back Guarantee
                 </span>
               </div>

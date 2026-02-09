@@ -1,48 +1,47 @@
+import { Shield, Briefcase, BadgeCheck, Star } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 
 const STATS = [
-  { numericValue: 15, suffix: "+", unit: "Years", label: "In Business", decimals: 0 },
-  { numericValue: 10000, suffix: "+", unit: "Jobs", label: "Completed", decimals: 0 },
-  { numericValue: 100, suffix: "%", unit: "", label: "Money-Back Guarantee", decimals: 0 },
-  { numericValue: 4.9, suffix: "\u2605", unit: "", label: "Verified Reviews", decimals: 1 },
+  { numericValue: 15, suffix: "+", unit: "Years", label: "In Business", decimals: 0, icon: Briefcase },
+  { numericValue: 10000, suffix: "+", unit: "Jobs", label: "Completed", decimals: 0, icon: BadgeCheck },
+  { numericValue: 100, suffix: "%", unit: "", label: "Money-Back Guarantee", decimals: 0, icon: Shield },
+  { numericValue: 4.9, suffix: "", unit: "★", label: "Verified Reviews", decimals: 1, icon: Star },
 ] as const;
 
 function StatItem({ stat }: { stat: typeof STATS[number] }) {
   const { ref, displayValue } = useCountUp(stat.numericValue, { decimals: stat.decimals });
+  const Icon = stat.icon;
   return (
-    <p className="text-sm text-slate-700">
-      <span ref={ref} className="font-bold text-slate-900">{displayValue}{stat.suffix}</span>
-      {stat.unit && <span className="font-bold text-slate-900"> {stat.unit}</span>}
-      {" "}
-      <span className="text-slate-500">{stat.label}</span>
-    </p>
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+        <Icon className="h-5 w-5 text-primary" />
+      </div>
+      <div>
+        <p className="text-lg font-bold text-slate-900 stat-value leading-none mb-0.5">
+          <span ref={ref}>{displayValue}</span>{stat.suffix}
+          {stat.unit && <span> {stat.unit}</span>}
+        </p>
+        <p className="text-xs text-slate-500 font-medium">{stat.label}</p>
+      </div>
+    </div>
   );
 }
 
 export default function Stats() {
   return (
-    <section className="bg-amber-50/60 border-y border-amber-100/80 py-5">
+    <section className="stats-premium py-6">
       <div className="container-width">
-        {/* Desktop: single row with pipe separators */}
-        <div className="hidden sm:flex items-center justify-center gap-0">
-          {STATS.map((stat, i) => (
-            <div key={stat.label} className="flex items-center">
-              {i > 0 && (
-                <span className="text-amber-300 mx-6 select-none" aria-hidden="true">
-                  |
-                </span>
-              )}
-              <StatItem stat={stat} />
-            </div>
+        {/* Desktop: single row */}
+        <div className="hidden sm:flex items-center justify-between">
+          {STATS.map((stat) => (
+            <StatItem key={stat.label} stat={stat} />
           ))}
         </div>
 
-        {/* Mobile: 2x2 compact grid */}
-        <div className="grid grid-cols-2 gap-y-3 gap-x-8 sm:hidden">
+        {/* Mobile: 2x2 grid */}
+        <div className="grid grid-cols-2 gap-4 sm:hidden">
           {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <StatItem stat={stat} />
-            </div>
+            <StatItem key={stat.label} stat={stat} />
           ))}
         </div>
       </div>

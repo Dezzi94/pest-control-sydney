@@ -44,14 +44,14 @@ export default function LocalTestimonials({ testimonials, areaName, serviceConte
               "{featured.text}"
             </blockquote>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center text-sm font-bold text-primary">
+              <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center text-sm font-bold text-blue-300">
                 {featured.name.charAt(0)}
               </div>
               <div>
                 <p className="font-semibold text-white">{featured.name}</p>
                 <p className="text-sm text-slate-400">{featured.suburb}</p>
               </div>
-              <div className="ml-auto flex items-center gap-1 text-xs text-secondary">
+              <div className="ml-auto flex items-center gap-1 text-xs text-green-400">
                 <CheckCircle className="h-3.5 w-3.5" />
                 Verified
               </div>

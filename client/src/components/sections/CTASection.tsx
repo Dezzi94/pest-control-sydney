@@ -19,16 +19,18 @@ export default function CTASection({ heading, subheading }: CTASectionProps = {}
   const { openQuoteModal } = useQuoteModal();
 
   return (
-    <section className="bg-slate-900">
-      <div className="container-width section-padding">
+    <section className="bg-slate-900 relative overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl pointer-events-none" />
+      <div className="container-width section-padding relative z-10">
         <div className="text-center max-w-2xl mx-auto">
           {/* Same-day badge */}
-          <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-4 py-1.5 mb-6">
+          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400/20 rounded-full px-4 py-1.5 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span className="text-xs font-medium text-secondary">Same-day service available</span>
+            <span className="text-xs font-medium text-green-300">Same-day service available</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
             {heading || "Still Thinking About It? Your Pest Problem Won't Fix Itself."}
@@ -38,7 +40,7 @@ export default function CTASection({ heading, subheading }: CTASectionProps = {}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-            <Button variant="accent" size="lg" onClick={() => openQuoteModal()}>
+            <Button variant="accent" size="lg" className="cta-glow" onClick={() => openQuoteModal()}>
               Get My Free Quote
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

@@ -42,7 +42,7 @@ export default function Testimonials() {
         {/* Header row */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
           <div>
-            <div className="w-12 h-2 bg-primary rounded-full mb-4" />
+            <div className="w-12 h-2 accent-bar rounded-full mb-4" />
             <h2 className="mb-0">What Sydney Homeowners Say</h2>
           </div>
           <p className="text-sm text-muted-foreground whitespace-nowrap">
@@ -66,7 +66,7 @@ export default function Testimonials() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <p className="font-semibold text-sm">{featured.name}</p>
-                  <span className="inline-flex items-center gap-1 bg-secondary/15 text-secondary text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-green-500/15 text-green-400 text-[10px] font-semibold px-2 py-0.5 rounded-full">
                     <CheckCircle className="h-3 w-3" />
                     Verified
                   </span>

@@ -44,6 +44,22 @@ export default function Hero() {
             "radial-gradient(ellipse 70% 50% at 20% 50%, rgba(59,130,246,0.18) 0%, transparent 70%)",
         }}
       />
+      {/* Floating particles */}
+      {[...Array(6)].map((_, i) => (
+        <span
+          key={i}
+          className="hero-particle"
+          style={{
+            left: `${15 + i * 14}%`,
+            bottom: '-10px',
+            animationDuration: `${8 + i * 3}s`,
+            animationDelay: `${i * 1.5}s`,
+            width: `${3 + (i % 3)}px`,
+            height: `${3 + (i % 3)}px`,
+            opacity: 0.3 + (i % 3) * 0.1,
+          }}
+        />
+      ))}
 
       <div
         ref={ref}
@@ -53,7 +69,7 @@ export default function Hero() {
           {/* ── Left column: copy (60%) ── */}
           <div className="lg:w-[58%]">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
-              End Your <span className="text-primary">Pest Problem</span> Today — Guaranteed
+              End Your <span className="text-gradient-animated">Pest Problem</span> Today — Guaranteed
             </h1>
 
             {/* Social proof line */}
@@ -88,7 +104,7 @@ export default function Hero() {
               <Button
                 variant="accent"
                 size="xl"
-                className="shadow-lg shadow-orange-500/20"
+                className="cta-glow"
                 onClick={() => openQuoteModal()}
               >
                 {showReturning
@@ -100,15 +116,15 @@ export default function Hero() {
             {/* Three trust badges */}
             <div className="flex flex-wrap gap-6">
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <Shield className="h-4 w-4 text-secondary" />
+                <Shield className="h-4 w-4 text-green-400" />
                 Licensed & Insured
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <Clock className="h-4 w-4 text-primary" />
+                <Clock className="h-4 w-4 text-blue-400" />
                 Same-Day Service
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <CheckCircle className="h-4 w-4 text-accent" />
+                <CheckCircle className="h-4 w-4 text-orange-400" />
                 100% Money-Back Guarantee
               </span>
             </div>

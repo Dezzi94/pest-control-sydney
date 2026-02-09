@@ -49,7 +49,7 @@ export default function TrustBadges() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
             {/* Left column — heading + context */}
             <div className="lg:col-span-2">
-              <div className="w-12 h-2 bg-primary rounded-full mb-6" />
+              <div className="w-12 h-2 accent-bar rounded-full mb-6" />
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-5">
                 Why 2,400+ Sydney Homeowners Choose Us
               </h2>
@@ -73,15 +73,17 @@ export default function TrustBadges() {
                 {BADGES.map((badge) => (
                   <div
                     key={badge.title}
-                    className="border-l-2 border-primary/20 pl-4"
+                    className="bg-white rounded-xl p-5 border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 icon-premium card-premium-border"
                   >
-                    <div className="flex items-center gap-3 mb-1.5">
-                      <badge.icon className="h-5 w-5 text-primary shrink-0" />
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <badge.icon className="h-5 w-5 text-primary" />
+                      </div>
                       <h3 className="font-semibold text-[0.95rem] leading-snug">
                         {badge.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed pl-[52px]">
                       {badge.description}
                     </p>
                   </div>
