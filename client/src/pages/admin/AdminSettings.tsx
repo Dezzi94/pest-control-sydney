@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
 export default function AdminSettings() {
-  const [phone, setPhone] = useState("(02) 8765-4321");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("info@pestcontrolsydney.org");
   const [hours, setHours] = useState("Mon-Fri 7am-6pm | Sat 8am-2pm");
   const [saving, setSaving] = useState(false);
