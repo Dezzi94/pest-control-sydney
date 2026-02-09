@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, Filter } from "lucide-react";
+import { ArrowRight, Filter, Shield, Clock, CheckCircle } from "lucide-react";
 import { PEST_ICON_MAP } from "@/components/icons/PestIcons";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,14 +27,31 @@ export default function ServicesPage() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16 lg:py-20">
-        <div className="container-width">
+      <section className="noise-overlay relative bg-slate-900 text-white py-16 lg:py-20 overflow-hidden">
+        <img src="/images/hero/technician-inspecting.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-slate-900/[0.85]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+        <div className="container-width relative z-10">
           <Badge className="mb-4 bg-white/10 text-white border-white/20">20 Professional Services</Badge>
           <h1 className="text-white mb-4">Pest Control Services Sydney</h1>
-          <p className="text-lg text-slate-300 max-w-2xl">
+          <p className="text-lg text-slate-300 max-w-2xl mb-6">
             Comprehensive pest management solutions for homes and businesses.
             Licensed technicians, eco-friendly treatments, same-day service available.
           </p>
+          <div className="flex flex-wrap gap-4">
+            <span className="inline-flex items-center gap-2 text-sm text-slate-400">
+              <Shield className="h-4 w-4 text-green-400" />
+              Licensed & Insured
+            </span>
+            <span className="inline-flex items-center gap-2 text-sm text-slate-400">
+              <Clock className="h-4 w-4 text-blue-400" />
+              Same-Day Service
+            </span>
+            <span className="inline-flex items-center gap-2 text-sm text-slate-400">
+              <CheckCircle className="h-4 w-4 text-orange-400" />
+              100% Satisfaction Guarantee
+            </span>
+          </div>
         </div>
       </section>
 

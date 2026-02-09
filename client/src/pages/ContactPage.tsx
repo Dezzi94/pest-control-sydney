@@ -129,8 +129,11 @@ export default function ContactPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-16 lg:py-20">
-        <div className="container-width">
+      <section className="noise-overlay relative bg-slate-900 text-white py-16 lg:py-20 overflow-hidden">
+        <img src="/images/hero/contact-office.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-slate-900/[0.85]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+        <div className="container-width relative z-10">
           <Badge className="mb-4 bg-white/10 text-white border-white/20">
             Get in Touch
           </Badge>

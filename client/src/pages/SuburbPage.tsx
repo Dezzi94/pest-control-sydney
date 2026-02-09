@@ -77,7 +77,9 @@ export default function SuburbPage() {
 
       {/* ═══ HERO with inline form ═══ */}
       <section className="noise-overlay relative bg-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900" />
+        <img src="/images/hero/technician-inspecting.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-slate-900/[0.88]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 70%)" }} />
 
         <div className="relative z-10 container-width py-16 lg:py-20">
@@ -172,6 +174,17 @@ export default function SuburbPage() {
                     your warranty period, we re-treat your property free of charge — no questions asked.
                   </p>
                 </div>
+              </div>
+
+              <div className="mt-8 rounded-xl overflow-hidden">
+                <img
+                  src="/images/sections/technician-equipment.jpg"
+                  alt={`Professional pest control equipment used in ${suburb.name}`}
+                  className="w-full h-64 object-cover rounded-xl"
+                  loading="lazy"
+                  width={800}
+                  height={600}
+                />
               </div>
             </div>
           </div>
